@@ -1,8 +1,8 @@
+import Login from './pages/Login';
+import './sass/styles.scss';
 
-function App() {
+export default function App() {
   return (
-    <h1>Hello world</h1>
+    <Login />
   );
 }
-
-export default App;

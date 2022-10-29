@@ -1,0 +1,16 @@
+.non-auth-navbar {
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: .5rem;
+  text-align: center;
+  &--text {
+    font-size: .9rem;
+  }
+}
