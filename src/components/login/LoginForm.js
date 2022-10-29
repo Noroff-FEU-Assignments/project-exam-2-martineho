@@ -17,7 +17,7 @@ const schema = yup.object().shape({
   .matches("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])", "Not a valid email address!")
   .required("Please fill in your email address!"),
   password: yup.string()
-  .required("Please fill in a password!"),
+  .required("Please fill in your password!"),
 });
 
 function LoginForm() {
@@ -43,7 +43,7 @@ function LoginForm() {
       } else if (err.response?.status === 400) {
         setErrMsg('Missing Email or Password');
       } else if (err.response?.status === 401) {
-        setErrMsg('This user is does not exist :(');
+        setErrMsg('Wrong email or password :(');
       } else {
         setErrMsg('Login Failed');
       }
@@ -54,8 +54,8 @@ function LoginForm() {
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
 
-      <SubHeading content='Sign in' />
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
+      <SubHeading content='Sign in' />
 
       <Form.Group className='form-group'>
         <InputGroup className="" controlId="formEmail">

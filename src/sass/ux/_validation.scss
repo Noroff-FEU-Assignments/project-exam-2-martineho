@@ -1,12 +1,15 @@
 .errmsg {
-  background-color: rgba(tomato, .2);
-  border: solid .1rem rgba(tomato, .2);
-  color: tomato;
+  background-color: rgba(rgb(255, 81, 54), .15);
+  border: solid .1rem rgba(rgb(255, 81, 54), .15);
+  color: rgb(255, 81, 54);
   padding: .5rem;
-  margin: .8rem 0;
+  margin-bottom: 1rem;
+  border-radius: .3rem;
+  font-size: .9rem;
 
   &--input {
-    color: tomato;
+    color: rgb(255, 81, 54);
     padding: .3rem;
+    font-size: .9rem;
   }
 }

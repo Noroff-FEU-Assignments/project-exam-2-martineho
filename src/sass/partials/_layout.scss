@@ -1,3 +1,6 @@
+main {
+  margin: 1rem 0;
+}
 .non-auth-navbar {
   padding: 1rem 0;
   margin-bottom: 1rem;
@@ -8,8 +11,8 @@
 .footer {
   position: absolute;
   bottom: 0;
-  padding: .5rem;
   text-align: center;
+  margin: .5rem 0;
   &--text {
     font-size: .9rem;
   }

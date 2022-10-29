@@ -14,11 +14,11 @@ export default function Login() {
       </Nav>
       <main>
         <Row>
-          <Col md={6} xs={12}>
+          <Col lg={6} md={12}>
             <BigHeading content='Content with substance. Find likeminded people and be inspired.' />
             <BigParagraph content='A conscious social media platform, created for a more mindful approach to traditional social medias.' />
           </Col>
-          <Col md={6} xs={12}>
+          <Col lg={6} md={12}>
             <LoginForm />
           </Col>
         </Row>
