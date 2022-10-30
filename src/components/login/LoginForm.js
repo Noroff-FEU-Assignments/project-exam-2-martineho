@@ -57,34 +57,38 @@ function LoginForm() {
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
       <SubHeading content='Sign in' />
 
-      <Form.Group className='form-group'>
-        <InputGroup className="" controlId="formEmail">
-          <InputGroup.Text 
-          className='input-span'>
-            <ion-icon name="mail-outline"></ion-icon>
-          </InputGroup.Text>
-          <Form.Control 
-          type="email" 
-          placeholder="Enter email" 
-          name='email'
-          {...register("email")}
-          />
-        </InputGroup>
-        {errors.email && <div className='errmsg--input'>{errors.email.message}</div>}
+      <Form.Group className='form-content'>
+        <Form.Group>
+          <InputGroup className="" controlid="formEmail">
+            <InputGroup.Text 
+            className='input-span'>
+              <ion-icon name="mail-outline"></ion-icon>
+            </InputGroup.Text>
+            <Form.Control 
+            type="email" 
+            placeholder="Enter email" 
+            name='email'
+            {...register("email")}
+            />
+          </InputGroup>
+          {errors.email && <div className='errmsg--input'>{errors.email.message}</div>}
+        </Form.Group>
 
-        <InputGroup className="" controlId="formPassword">
-          <InputGroup.Text 
-          className='input-span'>
-            <ion-icon name="lock-closed-outline"></ion-icon>
-          </InputGroup.Text>
-          <Form.Control 
-          type="password" 
-          placeholder="Password" 
-          name='password' 
-          {...register("password")}
-          />
-        </InputGroup> 
-        {errors.password && <div className='errmsg--input'>{errors.password.message}</div>}
+        <Form.Group>
+          <InputGroup className="" controlid="formPassword">
+            <InputGroup.Text 
+            className='input-span'>
+              <ion-icon name="lock-closed-outline"></ion-icon>
+            </InputGroup.Text>
+            <Form.Control 
+            type="password" 
+            placeholder="Password" 
+            name='password' 
+            {...register("password")}
+            />
+          </InputGroup> 
+          {errors.password && <div className='errmsg--input'>{errors.password.message}</div>}
+        </Form.Group>
       </Form.Group>
 
       <Button variant="primary" type="submit" className='btn--submit'>
