@@ -60,7 +60,7 @@ function RegisterForm() {
     <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
 
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
-      <SubHeading content='Sign up now' />
+      <SubHeading content='Become a member' />
 
       <Form.Group className='form-content'>
         <Form.Group>
@@ -129,7 +129,7 @@ function RegisterForm() {
       </Form.Group>
       
       <Button variant="primary" type="submit" className='btn--submit'>
-        Become a member
+        Sign up
       </Button>
       
     </Form>

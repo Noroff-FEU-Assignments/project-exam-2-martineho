@@ -1,8 +1,8 @@
 import './sass/styles.scss';
-import Dashboard from './pages/Dashboard';
+import Navigation from './components/layout/Navigation';
 
 export default function App() {
   return (
-    <Dashboard />
+    <Navigation />
   );
 }

@@ -1,11 +1,11 @@
 import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
 
-export default function Dashboard() {
+export default function Profile() {
   return (
     <>
     <Container>
-      <Heading content='Feed'></Heading>
+      <Heading content='Profile'></Heading>
     </Container>
     </>
   );
