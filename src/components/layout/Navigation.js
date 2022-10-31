@@ -1,23 +1,24 @@
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
   NavLink,
+  useNavigate,
 } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Dashboard from "../../pages/Dashboard"
-import Login from "../../pages/Login"
-import Register from "../../pages/Register"
-import Profile from "../../pages/Profile"
+import { Button } from 'react-bootstrap';
+import { clearStorage } from '../../utils/storage';
 
 export default function Navigation() {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    clearStorage();
+    navigate('/login');
+  }
+
   return ( 
     <>
-      <Router>
-        <Container>
-          <Navbar bg="transparent" expand="lg" className='navbar'>
+        <Navbar bg="transparent" expand="lg" className='navbar'>
             <NavLink to="/" className='navbar-brand--link'>
                 <Navbar.Brand>Substance</Navbar.Brand>
               </NavLink>
@@ -32,25 +33,16 @@ export default function Navigation() {
                     <span className='nav-link--avatar'>N</span>
                     <span className='nav-link--username'>Name</span>
                   </NavLink>
-                  <NavLink className='nav-link' to='/'>
+                  <Button id='logout-btn' className='nav-link--logout' onClick={logout}>
                     <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
-                  </NavLink>
-
+                  </Button>
+                </Nav>
+                <Nav hidden>
                   <NavLink className='nav-link' to='/login'>Sign in</NavLink>
                   <NavLink className='nav-link' to='/register'>Become a member</NavLink>
-
                 </Nav>
               </Navbar.Collapse>
           </Navbar>
-        </Container>
-
-        <Routes>
-          <Route path='/' element={< Dashboard />}></Route>
-          <Route path='/login' element={< Login />}></Route>
-          <Route path='/register' element={< Register />}></Route>
-          <Route path='/profile' element={< Profile />}></Route>
-        </Routes>
-      </Router>
 		</>
   )
 }

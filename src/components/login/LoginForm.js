@@ -2,6 +2,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -23,10 +24,15 @@ const schema = yup.object().shape({
 function LoginForm() {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
+  const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const redirect = () => {
+    navigate('/');
+  }
 
   async function onSubmit(data) {
     console.log(data);
@@ -36,7 +42,7 @@ function LoginForm() {
       saveToken(res.data.accessToken);
       saveUsername(res.data.name);
       saveUserEmail(res.data.email);
-      alert('Hello you are successfully logged in.');
+      redirect();
   } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
