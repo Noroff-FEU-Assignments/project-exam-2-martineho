@@ -1,16 +1,54 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import BigParagraph from '../layout/Paragraphs';
 import { Heading } from '../layout/Headings';
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
+import { BASE_URL } from '../../constants/api';
+
+const name = (localStorage.getItem('user_name'));
+const url = BASE_URL + 'social/profiles/' + JSON.parse(name) + '/media';
+const token = localStorage.getItem('token');
 
 export default function WelcomeModal() {
+  const errRef = useRef();
+  const [errMsg, setErrMsg] = useState('');
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => setShow(true)
+
+  async function onSubmit (data) {
+    data.preventDefault();
+    console.log(data);
+
+    const options = {
+      data: data,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(token),
+      },
+    }
+
+    //JUST GETTING NO SERVER RESPONSE ERROR and UNDEFINED.. What happens?
+
+    try {
+      let res = await axios.put(url, options);
+      console.log(res.data);
+      alert('Success');
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg('No Server Response');
+      } else if (err.response?.status === 400) {
+        setErrMsg('400');
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unauthorized :(');
+      } else {
+        setErrMsg('Failed');
+      }
+      errRef.current.focus();
+    } 
+  }
 
   return (
     <>
@@ -30,7 +68,9 @@ export default function WelcomeModal() {
           <Heading content='Welcome to Substance!'/>
           <BigParagraph content='Show people  who you are by adding an avatar and banner to your profile. '/>
         
-        <Form>
+        <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
+        
+        <Form onSubmit={onSubmit}>
           <Form.Group className='form-content'>
             <Form.Group>
               <Form.Label>Profile picture</Form.Label>

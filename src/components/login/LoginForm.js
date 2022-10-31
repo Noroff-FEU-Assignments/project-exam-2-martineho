@@ -43,7 +43,7 @@ function LoginForm() {
       saveUsername(res.data.name);
       saveUserEmail(res.data.email);
       redirect();
-  } catch (err) {
+    } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {
