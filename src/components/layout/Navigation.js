@@ -9,6 +9,7 @@ import { Button } from 'react-bootstrap';
 import { clearStorage } from '../../utils/storage';
 
 export default function Navigation() {
+  const name = JSON.parse(localStorage.getItem('user_name'));
   const navigate = useNavigate();
 
   const logout = () => {
@@ -31,7 +32,7 @@ export default function Navigation() {
                 <Nav>
                   <NavLink className='nav-link' to='/profile'>
                     <span className='nav-link--avatar'>N</span>
-                    <span className='nav-link--username'>Name</span>
+                    <span className='nav-link--username'>{name}</span>
                   </NavLink>
                   <Button id='logout-btn' className='nav-link--logout' onClick={logout}>
                     <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
