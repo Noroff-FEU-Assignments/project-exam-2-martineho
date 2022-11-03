@@ -18,11 +18,11 @@ export default function WelcomeModal() {
   const [errMsg, setErrMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [hideForm, setHideForm] = useState(false);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const avatarRef = useRef(null);
   const bannerRef = useRef(null);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //const handleShow = () => setShow(true);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -58,10 +58,6 @@ export default function WelcomeModal() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Open welcome message
-      </Button>
-
       <Modal
         show={show} 
         onHide={handleClose} 

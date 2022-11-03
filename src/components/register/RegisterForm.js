@@ -40,9 +40,7 @@ function RegisterForm() {
     try {
       let res = await axios.post(url, data);
       console.log(res.data);
-      //saveToken(res.data.accessToken);
-      //saveUsername(res.data.name);
-      //saveUserEmail(res.data.email);
+      sessionStorage.setItem('new_user', res.data.name);
       alert('You have successfully created a user. Now login :-)');
   } catch (err) {
       if (!err?.response) {
