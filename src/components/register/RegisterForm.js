@@ -14,12 +14,14 @@ const url = BASE_URL + 'social/auth/register?=';
 
 const schema = yup.object().shape({
   name: yup.string()
-  .required("Please provide a name!"),
+  .required("Please provide a name!")
+  .matches(/^\S+$/, 'Name must not contain spaces.'),
   email: yup.string()
-  .matches("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])", "Not a valid email address!")
+  .matches("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])", "Please fill in a email address.")
   .required("Please fill in your email address!"),
   password: yup.string()
-  .required("Please fill in your password!"),
+  .min(8, "Password is too short - should be minimum 8 characters.")
+  .required("Please fill in password!"),
   confirm_password: yup.string()
   .oneOf([yup.ref('password'), null], 'Passwords must match!')
   .required("Please write your password again!"),
