@@ -4,11 +4,13 @@ This is my submission for Project Exam 2.
 
 Substance is a social media platform built with React, Bootstrap, Sass, Axios and Javascript. 
 
-## Status
+🔗 Visit live on: 
+
+## Status 📶
 
 v 1.0
 
-## Installation and setup
+## Installation and setup 💻
 
 #### Example:  
 
