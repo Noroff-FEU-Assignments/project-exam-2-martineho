@@ -4,7 +4,7 @@ This is my submission for Project Exam 2.
 
 Substance is a social media platform built with React, Bootstrap, Sass, Axios and Javascript. 
 
-🔗 Visit live on: 
+🔗 Visit live on: http://martineho.com
 
 ## 📶 Status 
 
@@ -18,10 +18,9 @@ v 1.0
 - Sass
 - Axios
 - Icons from https://ionic.io/ionicons
+- Fonts from https://fonts.google.com
 
 ## 👩🏻‍💻 Installation and setup 
-
-#### Example:  
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
@@ -29,11 +28,11 @@ Installation:
 
 `npm install`  
 
-To Run Test Suite:  
+Run test suite:  
 
 `npm test`  
 
-To Start Server:
+Start server:
 
 `npm start`  
 
