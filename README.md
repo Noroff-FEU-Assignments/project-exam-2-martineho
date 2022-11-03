@@ -6,11 +6,20 @@ Substance is a social media platform built with React, Bootstrap, Sass, Axios an
 
 🔗 Visit live on: 
 
-## Status 📶
+## 📶 Status 
 
 v 1.0
 
-## Installation and setup 💻
+## ⚛️ Technologies used
+
+- React 
+- Bootstrap@5.2.2
+- Yup
+- Sass
+- Axios
+- Icons from https://ionic.io/ionicons
+
+## 👩🏻‍💻 Installation and setup 
 
 #### Example:  
 
@@ -29,3 +38,4 @@ To Start Server:
 `npm start`  
 
 The app will usually start on port 3000, to view in browser `localhost:3000`.
+
