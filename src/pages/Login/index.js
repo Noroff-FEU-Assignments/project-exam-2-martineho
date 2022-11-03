@@ -1,4 +1,5 @@
-import { Container, Col, Row, Nav, NavLink } from "react-bootstrap";
+import { Container, Col, Row, Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { BigHeading } from "../../components/layout/Headings";
 import Footer from "../../components/layout/Footer";
 import BigParagraph from "../../components/layout/Paragraphs";

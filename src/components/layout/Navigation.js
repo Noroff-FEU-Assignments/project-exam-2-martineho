@@ -10,6 +10,7 @@ import { clearStorage } from '../../utils/storage';
 
 export default function Navigation() {
   const name = JSON.parse(localStorage.getItem('user_name'));
+  const initial = name.substring(0, 1).toUpperCase();
   const navigate = useNavigate();
 
   const logout = () => {
@@ -30,9 +31,9 @@ export default function Navigation() {
                   <NavLink className='nav-link' to='/'>People</NavLink>
                 </Nav>
                 <Nav>
-                  <NavLink className='nav-link' to='/profile'>
-                    <span className='nav-link--avatar'>N</span>
-                    <span className='nav-link--username'>{name}</span>
+                  <NavLink className='profile-link' to='/profile'>
+                    <div className='profile-link--avatar'>{initial}</div>
+                    <div className='profile-link--username'>{name}</div>
                   </NavLink>
                   <Button id='logout-btn' className='nav-link--logout' onClick={logout}>
                     <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>

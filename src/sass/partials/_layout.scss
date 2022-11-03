@@ -9,30 +9,44 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .nav-link {
+  .profile-link {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-weight: map.get($font-weight, 'medium');
     &--avatar {
-      padding: .5rem .8rem;
-      background-color: antiquewhite;
+      height: 40px;
+      width: 40px;
+      background-color: rgb(255, 230, 218);
+      color: rgb(255, 157, 112);
       border-radius: 5rem;
-      margin-right: .5rem;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    &--username {
-      font-weight: map.get($font-weight, 'semibold');
-    }
+    
+  }
+  .nav-link {
     &--logout {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: transparent;
-      font-size: 1.4rem;
+      background-color: rgb(227, 234, 240);
+      border: none;
+      font-size: 1.15rem;
       margin-left: 1.5rem;
       color: black;
-      padding: .25rem .45rem;
       &:hover {
         @extend .nav-link--logout;
       }
     }
   }
+}
+.non-auth-navbar {
+  @extend .navbar;
 }
 .footer {
   position: absolute;
