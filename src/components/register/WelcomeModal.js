@@ -8,10 +8,9 @@ import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 import { BASE_URL } from '../../constants/api';
 import { SucessMsg } from './SuccessMsg';
+import { name, token } from '../../utils/user';
 
-const name = (localStorage.getItem('user_name'));
 const url = BASE_URL + 'social/profiles/' + JSON.parse(name) + '/media';
-const token = JSON.parse(localStorage.getItem('token'));
 
 export default function WelcomeModal() {
   const errRef = useRef();
