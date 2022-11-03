@@ -6,7 +6,7 @@ Substance is a social media platform built with React, Bootstrap, Sass, Axios an
 
 🔗 Visit live on: http://martineho.com
 
-## 📶 Status 
+### 📶 Status 
 
 v 1.0
 
