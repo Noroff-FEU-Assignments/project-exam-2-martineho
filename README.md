@@ -17,8 +17,8 @@ v 1.0
 - Yup
 - Sass
 - Axios
-- Icons from https://ionic.io/ionicons
-- Fonts from https://fonts.google.com
+- Icons imported from https://ionic.io/ionicons
+- Fonts imported from https://fonts.google.com
 
 ## 👩🏻‍💻 Installation and setup 
 
