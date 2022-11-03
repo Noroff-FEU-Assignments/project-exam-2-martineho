@@ -10,33 +10,32 @@ import { BASE_URL } from '../../constants/api';
 
 const name = (localStorage.getItem('user_name'));
 const url = BASE_URL + 'social/profiles/' + JSON.parse(name) + '/media';
-const token = localStorage.getItem('token');
+const token = JSON.parse(localStorage.getItem('token'));
 
 export default function WelcomeModal() {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
   const [show, setShow] = useState(false);
+  const avatarRef = useRef(null);
+  const bannerRef = useRef(null);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true)
 
-  async function onSubmit(data) {
-    data.preventDefault();
-    console.log(data);
+  async function onSubmit(e) {
+    e.preventDefault();
 
-    const options = {
-      data: {
-        avatar: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-        banner: 'https://content.r9cdn.net/rimg/dimg/bf/9d/7594f2c4-city-44167-166c12e16b8.jpg?width=1200&height=630&crop=true',
-      },
+    const config = {
       headers: {
-        Authorization: 'Bearer ' + JSON.parse(token),
-      },
+        Authorization: `Bearer ${token}`
+      }
+    }
+    const data = {
+        avatar: avatarRef.current.value,
+        banner: bannerRef.current.value
     }
 
-    //JUST GETTING NO SERVER RESPONSE ERROR and UNDEFINED.. What happens?
-
     try {
-      let res = await axios.put(url, options);
+      let res = await axios.put(url, data, config);
       console.log(res.data);
       alert('Success');
     } catch (err) {
@@ -84,6 +83,7 @@ export default function WelcomeModal() {
                     <ion-icon name="person-circle-outline"></ion-icon>
                 </InputGroup.Text>
                 <Form.Control 
+                  ref={avatarRef}
                   type="url" 
                   placeholder="https://" 
                   name='avatar'
@@ -99,6 +99,7 @@ export default function WelcomeModal() {
                     <ion-icon name="image-outline"></ion-icon>
                 </InputGroup.Text>
                 <Form.Control 
+                  ref={bannerRef}
                   type="url" 
                   placeholder="https://" 
                   name='banner'
