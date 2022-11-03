@@ -21,8 +21,10 @@ export default function WelcomeModal() {
   const [show, setShow] = useState(true);
   const avatarRef = useRef(null);
   const bannerRef = useRef(null);
-  const handleClose = () => setShow(false);
-  //const handleShow = () => setShow(true);
+  const handleClose = () => {
+    localStorage.removeItem('new_user');
+    setShow(false)
+  };
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -42,6 +44,7 @@ export default function WelcomeModal() {
       console.log(res.data);
       setHideForm(true);
       setSuccessMsg(SucessMsg(handleClose));
+      localStorage.removeItem('new_user');
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');

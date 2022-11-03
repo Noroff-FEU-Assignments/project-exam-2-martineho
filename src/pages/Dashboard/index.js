@@ -4,18 +4,14 @@ import WelcomeModal from "../../components/register/WelcomeModal";
 import Navigation from "../../components/layout/Navigation";
 
 export default function Dashboard() {
-  const new_user = sessionStorage.getItem('new_user');
-
-  if (!new_user) {
-  
-  }
+  const new_user = localStorage.getItem('new_user');
 
   return (
     <>
     <Container>
       <Navigation/>
       <Heading content='Feed'></Heading>
-      <WelcomeModal/>
+      {new_user ? <WelcomeModal/> : null }
     </Container>
     </>
   );
