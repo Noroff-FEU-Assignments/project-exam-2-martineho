@@ -13,6 +13,7 @@ const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=
 
 export default function Profile() {
   const [user, setUser] = useState(null);
+  const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -42,6 +43,10 @@ export default function Profile() {
   if (loading) return <div>Loading...</div>;
 	if (error) return <div>{}</div>;
 
+  if (user.avatar === '') {
+    setAvatar(false)
+  }
+
   return (
     <>
     <Container>
@@ -49,7 +54,8 @@ export default function Profile() {
       <Banner src={user.banner} alt={user.name} />
       <div className='profile__header'>
         <div className='group'>
-          <Avatar src={user.avatar} alt={user.name} />
+          {avatar ? <Avatar src={user.avatar} alt={user.name} /> 
+          : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
           <Heading content={user.name} style={{fontSize: '1.8'}}/>
         </div>
         <div className='group'>
