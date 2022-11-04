@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { clearStorage } from '../../utils/storage';
+import { name } from '../../utils/user';
 
 export default function Navigation() {
-  const name = JSON.parse(localStorage.getItem('user_name'));
   const initial = name.substring(0, 1).toUpperCase();
   const navigate = useNavigate();
 
@@ -38,10 +38,6 @@ export default function Navigation() {
                   <Button id='logout-btn' className='nav-link--logout' onClick={logout}>
                     <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
                   </Button>
-                </Nav>
-                <Nav hidden>
-                  <NavLink className='nav-link' to='/login'>Sign in</NavLink>
-                  <NavLink className='nav-link' to='/register'>Become a member</NavLink>
                 </Nav>
               </Navbar.Collapse>
           </Navbar>

@@ -1,8 +1,8 @@
-export default function Banner () {
+export default function Banner (banner) {
   return (
     <>
-    <div className="banner">
-      <img src={banner_url} alt="profile-banner" />;
+    <div className="profile--banner">
+      <img src={banner.src} alt={banner.alt} />
     </div>
     </>
   )

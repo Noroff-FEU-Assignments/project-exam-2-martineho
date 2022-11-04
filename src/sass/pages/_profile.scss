@@ -1,0 +1,25 @@
+.profile {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &--banner {
+    max-height: 15rem;
+    width: 100%;
+    border-radius: .5rem;
+    img {
+      @extend .profile--banner;
+      object-fit: cover;
+    }
+  }
+  &--avatar {
+    margin: -6rem 0rem 0rem 3rem;
+    img {
+      max-height: 12rem;
+      border-radius: 50rem;
+      border: solid white .6rem;
+      object-fit: cover;
+      margin-top: 0;
+    }
+  }
+}

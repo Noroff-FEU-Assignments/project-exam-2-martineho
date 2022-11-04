@@ -10,7 +10,7 @@ import { BASE_URL } from '../../constants/api';
 import { SucessMsg } from './SuccessMsg';
 import { name, token } from '../../utils/user';
 
-const url = BASE_URL + 'social/profiles/' + JSON.parse(name) + '/media';
+const url = BASE_URL + 'social/profiles/' + name + '/media';
 
 export default function WelcomeModal() {
   const errRef = useRef();

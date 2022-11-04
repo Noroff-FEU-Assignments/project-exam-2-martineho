@@ -1,5 +1,11 @@
 @use "sass:map";
 
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
 main {
   margin: 1rem 0;
 }
@@ -37,13 +43,17 @@ main {
       background-color: rgb(227, 234, 240);
       border: none;
       font-size: 1.15rem;
-      margin-left: 1.5rem;
+      margin-left: 1.2rem;
       color: black;
       &:hover {
         @extend .nav-link--logout;
       }
     }
   }
+}
+.navbar-nav {
+  display: flex;
+  align-items: center;
 }
 .non-auth-navbar {
   @extend .navbar;
