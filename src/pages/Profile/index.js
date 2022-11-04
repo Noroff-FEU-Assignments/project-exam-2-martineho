@@ -6,6 +6,7 @@ import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
 import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
+import Loading from '../../components/ux/Loading';
 import { Button } from 'react-bootstrap';
 
 const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
@@ -13,6 +14,7 @@ const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=
 export default function Profile() {
   const [user, setUser] = useState(null);
   const [avatar, setAvatar] = useState(null);
+  const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -39,17 +41,20 @@ export default function Profile() {
     } userDetails();
 	}, );
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
 	if (error) return <div>{}</div>;
 
   if (user.avatar === '') {
     setAvatar(false)
   }
+  if (user.banner === '') {
+    setBanner(false)
+  }
 
   return (
     <>
     <Container>
-      <Banner src={user.banner} alt={user.name} />
+      {banner ? <Banner src={user.banner} alt={user.name} /> : <div className='profile--banner'></div>}
       <div className='profile__header'>
         <div className='group'>
           {avatar ? <Avatar src={user.avatar} alt={user.name} /> 
