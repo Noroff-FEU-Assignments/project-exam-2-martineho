@@ -4,7 +4,6 @@ import { BASE_URL } from "../../constants/api";
 import { name, token } from '../../utils/user';
 import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
-import Navigation from "../../components/layout/Navigation";
 import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
 import { Button } from 'react-bootstrap';
@@ -50,7 +49,6 @@ export default function Profile() {
   return (
     <>
     <Container>
-      <Navigation />
       <Banner src={user.banner} alt={user.name} />
       <div className='profile__header'>
         <div className='group'>

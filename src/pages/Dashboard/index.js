@@ -1,7 +1,6 @@
 import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
 import WelcomeModal from "../../components/register/WelcomeModal";
-import Navigation from "../../components/layout/Navigation";
 
 export default function Dashboard() {
   const new_user = localStorage.getItem('new_user');
@@ -9,7 +8,6 @@ export default function Dashboard() {
   return (
     <>
     <Container>
-      <Navigation/>
       <Heading content='Feed'></Heading>
       {new_user ? <WelcomeModal/> : null }
     </Container>
