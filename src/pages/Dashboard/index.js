@@ -1,7 +1,8 @@
-import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
 import WelcomeModal from "../../components/register/WelcomeModal";
 import PostList from "../../components/posts/PostList";
+import { Col, Row } from "react-bootstrap";
+import PostLine from "../../components/posts/PostLine";
 
 export default function Dashboard() {
   const new_user = localStorage.getItem('new_user');
@@ -9,9 +10,16 @@ export default function Dashboard() {
   return (
     <>
     <Container>
-      <Heading content='Feed'></Heading>
       {new_user ? <WelcomeModal/> : null }
-      <PostList />
+      <main>
+        <Row>
+          <Col className="col-lg-9">
+            <PostLine />
+            <PostList />
+          </Col>
+          <Col className="col-lg-3"></Col>
+        </Row>
+      </main>
     </Container>
     </>
   );

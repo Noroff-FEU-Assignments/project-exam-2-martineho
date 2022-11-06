@@ -8,7 +8,7 @@
     max-height: 15rem;
     min-height: 15rem;
     width: 100%;
-    border-radius: .5rem;
+    border-radius: $box-border-radius;
     img {
       @extend .profile--banner;
       object-fit: cover;

@@ -6,7 +6,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { clearStorage } from '../../utils/storage';
 import { name } from '../../utils/user';
 import { getUsername } from '../../utils/storage';
@@ -28,6 +28,7 @@ export default function Navigation() {
   return ( 
     <>
         <Navbar id='navigation-bar' bg="transparent" expand="lg" className='navbar'>
+          <Container>
             <NavLink to="/" className='navbar-brand--link'>
                 <Navbar.Brand>Substance</Navbar.Brand>
               </NavLink>
@@ -53,6 +54,7 @@ export default function Navigation() {
                 {location.pathname === '/register' && <NavLink to='/login'>Sign in</NavLink>}
                 {location.pathname === '/login' && <NavLink to='/register'>Become a member</NavLink>}
               </Nav> }
+            </Container>
           </Navbar>
 		</>
   )

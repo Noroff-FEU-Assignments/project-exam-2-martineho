@@ -9,15 +9,12 @@ import Register from "../pages/Register"
 import Profile from "../pages/Profile"
 import PrivateRoutes from './PrivateRoutes';
 import Navigation from '../components/layout/Navigation';
-import { Container } from 'react-bootstrap';
 
 export default function AppRoutes () {
   return (
     <>
     <Router>
-      <Container>
-        <Navigation />
-      </Container> 
+      <Navigation />
       <Routes>
         <Route element={< PrivateRoutes />}>
           <Route path={'*'} element={ < Dashboard /> }></Route>

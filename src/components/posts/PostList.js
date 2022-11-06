@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from "../../constants/api";
 import { token } from '../../utils/user';
-import { Container } from 'react-bootstrap';
 import Loading from '../ux/Loading';
 import PostCard from './PostCard';
 
@@ -41,11 +40,18 @@ export default function PostList() {
 
   return (
     <>
-    <Container>
+    <div className='post-list'>
       {postList.map((post) => (
-        <PostCard key={post.id} title={post.title} body={post.body} src={post.media} comment_count={post._count.comments}/>
+        <PostCard 
+        key={post.id} 
+        title={post.title} 
+        body={post.body} 
+        src={post.media} 
+        comment_count={post._count.comments}
+        created={post.created}
+        />
       ))}
-    </Container>
+    </div>
     </>
   );
 }

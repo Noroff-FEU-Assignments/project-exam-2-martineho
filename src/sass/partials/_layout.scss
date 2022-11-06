@@ -9,12 +9,15 @@
 main {
   margin: 1rem 0;
 }
+#navigation-bar {
+  padding: 1.5rem 0;
+}
 .navbar {
-  padding: 1rem 0;
-  margin: 1rem 0;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: $box-border;
   .profile-link {
     display: flex;
     gap: .6rem;
