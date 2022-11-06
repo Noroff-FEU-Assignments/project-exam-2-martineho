@@ -2,7 +2,7 @@ import axios from 'axios';
 import { BASE_URL } from "../../constants/api";
 import { name, token } from '../../utils/user';
 
-const url = BASE_URL + 'social/profiles/' + JSON.parse(name) + '?_following=true&_followers=true';
+const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
 
 export default async function getDetails() {
   const config = {

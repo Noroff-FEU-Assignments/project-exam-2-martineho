@@ -55,8 +55,8 @@ main {
   display: flex;
   align-items: center;
 }
-.non-auth-navbar {
-  @extend .navbar;
+.non-auth-nav {
+  margin-left: auto;
 }
 .footer {
   position: absolute;

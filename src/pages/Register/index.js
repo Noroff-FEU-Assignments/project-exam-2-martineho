@@ -1,5 +1,4 @@
-import { Container, Col, Row, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Container, Col, Row } from "react-bootstrap";
 import { BigHeading } from "../../components/layout/Headings";
 import Footer from "../../components/layout/Footer";
 import BigParagraph from "../../components/layout/Paragraphs";
@@ -9,10 +8,6 @@ export default function Register() {
   return (
     <>
     <Container>
-      <Nav className="non-auth-navbar">
-        <div>Brand</div>
-        <NavLink to='/login'>Sign in</NavLink>
-      </Nav>
       <main>
         <Row>
           <Col md={6} xs={12}>

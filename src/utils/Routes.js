@@ -17,7 +17,7 @@ export default function AppRoutes () {
     <Router>
       <Container>
         <Navigation />
-      </Container>
+      </Container> 
       <Routes>
         <Route element={< PrivateRoutes />}>
           <Route path={'*'} element={ < Dashboard /> }></Route>
