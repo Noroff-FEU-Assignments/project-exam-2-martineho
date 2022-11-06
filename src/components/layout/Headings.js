@@ -37,3 +37,16 @@ export function SubHeading(heading) {
   )
 }
 
+export function SmHeading(heading) {
+  const headingStyle = {
+    textAlign: heading.textAlign,
+    fontSize: '1.2rem',
+    fontWeight: 600,
+  }
+  return ( 
+    <h2 style={headingStyle}>
+      {heading.content}
+    </h2> 
+  )
+}
+

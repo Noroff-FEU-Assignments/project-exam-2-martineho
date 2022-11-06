@@ -1,0 +1,17 @@
+.post-card {
+  border: solid .1rem gainsboro;
+  border-radius: .5rem;
+  padding: 1.2rem;
+  display: flex;
+  gap: 1.5rem;
+  max-height: 20rem;
+  &__image {
+    object-fit: cover;
+    width: 15rem;
+    background-color: rgb(225, 225, 237);
+    border-radius: .5rem;
+    img {
+      object-fit: cover;
+    }
+  }
+}

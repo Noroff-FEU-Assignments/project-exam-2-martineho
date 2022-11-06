@@ -8,3 +8,14 @@ export default function BigParagraph(paragraph) {
 
   return ( <p style={paragraphStyle}>{paragraph.content}</p> ) 
 }
+
+export function Paragraph(paragraph) {
+
+  const paragraphStyle = {
+    textAlign: paragraph.textAlign,
+    margin: paragraph.margin,
+    fontSize: '1rem',
+  }
+
+  return ( <p style={paragraphStyle}>{paragraph.content}</p> ) 
+}
