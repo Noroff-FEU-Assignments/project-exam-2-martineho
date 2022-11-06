@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { SmHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
 import ReactionForm from "./ReactionForm";
@@ -6,13 +7,15 @@ export default function PostCard (post) {
   return (
     <>
     <div className="post-card">
-      <div className="post-card__image">
+      {post.src ? <div className="post-card__image">
         <img src={post.src} alt={post.alt} />
-      </div>
+      </div> : null }
       <div className="post-card__content">
         <div className="post-card__content--header">
             <div className="post-card__content--timestamp">{post.created}</div>
-            <button className="post-card__content--btn"><ion-icon name="ellipsis-vertical"></ion-icon></button>
+            <Button className="btn-light">
+              <ion-icon name="ellipsis-vertical"></ion-icon>
+            </Button>
         </div>
         <div className="post-card__content--text">
           <SmHeading content={post.title} />
@@ -23,7 +26,10 @@ export default function PostCard (post) {
             <ReactionForm />
           </div>
           <div className="comments">
-            <button><ion-icon name="chatbox-outline"></ion-icon> {post.comment_count}</button>
+            <Button className="btn-light">
+              <ion-icon name="chatbox-outline"></ion-icon> 
+              {post.comment_count}
+            </Button>
           </div>
       </div>
       </div>

@@ -6,9 +6,9 @@ import Button from "react-bootstrap/Button";
 export default function ReactionForm() {
   return (
     <Form>
-      <Button>😍</Button>
-      <Button>🤠</Button>
-      <Button>🙌</Button>
+      <Button className="btn-secondary">😍</Button>
+      <Button className="btn-secondary">🤠</Button>
+      <Button className="btn-secondary">🙌</Button>
       <Form.Control 
         type="string" 
         placeholder="emoji" 

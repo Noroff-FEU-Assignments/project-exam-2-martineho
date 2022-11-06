@@ -41,3 +41,14 @@ form {
     border: none;
   }
 }
+.btn-secondary {
+  color: black;
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  padding: .2rem .5rem;
+  &:hover {
+    background-color: #f8f9fa;
+    box-shadow: $box-shadow;
+  }
+}

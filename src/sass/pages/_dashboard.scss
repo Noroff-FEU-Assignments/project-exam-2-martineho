@@ -1,0 +1,22 @@
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  .profile-item {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    &--avatar {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50rem;
+      background-color: rgb(234, 238, 241);
+      color:  rgb(195, 202, 206);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.6rem;
+    }
+  }
+}

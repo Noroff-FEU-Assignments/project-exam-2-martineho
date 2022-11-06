@@ -40,7 +40,7 @@ export function SubHeading(heading) {
 export function SmHeading(heading) {
   const headingStyle = {
     textAlign: heading.textAlign,
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
     fontWeight: 600,
   }
   return ( 
