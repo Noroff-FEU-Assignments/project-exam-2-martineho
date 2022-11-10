@@ -12,6 +12,11 @@ export default function User() {
   const [user, setUser] = useState({
     avatar: '', 
     banner: '', 
+    _count: {
+      following: 0, 
+      followers: 0, 
+      posts: 0,
+    },
   });
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);

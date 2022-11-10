@@ -4,12 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
 import User from "../../utils/user";
+import Loading from "../../components/ux/Loading";
+import RenderUpdateFrom from "../../components/profile/UpdateForm";
 
 export default function Profile() {
   const user = User();
 
   if (user._count === undefined) {
-    return 0 //don't know if this is the right way of doing it but its working for now
+    return <Loading /> //don't know if this is the right way of doing it but its working for now
   }
 
   return (
@@ -21,7 +23,9 @@ export default function Profile() {
           {user.avatar ? <Avatar src={user.avatar} alt={user.name} /> 
           : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
           <Heading content={user.name} style={{fontSize: '1.8'}}/>
-         
+          <span>
+            <RenderUpdateFrom />
+          </span>
         </div>
         <div className='group'>
           <Button className='btn'>Following {user._count.following}</Button>
