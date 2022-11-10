@@ -61,3 +61,14 @@
     background-color: rgb(234, 238, 241);
   }
 }
+
+#settings-btn {
+  font-size: 1.4rem;
+  color: rgb(13, 90, 245);
+  padding: .4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  height: fit-content;
+}

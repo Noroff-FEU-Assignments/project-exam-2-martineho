@@ -1,3 +1,16 @@
+.postline {
+  padding: 1rem 1.2rem;
+  border-radius: $box-border-radius;
+  background-color: #F1EEFF;
+  border: solid 1px #9380ff4b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  p {
+    color: #7259FF;
+  }
+}
 .profile-list {
   display: flex;
   flex-direction: column;

@@ -18,13 +18,13 @@ main {
   align-items: center;
   justify-content: space-between;
   border-bottom: $box-border;
+  font-weight: map.get($font-weight, 'medium');
   .profile-link {
     display: flex;
     gap: .6rem;
     align-items: center;
     color: black;
     text-decoration: none;
-    font-weight: map.get($font-weight, 'medium');
     &--avatar {
       height: 35px;
       width: 35px;

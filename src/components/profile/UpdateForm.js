@@ -144,7 +144,7 @@ export default function RenderUpdateFrom() {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
+      <Button id='settings-btn' variant='light' onClick={() => setModalShow(true)}>
         <ion-icon name="settings-sharp"></ion-icon>
       </Button>
 
