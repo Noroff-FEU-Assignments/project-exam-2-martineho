@@ -8,24 +8,28 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { SubHeading } from '../layout/Headings';
 import { BASE_URL } from '../../constants/api';
 import { name, token } from '../../utils/user';
+import User from '../../utils/user';
+import { SmHeading, SubHeading } from '../layout/Headings';
 
 const url = BASE_URL + 'social/profiles/' + name + '/media';
 
 const schema = yup.object().shape({
   avatar: yup.string()
-  .matches("(https?:\/\/.*\.(?:png|jpg|jpeg))", "You need to fill in a valid image url."),
+  .nullable(true)
+  .matches("^$|(https?:\/\/.*\.(?:png|jpg|jpeg))|(/)", "You need to fill in a valid image url."),
   banner: yup.string()
-  .matches("(https?:\/\/.*\.(?:png|jpg|jpeg))", "You need to fill in a valid image url."),
+  .nullable(true)
+  .matches("^$|(https?:\/\/.*\.(?:png|jpg|jpeg))|(/)", "You need to fill in a valid image url."),
 });
 
 function UpdateForm(props) {
+  const user = User();
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
-  const avatarRef = useRef(null);
-  const bannerRef = useRef(null);
+  const avatarRef = useRef(user.avatar);
+  const bannerRef = useRef(user.banner);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
@@ -64,56 +68,73 @@ function UpdateForm(props) {
       centered
     >
       <Modal.Body>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <SubHeading content='Update your profile'/>
-      
+      <Form onSubmit={handleSubmit(onSubmit)}>    
+          <SubHeading content='Update profile' />
           <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
 
             <Form.Group className='form-content'>
+
               <Form.Group>
-                <Form.Label>Profile picture</Form.Label>
-                <InputGroup className="" controlid="formAvatar">
-                  <InputGroup.Text 
-                    className='input-span'>
-                      <ion-icon name="person-circle-outline"></ion-icon>
-                  </InputGroup.Text>
-                  <Form.Control 
-                    ref={avatarRef}
-                    type="url" 
-                    placeholder={'https://'}
-                    name='avatar'
-                    {...register("avatar")}
-                    />
-                  </InputGroup>
-                  {errors.avatar && <div className='errmsg--input'>{errors.avatar.message}</div>}
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Banner</Form.Label>
+                <Form.Label>
+                  <SmHeading 
+                  content='Banner' />
+                </Form.Label>
+                <div className='input-header'>
+                  {user.banner ?  <img className='input--banner' src={user.banner} alt='a' /> 
+                    : <div className='input--banner'></div> }
+                </div>
                 <InputGroup className="" controlid="formBanner">
                   <InputGroup.Text 
                     className='input-span'>
-                      <ion-icon name="image-outline"></ion-icon>
-                  </InputGroup.Text>
+                      <ion-icon name="link-outline"></ion-icon>
+                    </InputGroup.Text>
                   <Form.Control 
                     ref={bannerRef}
                     type="url" 
-                    placeholder={'https://'}
+                    placeholder={'Paste image url'}
                     name='banner'
+                    defaultValue={user.banner}
                     {...register("banner")}
                     />
                   </InputGroup>
                   {errors.banner && <div className='errmsg--input'>{errors.banner.message}</div>}
               </Form.Group>
-            </Form.Group>
 
-            <Button variant="primary" type="submit" className='btn--submit'>
-              Save
-            </Button>
+              <Form.Group>
+                <Form.Label>
+                  <SmHeading 
+                    content='Avatar' />
+                </Form.Label>
+                <div className='group update-profile'>
+                  <div className='input-span'>
+                    {user.avatar ?  <img className='input--avatar' src={user.avatar} alt='a' />
+                      : <div className='input--avatar'><ion-icon name="person"></ion-icon></div> }
+                  </div>
+                  <InputGroup className="" controlid="formAvatar">
+                    <InputGroup.Text 
+                      className='input-span'>
+                        <ion-icon name="link-outline"></ion-icon>
+                      </InputGroup.Text>
+                    <Form.Control 
+                      ref={avatarRef}
+                      type="url" 
+                      placeholder={'Paste image url'}
+                      name='avatar'
+                      defaultValue={user.avatar}
+                      {...register("avatar")}
+                      />
+                  </InputGroup>
+                </div>
+                  {errors.avatar && <div className='errmsg--input'>{errors.avatar.message}</div>}
+              </Form.Group>
+              
+            </Form.Group>
+            <div className='group modal-btns'>
+              <Button variant="primary" type="submit" className='btn--submit'> Save </Button>
+              <Button variant="light" className='skip-modal' onClick={props.onHide}>Cancel</Button>
+            </div>
           </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 }

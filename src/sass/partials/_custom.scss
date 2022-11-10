@@ -4,7 +4,6 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-
 form {
   max-width: 500px;
   padding: 2rem 2.5rem;
@@ -13,7 +12,7 @@ form {
   margin: 1.5rem 0;
   display: flex;
   flex-direction: column;
-  gap: .6rem;
+  gap: 1rem;
 }
 .input-group {
   border-bottom: solid .1rem gainsboro;
@@ -51,4 +50,11 @@ form {
     background-color: #f8f9fa;
     box-shadow: $box-shadow;
   }
+}
+.modal-body {
+  padding: 0;
+}
+.modal-header {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
