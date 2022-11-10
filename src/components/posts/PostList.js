@@ -33,7 +33,7 @@ export default function PostList() {
           setLoading(false);
       }
     } getPosts();
-	}, );
+	}, []);
 
   if (loading) return <Loading />;
 	if (error) return <div>{}</div>;

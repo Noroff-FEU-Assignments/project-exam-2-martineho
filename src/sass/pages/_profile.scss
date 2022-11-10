@@ -31,8 +31,9 @@
       margin-top: -1rem;
     }
     img {
+      @extend .profile--avatar;
       object-fit: cover;
-      margin-top: 0;
+      margin: 0;
     }
   }
 }

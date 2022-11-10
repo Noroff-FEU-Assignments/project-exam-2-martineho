@@ -1,65 +1,28 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { BASE_URL } from "../../constants/api";
-import { name, token } from '../../utils/user';
 import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
-import Loading from '../../components/ux/Loading';
-import { Button } from 'react-bootstrap';
-
-const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
+import User from "../../utils/user";
 
 export default function Profile() {
-  const [user, setUser] = useState(null);
-  const [avatar, setAvatar] = useState(null);
-  const [banner, setBanner] = useState(null);
-  const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
 
-  useEffect(function () {
+  const user = User();
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    }
-
-		async function userDetails() {
-      try {
-        let res = await axios.get(url, config);
-        console.log(res.data);
-          setUser(res.data);
-      } catch (err) {
-        if (!err?.response) {
-          setError(err);
-        }
-      } finally {
-        setLoading(false);
-      }
-    } userDetails();
-	}, );
-
-  if (loading) return <Loading />;
-	if (error) return <div>{}</div>;
-
-  if (user.avatar === '') {
-    setAvatar(false)
-  }
-  if (user.banner === '') {
-    setBanner(false)
+  if (user._count === undefined) {
+    return 0 //don't know if this is the right way of doing it but its working for now
   }
 
   return (
     <>
     <Container>
-      {banner ? <Banner src={user.banner} alt={user.name} /> : <div className='profile--banner'></div>}
+      {user.banner ? <Banner src={user.banner} alt={user.name} /> : <div className='profile--banner'></div>}
       <div className='profile__header'>
         <div className='group'>
-          {avatar ? <Avatar src={user.avatar} alt={user.name} /> 
+          {user.avatar ? <Avatar src={user.avatar} alt={user.name} /> 
           : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
           <Heading content={user.name} style={{fontSize: '1.8'}}/>
+         
         </div>
         <div className='group'>
           <Button className='btn'>Following {user._count.following}</Button>

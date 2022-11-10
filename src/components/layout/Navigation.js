@@ -8,13 +8,14 @@ import {
 } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import { clearStorage } from '../../utils/storage';
-import { name } from '../../utils/user';
+import User from '../../utils/user';
 import { getUsername } from '../../utils/storage';
 
 export default function Navigation() {
   const navigate = useNavigate();
   let authenticated = getUsername();
   const location = useLocation();
+  const user = User();
 
   if (authenticated.length === 0) {
     authenticated = false; 
@@ -41,8 +42,10 @@ export default function Navigation() {
                 </Nav>
                 <Nav>
                   <NavLink className='profile-link' to='/profile'>
-                    <div className='profile-link--avatar'></div>
-                    <div className='profile-link--username'>{name}</div>
+                    <div className='profile-link--avatar'>
+                      <img src={user.avatar} alt='avatar' />
+                    </div>
+                    <div className='profile-link--username'>{user.name}</div>
                   </NavLink>
                   <Button id='logout-btn' className='nav-link--logout' onClick={logout}>
                     <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
