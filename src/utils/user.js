@@ -38,11 +38,8 @@ export default function User() {
     } getDetails();
 	}, []);
 
+  if (loading) return ( <Loading /> ) ;
+	if (error) return ( <div>An error occured while fetching the data :(</div> );
 
-  if (loading) return <Loading />;
-	if (error) return <div>{}</div>;
-
-  return (
-    user
-  );
+  return ( user );
 }

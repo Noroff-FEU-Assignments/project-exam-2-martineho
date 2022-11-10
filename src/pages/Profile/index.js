@@ -6,7 +6,6 @@ import Avatar from '../../components/profile/Avatar';
 import User from "../../utils/user";
 
 export default function Profile() {
-
   const user = User();
 
   if (user._count === undefined) {
