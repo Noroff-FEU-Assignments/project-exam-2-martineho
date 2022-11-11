@@ -4,7 +4,8 @@
     justify-content: space-between;
   }
   &--banner {
-    background-color: rgb(234, 238, 241);
+    background: rgb(198,198,254);
+    background: linear-gradient(141deg, rgba(198,198,254,1) 0%, rgba(211,224,255,1) 50%, rgba(224,203,242,1) 100%);
     max-height: 10rem;
     min-height: 10rem;
     width: 100%;
