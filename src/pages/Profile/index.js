@@ -22,7 +22,7 @@ export default function Profile() {
         <div className='group'>
           {user.avatar ? <Avatar src={user.avatar} alt={user.name} /> 
           : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
-          <Heading content={user.name} style={{fontSize: '1.6'}}/>
+          <Heading content={user.name}/>
         </div>
         <div className='group'>
           <Button className='btn'>Following {user._count.following}</Button>

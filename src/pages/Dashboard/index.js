@@ -3,7 +3,6 @@ import WelcomeModal from "../../components/register/WelcomeModal";
 import PostList from "../../components/posts/PostList";
 import { Col, Row } from "react-bootstrap";
 import PostLine from "../../components/posts/PostLine";
-import { SubHeading } from '../../components/layout/Headings';
 import ProfileList from '../../components/profile/ProfileList';
 
 export default function Dashboard() {
@@ -20,7 +19,6 @@ export default function Dashboard() {
             <PostList />
           </Col>
           <Col className="col-lg-3">
-            <SubHeading content='People' />
             <ProfileList />
           </Col>
         </Row>

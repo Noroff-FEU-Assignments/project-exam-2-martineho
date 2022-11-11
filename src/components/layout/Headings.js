@@ -50,3 +50,17 @@ export function SmHeading(heading) {
   )
 }
 
+
+export function XsHeading(heading) {
+  const headingStyle = {
+    textAlign: heading.textAlign,
+    fontSize: '.9rem',
+    fontWeight: 600,
+  }
+  return ( 
+    <h2 style={headingStyle}>
+      {heading.content}
+    </h2> 
+  )
+}
+
