@@ -4,6 +4,7 @@ import { BASE_URL } from "../../constants/api";
 import { name, token } from '../../utils/user';
 import Loading from '../ux/Loading';
 import PostCard from '../posts/PostCard';
+import PostMenu from '../layout/PostMenu';
 
 const url = BASE_URL + 'social/profiles/' + name + '/posts';
 
@@ -23,7 +24,7 @@ export default function ProfilePostList() {
 		async function getPosts() {
       try {
         let res = await axios.get(url, config);
-        //console.log(res.data);
+        console.log(res.data);
         setPostList(res.data);
       } catch (err) {
         if (!err?.response) {
@@ -38,6 +39,8 @@ export default function ProfilePostList() {
   if (loading) return <Loading />;
 	if (error) return <div>{}</div>;
 
+  let menu = <PostMenu />
+
   return (
     <>
     <div className='post-list'>
@@ -49,6 +52,7 @@ export default function ProfilePostList() {
         src={post.media} 
         comment_count={post._count.comments}
         created={post.created}
+        menu={menu}
         />
       ))}
     </div>

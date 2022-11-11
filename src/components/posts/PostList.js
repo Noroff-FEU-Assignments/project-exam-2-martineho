@@ -23,7 +23,7 @@ export default function PostList() {
 		async function getPosts() {
       try {
         let res = await axios.get(url, config);
-        //console.log(res.data);
+        console.log(res.data);
         setPostList(res.data);
       } catch (err) {
         if (!err?.response) {

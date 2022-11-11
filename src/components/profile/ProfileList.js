@@ -22,7 +22,7 @@ export default function ProfileList() {
 		async function getProfiles() {
       try {
         let res = await axios.get(url, config);
-        console.log(res.data);
+        //console.log(res.data);
         setProfileList(res.data);
       } catch (err) {
         if (!err?.response) {

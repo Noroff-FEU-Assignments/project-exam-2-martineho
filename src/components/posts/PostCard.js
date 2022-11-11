@@ -3,9 +3,12 @@ import { Paragraph } from "../layout/Paragraphs";
 import ReactionForm from "./ReactionForm";
 
 export default function PostCard (post) {
+
   return (
     <>
     <div className="post-card">
+
+      {post.menu}
 
       <div className="reactions">
         <ReactionForm />
@@ -29,7 +32,7 @@ export default function PostCard (post) {
           <XsHeading content={post.title}/>
         </div>
         <div className="comments">
-            <button className="btn-light btn-comments">
+            <button className="btn-light comment-btn">
               <ion-icon name="chatbox-outline"></ion-icon> 
               {post.comment_count}
             </button>
@@ -39,9 +42,3 @@ export default function PostCard (post) {
     </>
   )
 }
-
-/*
-<div className="post-card__content--text">
-<Paragraph content={post.body} />
-</div>
-*/
