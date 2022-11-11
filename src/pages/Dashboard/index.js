@@ -4,6 +4,7 @@ import PostList from "../../components/posts/PostList";
 import { Col, Row } from "react-bootstrap";
 import PostLine from "../../components/posts/PostLine";
 import ProfileList from '../../components/profile/ProfileList';
+import { SubHeading } from '../../components/layout/Headings';
 
 export default function Dashboard() {
   const new_user = localStorage.getItem('new_user');
@@ -19,6 +20,7 @@ export default function Dashboard() {
             <PostList />
           </Col>
           <Col className="col-lg-3">
+            <SubHeading content='People' />
             <ProfileList />
           </Col>
         </Row>

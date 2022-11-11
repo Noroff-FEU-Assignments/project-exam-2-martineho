@@ -18,20 +18,20 @@
 .loading-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-top: 20rem;
   height: 80vh;
 }
 .loading {
   display: flex;
   flex-wrap: wrap;
-  max-width: 6rem;
+  max-width: 4rem;
   gap: .6rem;
 
   &--dot {
     animation: loadingDots 1.5s infinite ease-in-out;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: .8rem;
+    height: .8rem;
     border-radius: 5rem;
     background-color: black;
     

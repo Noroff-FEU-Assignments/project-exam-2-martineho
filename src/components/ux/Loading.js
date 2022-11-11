@@ -11,9 +11,6 @@ export default function Loading() {
         <div className="loading--dot"></div>
         <div className="loading--dot"></div>
         <div className="loading--dot"></div>
-        <div className="loading--dot"></div>
-        <div className="loading--dot"></div>
-        <div className="loading--dot"></div>
       </div>
     </Container>
     </>

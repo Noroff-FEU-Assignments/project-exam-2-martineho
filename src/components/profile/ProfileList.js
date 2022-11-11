@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { BASE_URL } from "../../constants/api";
 import { token } from '../../utils/user';
 import Loading from '../ux/Loading';
-import { SubHeading } from '../../components/layout/Headings';
 
 const url = BASE_URL + 'social/profiles';
 
@@ -41,7 +40,6 @@ export default function ProfileList() {
   return (
     <>
     <div className='profile-list'>
-      <SubHeading content='People' />
       {profileList.map((user) => (
         <div key={user.name} className='profile-item'>
           {user.avatar ? 

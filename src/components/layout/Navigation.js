@@ -31,7 +31,7 @@ export default function Navigation() {
         <Navbar id='navigation-bar' bg="transparent" expand="lg" className='navbar'>
           <Container>
             <NavLink to="/" className='navbar-brand--link'>
-                <Navbar.Brand>Substance</Navbar.Brand>
+                <Navbar.Brand>aesocial</Navbar.Brand>
               </NavLink>
               {authenticated && <Navbar.Toggle aria-controls="navbar" /> }
               {authenticated && 

@@ -6,6 +6,7 @@ import Avatar from '../../components/profile/Avatar';
 import User from "../../utils/user";
 import Loading from "../../components/ux/Loading";
 import RenderUpdateFrom from "../../components/profile/UpdateForm";
+import ProfilePostList from "../../components/profile/ProfilePostList";
 
 export default function Profile() {
   const user = User();
@@ -22,18 +23,17 @@ export default function Profile() {
         <div className='group'>
           {user.avatar ? <Avatar src={user.avatar} alt={user.name} /> 
           : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
-          <Heading content={user.name}/>
-        </div>
-        <div className='group'>
-          <Button className='btn'>Following {user._count.following}</Button>
-          <Button className='btn'>Followers {user._count.followers}</Button>
+          <Heading style={{fontSize: '1.1'}} content={user.name}/>
           <RenderUpdateFrom />
         </div>
-      </div>
-      <main>
-        <div className=''>
-          {user._count.posts} Posts
+        <div className='group'>
+          <div className='post-count'> {user._count.posts} posts </div>
+          <Button className='btn-secondary'>Following {user._count.following}</Button>
+          <Button className='btn-secondary'>Followers {user._count.followers}</Button>
         </div>
+      </div>
+      <main className="profile-posts">
+        <ProfilePostList />
       </main>
     </Container>
     </>

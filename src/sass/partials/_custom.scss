@@ -41,16 +41,9 @@ form {
   }
 }
 .btn-secondary {
-  color: black;
   background-color: transparent;
-  border: none;
-  font-size: 1.4rem;
-  padding: .2rem .5rem;
-  &:hover {
-    background-color: #f8f9fa;
-    box-shadow: $box-shadow;
-    color: black;
-  }
+  border: $box-border;
+  color: rgb(128, 130, 142);
 }
 .modal-body {
   padding: 0;

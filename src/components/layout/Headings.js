@@ -1,7 +1,7 @@
 export function Heading(heading) {
   const headingStyle = {
     textAlign: heading.textAlign,
-    fontSize: '2.1rem',
+    fontSize: '2rem',
     fontWeight: 600,
   }
   return ( 
