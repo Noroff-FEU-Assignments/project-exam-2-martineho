@@ -21,7 +21,7 @@ v 1.0
 - [Google Fonts](https://fonts.google.com)
 
 #### Components
-- [react-time-ago](https://www.npmjs.com/package/react-time-ago)
+- react-time-ago
 
 ## 👩🏻‍💻 Installation and setup 
 
