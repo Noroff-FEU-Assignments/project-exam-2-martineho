@@ -3,12 +3,19 @@ import React from 'react'
 import ReactTimeAgo from 'react-time-ago'
 import { useState, useEffect } from "react";
 import { useNavigate, useParams  } from "react-router-dom";
-import { Col, Container, Row, Form, InputGroup, Button, Collapse } from "react-bootstrap";
+import { 
+  Col, 
+  Container, 
+  Row, Form, 
+  InputGroup, 
+  Button, 
+  Collapse } from "react-bootstrap";
 import { Heading } from "../../components/layout/Headings";
 import Loading from "../../components/ux/Loading";
 import { token } from "../../utils/user";
 import { BASE_URL } from "../../constants/api"
 import Avatar from "../../components/profile/Avatar";
+import AvatarPlaceholder from "../../components/profile/AvatarPlaceholder";
 
 export default function Post() {
   const [post, setPost] = useState([]);
@@ -78,7 +85,8 @@ export default function Post() {
           <div className="post-content--header">
             <a href={`/profiles/${post.author.name}`} 
             className="author">
-              <Avatar className='avatar--small' src={post.author.avatar} alt={post.author.name} />
+             {post.author.avatar ? <Avatar className='avatar--small' src={post.author.avatar} alt='avatar' /> 
+              : <AvatarPlaceholder className='avatar-placeholder--small' /> }
               {post.author.name}
               </a>
             <div className="timeago">Last updated {timeAgo}</div>

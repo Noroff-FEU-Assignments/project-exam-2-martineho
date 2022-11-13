@@ -1,5 +1,5 @@
 .avatar {
-  background-color: rgb(234, 238, 241);
+  background-color: rgb(231, 238, 244);
   color:  rgb(195, 202, 206);
   display: flex;
   justify-content: center;
@@ -16,10 +16,25 @@
   &--medium {
     @extend .avatar; 
     width: 3rem;
+    height: 3rem;
   }
   &--small {
     @extend .avatar;
     width: 2.3rem;
+    height: 2.3rem
+  }
+}
+.avatar-placeholder {
+  @extend .avatar;
+  &--big {
+    @extend .avatar--big;
+    font-size: 4rem;
+  }
+  &--medium {
+    @extend .avatar--medium;
+  }
+  &--small {
+    @extend .avatar--small;
   }
 }
 .profile {

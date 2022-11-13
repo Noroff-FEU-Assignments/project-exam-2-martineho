@@ -11,6 +11,7 @@ import { clearStorage } from '../../utils/storage';
 import User from '../../utils/user';
 import { getUsername } from '../../utils/storage';
 import Avatar from '../profile/Avatar';
+import AvatarPlaceholder from '../profile/AvatarPlaceholder';
 
 export default function Navigation() {
   const navigate = useNavigate();
@@ -43,9 +44,8 @@ export default function Navigation() {
                 </Nav>
                 <Nav>
                   <NavLink className='profile-link' to='/profile'>
-                    <div className='profile-link--avatar'>
-                      <Avatar className='avatar--small' src={user.avatar} alt='avatar' />
-                    </div>
+                    {user.avatar ? <Avatar className='avatar--small' src={user.avatar} alt='avatar' /> 
+                    : <AvatarPlaceholder className='avatar-placeholder--small' /> }
                     <div className='profile-link--username'>{user.name}</div>
                   </NavLink>
                   <Button id='logout-btn' className='nav-link--logout' onClick={logout}>

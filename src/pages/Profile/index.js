@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
+import AvatarPlaceholder from "../../components/profile/AvatarPlaceholder";
 import User from "../../utils/user";
 import Loading from "../../components/ux/Loading";
 import RenderUpdateFrom from "../../components/profile/UpdateForm";
@@ -21,8 +22,8 @@ export default function Profile() {
       {user.banner ? <Banner src={user.banner} alt={user.name} /> : <div className='profile--banner'></div>}
       <div className='profile__header'>
         <div className='group'>
-          {user.avatar ? <Avatar className='avatar--big' src={user.avatar} alt={user.name} /> 
-          : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
+          {user.avatar ? <Avatar className='avatar--big' src={user.avatar} alt='avatar' /> 
+            : <AvatarPlaceholder className='avatar-placeholder--big' /> }
           <Heading style={{fontSize: '1.1'}} content={user.name}/>
           <RenderUpdateFrom />
         </div>
