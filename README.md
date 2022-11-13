@@ -20,7 +20,7 @@ v 1.0
 - Icons imported from https://ionic.io/ionicons
 - Fonts imported from https://fonts.google.com
 
-### Components 
+#### Components
 - react-time-ago
 
 ## 👩🏻‍💻 Installation and setup 
