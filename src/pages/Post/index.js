@@ -10,7 +10,7 @@ import { token } from "../../utils/user";
 import { BASE_URL } from "../../constants/api"
 
 export default function Post() {
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
@@ -58,8 +58,9 @@ export default function Post() {
 
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
   const commentsList = post.comments;
-  const firstComments = commentsList.slice(0, 2);
-  const lastComments = commentsList.slice(2, 10);
+  const sortComments = [...commentsList].reverse();
+  const firstComments = sortComments.slice(0, 2);
+  const lastComments = sortComments.slice(2, 10);
 
   return(
     <Container>
@@ -90,16 +91,6 @@ export default function Post() {
             <div className="comment-count">
               Comments {post._count.comments}
             </div>
-            <Form className="comment-form">
-              <InputGroup className="" controlid="formAvatar">
-                <Form.Control 
-                  type="url" 
-                  placeholder="Write a comment" 
-                  name='avatar'
-                />
-                <Button><ion-icon name="send"></ion-icon></Button>
-              </InputGroup>
-            </Form>
             <div className="comments-list">
               {firstComments.map((comment) => {
                 return (
@@ -141,6 +132,16 @@ export default function Post() {
                 variant="light"
               > <ion-icon name="chevron-down"></ion-icon>
               </Button> : '' }
+              <Form className="comment-form">
+              <InputGroup className="" controlid="formAvatar">
+                <Form.Control 
+                  type="url" 
+                  placeholder="Write a comment" 
+                  name='avatar'
+                />
+                <Button><ion-icon name="send"></ion-icon></Button>
+              </InputGroup>
+            </Form>
             </div>
           </div>
         </Col>
