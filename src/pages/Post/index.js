@@ -3,7 +3,7 @@ import React from 'react'
 import ReactTimeAgo from 'react-time-ago'
 import { useState, useEffect } from "react";
 import { useNavigate, useParams  } from "react-router-dom";
-import { Col, Container, Row, Form, InputGroup, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, InputGroup, Button, Collapse } from "react-bootstrap";
 import { Heading } from "../../components/layout/Headings";
 import Loading from "../../components/ux/Loading";
 import { token } from "../../utils/user";
@@ -13,6 +13,7 @@ export default function Post() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [open, setOpen] = useState(false);
  
   let navigate = useNavigate();
  
@@ -57,6 +58,8 @@ export default function Post() {
 
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
   const commentsList = post.comments;
+  const firstComments = commentsList.slice(0, 2);
+  const lastComments = commentsList.slice(2, 10);
 
   return(
     <Container>
@@ -98,18 +101,45 @@ export default function Post() {
               </InputGroup>
             </Form>
             <div className="comments-list">
-              {commentsList.map((comment) => {
+              {firstComments.map((comment) => {
                 return (
                   <>
-                  <div className="comment-header">
-                    <a href={`/profiles/${comment.owner}`} 
-                    className="comment-header--owner">{comment.owner} </a> 
-                    commented <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
+                  <div className="comment">
+                    <div className="comment-header">
+                      <a href={`/profiles/${comment.owner}`} 
+                      className="comment-header--owner">{comment.owner} </a> 
+                      commented <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
+                    </div>
+                    <p className="comment-body">{comment.body}</p>
                   </div>
-                  <p className="comment-body">{comment.body}</p>
                   </>
                 )
               })}
+              <Collapse in={open}>
+                <div id="example-collapse-text">
+                  {lastComments.map((comment) => {
+                  return (
+                    <>
+                    <div className="comment">
+                      <div className="comment-header">
+                        <a href={`/profiles/${comment.owner}`} 
+                        className="comment-header--owner">{comment.owner} </a> 
+                        commented <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
+                      </div>
+                      <p className="comment-body">{comment.body}</p>
+                    </div>
+                    </>
+                  )
+                })}
+                </div>
+              </Collapse>
+              <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+                variant="light"
+              > <ion-icon name="chevron-down"></ion-icon>
+              </Button>
             </div>
           </div>
         </Col>
