@@ -62,6 +62,19 @@ main {
 .non-auth-nav {
   margin-left: auto;
 }
+.follow-list {
+  margin: 0;
+  padding: 0;
+  margin: 2rem;
+}
+.follow-list-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  .unfollow-btn {
+    margin-left: auto;
+  }
+}
 .footer {
   position: absolute;
   bottom: 0;

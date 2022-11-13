@@ -32,7 +32,6 @@ export default function User() {
       try {
         let res = await axios.get(url, config);
         setUser(res.data);
-        console.log(res.data);
       } catch (err) {
         if (!err?.response) {
           setError(err);

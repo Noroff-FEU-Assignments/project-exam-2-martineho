@@ -8,6 +8,7 @@ import User from "../../utils/user";
 import Loading from "../../components/ux/Loading";
 import RenderUpdateFrom from "../../components/profile/UpdateForm";
 import ProfilePostList from "../../components/profile/ProfilePostList";
+import Following from "../../components/features/Following";
 
 export default function Profile() {
   const user = User();
@@ -29,7 +30,7 @@ export default function Profile() {
         </div>
         <div className='group'>
           <div className='post-count'> {user._count.posts} posts </div>
-          <Button className='btn-secondary'>Following {user._count.following}</Button>
+          <Following count={user._count.following} />
           <Button className='btn-secondary'>Followers {user._count.followers}</Button>
         </div>
       </div>
