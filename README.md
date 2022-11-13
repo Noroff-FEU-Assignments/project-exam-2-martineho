@@ -17,11 +17,11 @@ v 1.0
 - Yup
 - Sass
 - Axios
-- Icons imported from https://ionic.io/ionicons
-- Fonts imported from https://fonts.google.com
+- [Ionicons](https://ionic.io/ionicons)
+- [Google Fonts](https://fonts.google.com)
 
 #### Components
-- react-time-ago
+- [react-time-ago](https://www.npmjs.com/package/react-time-ago)
 
 ## 👩🏻‍💻 Installation and setup 
 
