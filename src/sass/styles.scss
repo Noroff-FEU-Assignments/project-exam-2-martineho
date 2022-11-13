@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @import "partials/library";
 @import "partials/fonts";
 @import "partials/typography";
@@ -5,6 +7,8 @@
 @import "partials/layout";
 @import "partials/post";
 @import "partials/modal";
+@import "partials/comments";
+
 
 @import "pages/login";
 @import "pages/profile";

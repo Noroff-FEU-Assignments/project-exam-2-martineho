@@ -1,0 +1,24 @@
+.comment-count {
+  margin-bottom: 1rem;
+  font-weight: map.get($font-weight, 'medium');
+}
+.comment-form {
+  padding: 0;
+}
+.comments-list {
+  margin: 1rem 0;
+}
+.comment-header { 
+  color: #444b67;
+  font-size: .9rem;
+  margin-bottom: .6rem;
+  &--owner {
+    font-weight: map.get($font-weight, 'semibold');
+  }
+}
+.comment-body {
+  padding: .8rem;
+  border-radius: 1rem;
+  background-color: #ffecdc;
+  width: fit-content;
+} 

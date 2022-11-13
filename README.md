@@ -20,6 +20,9 @@ v 1.0
 - Icons imported from https://ionic.io/ionicons
 - Fonts imported from https://fonts.google.com
 
+### Components 
+- react-time-ago
+
 ## 👩🏻‍💻 Installation and setup 
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  

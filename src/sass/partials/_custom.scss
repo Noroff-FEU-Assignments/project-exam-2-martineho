@@ -4,6 +4,10 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
 form {
   max-width: 500px;
   padding: 2rem 2.5rem;
