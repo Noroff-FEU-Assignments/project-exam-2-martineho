@@ -1,4 +1,6 @@
 import axios from "axios";
+import React from 'react'
+import ReactTimeAgo from 'react-time-ago'
 import { useState, useEffect } from "react";
 import { useNavigate, useParams  } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
@@ -53,6 +55,8 @@ export default function Post() {
   }
   console.log(post);
 
+  const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
+
   return(
     <Container>
       <button className="back-btn" onClick={() => navigate(-1)}>
@@ -66,7 +70,7 @@ export default function Post() {
         </Col>
         <Col md="12" lg="6" className="post-content">
           <div className="post-content--header">
-            <div className="timestamp">{post.updated}</div>
+            <div className="timestamp">{timeAgo}</div>
           </div>
           <div className="post-content--title">
             <Heading content={post.title}/>
