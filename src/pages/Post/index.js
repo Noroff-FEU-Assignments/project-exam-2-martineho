@@ -59,19 +59,19 @@ export default function Post() {
         <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
       <Row className="post-container">
-        <Col className="col-lg-6">
-          <div className="post-image">
+        <Col md="12" lg="6">
+          {post.media ? <div className="post-image">
             <img src={post.media} alt={post.title} />
-          </div>
+          </div> : <div className="post-quote">{post.body}</div> }
         </Col>
-        <Col className="col-lg-6">
-          <div className="post-header">
+        <Col md="12" lg="6" className="post-content">
+          <div className="post-content--header">
             <div className="timestamp">{post.updated}</div>
           </div>
-          <div className="post-content">
+          <div className="post-content--title">
             <Heading content={post.title}/>
           </div>
-          <div className="post-comments">
+          <div className="post-content--comments">
             <div className="comment-count">
               Comments {post._count.comments}
             </div>

@@ -15,11 +15,11 @@ export default function Dashboard() {
       {new_user ? <WelcomeModal/> : null }
       <main>
         <Row>
-          <Col className="col-lg-9">
+          <Col md="12" lg="10">
             <PostLine />
             <PostList />
           </Col>
-          <Col className="col-lg-3">
+          <Col md="12" lg="2">
             <SubHeading content='People' />
             <ProfileList />
           </Col>
