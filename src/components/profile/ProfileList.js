@@ -7,7 +7,7 @@ import Loading from '../ux/Loading';
 const url = BASE_URL + 'social/profiles';
 
 export default function ProfileList() {
-  const [profileList, setProfileList] = useState(null);
+  const [profileList, setProfileList] = useState([]);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
  

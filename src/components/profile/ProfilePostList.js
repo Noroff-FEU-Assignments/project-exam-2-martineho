@@ -9,7 +9,7 @@ import PostMenu from '../layout/PostMenu';
 const url = BASE_URL + 'social/profiles/' + name + '/posts';
 
 export default function ProfilePostList() {
-  const [postList, setPostList] = useState(null);
+  const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
  
@@ -38,25 +38,26 @@ export default function ProfilePostList() {
 
   if (loading) return <Loading />;
 	if (error) return <div>{}</div>;
-
   let menu = <PostMenu />
 
   return (
     <>
+    {(postList.length == 0) ? <div className='no-posts'>No posts yet 🥺</div> : 
     <div className='post-list'>
       {postList.map((post) => (
-        <PostCard 
-        key={post.id} 
-        title={post.title} 
-        body={post.body} 
-        src={post.media} 
-        comment_count={post._count.comments}
-        created={post.created}
-        menu={menu}
-        href={post.id}
-        />
+          <PostCard 
+          key={post.id} 
+          title={post.title} 
+          body={post.body} 
+          src={post.media} 
+          comment_count={post._count.comments}
+          created={post.created}
+          menu={menu}
+          href={post.id}
+          />
       ))}
     </div>
+    }
     </>
   );
 }
