@@ -6,7 +6,7 @@ export default function PostCard (post) {
 
   return (
     <>
-    <div className="post-card">
+    <a className="post-card" href={`/post/${post.href}`}>
 
       {post.menu}
 
@@ -38,7 +38,7 @@ export default function PostCard (post) {
             </button>
           </div>
       </div>
-    </div>
+    </a>
     </>
   )
 }

@@ -6,6 +6,8 @@
 }
 .post-card {
   width: 32%;
+  text-decoration: none;
+  color: #444b67;
   &:hover .reactions,
   &:hover .post-menu {
     transition: .2s ease;
@@ -150,4 +152,31 @@
   ion-icon {
     margin-right: .4rem;
   }
+}
+.post-container {
+  box-shadow: $box-shadow;
+  border-radius: $box-border-radius;
+  padding: 1.5rem 1rem;
+  width: 95%;
+  float: right;
+  .post-image {
+    width: 100%;
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: $box-border-radius;
+    }
+  }
+  .post-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.back-btn {
+  font-size: 1.8rem;
+  color: #444b67;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: .2rem;
 }

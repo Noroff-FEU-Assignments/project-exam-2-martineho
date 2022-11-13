@@ -53,6 +53,7 @@ export default function ProfilePostList() {
         comment_count={post._count.comments}
         created={post.created}
         menu={menu}
+        href={post.id}
         />
       ))}
     </div>

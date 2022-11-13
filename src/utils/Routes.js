@@ -9,6 +9,7 @@ import Register from "../pages/Register"
 import Profile from "../pages/Profile"
 import PrivateRoutes from './PrivateRoutes';
 import Navigation from '../components/layout/Navigation';
+import Post from '../pages/Post';
 
 export default function AppRoutes () {
   return (
@@ -20,6 +21,7 @@ export default function AppRoutes () {
           <Route path={'*'} element={ < Dashboard /> }></Route>
           <Route path={'/'} element={< Dashboard />}></Route>
           <Route path={'/profile'} element={ < Profile/> }></Route>
+          <Route path="/post/:id" element={<Post />}></Route>
         </Route>
         <Route path={'*'} element={ < Login /> }></Route>
         <Route path='/login' element={< Login />} />

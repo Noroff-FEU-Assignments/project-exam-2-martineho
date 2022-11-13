@@ -8,7 +8,7 @@ import PostCard from './PostCard';
 const url = BASE_URL + 'social/posts?';
 
 export default function PostList() {
-  const [postList, setPostList] = useState(null);
+  const [postList, setPostList] = useState();
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
  
@@ -49,6 +49,7 @@ export default function PostList() {
         src={post.media} 
         comment_count={post._count.comments}
         created={post.created}
+        href={post.id}
         />
       ))}
     </div>
