@@ -133,13 +133,14 @@ export default function Post() {
                 })}
                 </div>
               </Collapse>
+              {post._count.comments ?  
               <Button
                 onClick={() => setOpen(!open)}
                 aria-controls="example-collapse-text"
                 aria-expanded={open}
                 variant="light"
               > <ion-icon name="chevron-down"></ion-icon>
-              </Button>
+              </Button> : '' }
             </div>
           </div>
         </Col>
