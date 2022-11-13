@@ -8,6 +8,7 @@ import { Heading } from "../../components/layout/Headings";
 import Loading from "../../components/ux/Loading";
 import { token } from "../../utils/user";
 import { BASE_URL } from "../../constants/api"
+import Avatar from "../../components/profile/Avatar";
 
 export default function Post() {
   const [post, setPost] = useState([]);
@@ -58,7 +59,7 @@ export default function Post() {
 
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
   const commentsList = post.comments;
-  const sortComments = [...commentsList].reverse();
+  const sortComments = commentsList.reverse();
   const firstComments = sortComments.slice(0, 2);
   const lastComments = sortComments.slice(2, 10);
 
@@ -77,9 +78,7 @@ export default function Post() {
           <div className="post-content--header">
             <a href={`/profiles/${post.author.name}`} 
             className="author">
-              <div className="avatar">
-                <img src={post.author.avatar} alt={post.author.name}/>
-                </div> 
+              <Avatar className='avatar--small' src={post.author.avatar} alt={post.author.name} />
               {post.author.name}
               </a>
             <div className="timeago">Last updated {timeAgo}</div>

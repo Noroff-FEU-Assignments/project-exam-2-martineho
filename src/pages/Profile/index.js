@@ -21,7 +21,7 @@ export default function Profile() {
       {user.banner ? <Banner src={user.banner} alt={user.name} /> : <div className='profile--banner'></div>}
       <div className='profile__header'>
         <div className='group'>
-          {user.avatar ? <Avatar src={user.avatar} alt={user.name} /> 
+          {user.avatar ? <Avatar className='avatar--big' src={user.avatar} alt={user.name} /> 
           : <div className='profile--avatar'><ion-icon name="person"></ion-icon></div> }
           <Heading style={{fontSize: '1.1'}} content={user.name}/>
           <RenderUpdateFrom />

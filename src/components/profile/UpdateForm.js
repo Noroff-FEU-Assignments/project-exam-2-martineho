@@ -107,8 +107,8 @@ function UpdateForm(props) {
                 </Form.Label>
                 <div className='group update-profile'>
                   <div className='input-span'>
-                    {user.avatar ?  <img className='input--avatar' src={user.avatar} alt='a' />
-                      : <div className='input--avatar'><ion-icon name="person"></ion-icon></div> }
+                    {user.avatar ?  <img className='avatar--medium' src={user.avatar} alt='a' />
+                      : <div className='avatar--medium'><ion-icon name="person"></ion-icon></div> }
                   </div>
                   <InputGroup className="" controlid="formAvatar">
                     <InputGroup.Text 

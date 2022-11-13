@@ -10,6 +10,7 @@ import { Button, Container } from 'react-bootstrap';
 import { clearStorage } from '../../utils/storage';
 import User from '../../utils/user';
 import { getUsername } from '../../utils/storage';
+import Avatar from '../profile/Avatar';
 
 export default function Navigation() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function Navigation() {
                 <Nav>
                   <NavLink className='profile-link' to='/profile'>
                     <div className='profile-link--avatar'>
-                      <img src={user.avatar} alt='avatar' />
+                      <Avatar className='avatar--small' src={user.avatar} alt='avatar' />
                     </div>
                     <div className='profile-link--username'>{user.name}</div>
                   </NavLink>

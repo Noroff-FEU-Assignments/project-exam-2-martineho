@@ -42,7 +42,7 @@ export default function ProfilePostList() {
 
   return (
     <>
-    {(postList.length == 0) ? <div className='no-posts'>No posts yet 🥺</div> : 
+    {(postList.length === 0) ? <div className='no-posts'>No posts yet 🥺</div> : 
     <div className='post-list'>
       {postList.map((post) => (
           <PostCard 

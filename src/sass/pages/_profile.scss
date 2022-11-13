@@ -1,3 +1,27 @@
+.avatar {
+  background-color: rgb(234, 238, 241);
+  color:  rgb(195, 202, 206);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50rem;
+  &--big {
+    @extend .avatar;
+    margin: -6rem 0rem 0rem 2rem;
+    max-height: 10rem;
+    min-height: 10rem;
+    width: 10rem;
+    border: solid white .75rem;
+  }
+  &--medium {
+    @extend .avatar; 
+    width: 3rem;
+  }
+  &--small {
+    @extend .avatar;
+    width: 2.3rem;
+  }
+}
 .profile {
   &__header {
     display: flex;
@@ -15,28 +39,6 @@
       object-fit: cover;
     }
   }
-  &--avatar {
-    margin: -6rem 0rem 0rem 2rem;
-    max-height: 10rem;
-    min-height: 10rem;
-    width: 10rem;
-    border-radius: 50rem;
-    border: solid white .75rem;
-    background-color: rgb(234, 238, 241);
-    color:  rgb(195, 202, 206);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 6rem;
-    ion-icon {
-      margin-top: -1rem;
-    }
-    img {
-      @extend .profile--avatar;
-      object-fit: cover;
-      margin: 0;
-    }
-  }
 }
 .profile-posts {
   margin-top: 3rem;
@@ -46,17 +48,6 @@
   margin-left: auto;
 }
 .input {
-  &--avatar {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50rem;
-    background-color: rgb(234, 238, 241);
-    color:  rgb(195, 202, 206);
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   &--banner {
     background: rgb(198,198,254);
     background: linear-gradient(141deg, rgba(198,198,254,1) 0%, rgba(211,224,255,1) 50%, rgba(224,203,242,1) 100%);
