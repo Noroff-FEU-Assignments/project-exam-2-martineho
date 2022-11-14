@@ -1,6 +1,5 @@
 import { Heading } from "../../components/layout/Headings";
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
 import AvatarPlaceholder from "../../components/profile/AvatarPlaceholder";
@@ -9,6 +8,7 @@ import Loading from "../../components/ux/Loading";
 import RenderUpdateFrom from "../../components/profile/UpdateForm";
 import ProfilePostList from "../../components/profile/ProfilePostList";
 import Following from "../../components/features/Following";
+import Followers from "../../components/features/Followers";
 
 export default function Profile() {
   const user = User();
@@ -31,7 +31,7 @@ export default function Profile() {
         <div className='group'>
           <div className='post-count'> {user._count.posts} posts </div>
           <Following count={user._count.following} />
-          <Button className='btn-secondary'>Followers {user._count.followers}</Button>
+          <Followers count={user._count.followers} />
         </div>
       </div>
       <main className="profile-posts">
