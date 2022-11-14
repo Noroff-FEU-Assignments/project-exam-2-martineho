@@ -3,7 +3,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import User from '../../utils/user';
 import { SubHeading } from '../layout/Headings';
 import Avatar from '../profile/Avatar';
 import AvatarPlaceholder from '../profile/AvatarPlaceholder';
@@ -46,7 +45,7 @@ function FollowingList() {
 	if (error) return ( <div>An error occured while fetching the data :(</div> );
 
   return (
-    <> {(following.length === 0) ? <div className='no-posts'>No followers</div> :
+    <> {(following.length === 0) ? <div className='no-posts'>Not following anyone :(</div> :
     <ul className='follow-list'>
       {following && following.map((follow) => (
         <div className='follow-list-item'>  

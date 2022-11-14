@@ -4,3 +4,37 @@
     width: 100%;
   }
 }
+.btn-primary.btn-w-icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .btn-text {
+    margin: auto auto;
+  } 
+  ion-icon {
+    opacity: .7;
+  }
+}
+.create-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 48.2%;
+  height: 8rem;
+  border-radius: $box-border-radius;
+  outline: 0;
+  border: $box-border;
+  border-color: #7259FF50;
+  color: #7259FF;
+  background-color: #7259ff20;
+  opacity: .75;
+  ion-icon {
+    font-size: 2.5rem;
+  }
+  &:hover {
+    transition: .2s ease;
+    opacity: 1;
+  }
+}
