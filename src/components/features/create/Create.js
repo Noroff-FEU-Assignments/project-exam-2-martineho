@@ -29,13 +29,13 @@ function CreateModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton />
       <Modal.Body>
           <Wizard>
             <PageOne />
             <PageTwo />
             <PageThree />
           </Wizard>
+          <Button variant="light" className='skip-modal' onClick={props.onHide}>Cancel</Button>
       </Modal.Body>
     </Modal>
   );

@@ -15,7 +15,7 @@ function Wizard({ children }) {
   };
 
   const toPrevPage = () => {
-    activePageIndex(0);
+    setActivePageIndex(index => index - 1);
   };
 
   const ButtonPrev = () =>

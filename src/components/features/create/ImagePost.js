@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 });
 
 
-export default function ImagePost() {
+export default function ImagePost(props) {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
 
@@ -62,12 +62,19 @@ export default function ImagePost() {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className='form-content'>
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
+      
+      <select 
+      multiple
+      value='inspiration'
+      name='tags'
+      hidden
+      />
+
       <Form.Group>
         <Form.Label>
           <SmHeading 
           content='Title' />
         </Form.Label>
-      
         <InputGroup className="" controlid="formTitle">
           <Form.Control 
             type="text" 
@@ -103,7 +110,7 @@ export default function ImagePost() {
       </Form.Group>
       <div className='group modal-btns'>
           <Button variant="primary" type="submit" className='btn-w-icon'> 
-           <div className='btn-text'>Share </div>
+            <div className='btn-text'>Share </div>
             <ion-icon name="send"></ion-icon>
           </Button>
       </div>

@@ -24,6 +24,7 @@ const schema = yup.object().shape({
 
 export default function TextPost() {
   const errRef = useRef();
+  
   const [errMsg, setErrMsg] = useState('');
 
   const url = BASE_URL + 'social/posts';
