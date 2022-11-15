@@ -47,7 +47,7 @@ function Wizard({ children }) {
         className='create-btn wizard__buttons-right'
         >
           <ion-icon name="create"></ion-icon> 
-          Create
+          Text
       </button>;
 
     return (

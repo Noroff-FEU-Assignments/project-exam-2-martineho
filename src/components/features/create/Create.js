@@ -2,11 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { SubHeading} from '../layout/Headings';
-import BigParagraph from '../layout/Paragraphs';
-import Wizard from '../features/create/Wizard';
-import ImagePost from '../features/create/ImagePost';
-import TextPost from '../features/create/TextPost';
+import { SubHeading} from '../../layout/Headings';
+import BigParagraph from '../../layout/Paragraphs';
+import Wizard from './Wizard';
+import ImagePost from './ImagePost';
+import TextPost from './TextPost';
 
 const PageOne = () => (
   <div>

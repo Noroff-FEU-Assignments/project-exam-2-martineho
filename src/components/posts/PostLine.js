@@ -1,5 +1,5 @@
 import BigParagraph from "../layout/Paragraphs";
-import CreatePost from "./Create";
+import CreatePost from "../features/create/Create";
 
 export default function PostLine () {
   return (
