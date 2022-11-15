@@ -6,7 +6,7 @@ export default function PostCard (post) {
 
   return (
     <>
-    <a className="post-card" href={`/post/${post.href}`}>
+    <div className="post-card" href={`/post/${post.href}`}>
 
       {post.menu}
 
@@ -28,9 +28,9 @@ export default function PostCard (post) {
 
       </div>
       <div className="post-card__content--footer">
-        <div className="post-card__content--text">
+        <a href={`/post/${post.href}`} className="post-card__content--text">
           <XsHeading content={post.title}/>
-        </div>
+        </a>
         <div className="comments">
             <button className="btn-light comment-btn">
               <ion-icon name="chatbox-outline"></ion-icon> 
@@ -38,7 +38,7 @@ export default function PostCard (post) {
             </button>
           </div>
       </div>
-    </a>
+    </div>
     </>
   )
 }

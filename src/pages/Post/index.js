@@ -56,12 +56,8 @@ export default function Post() {
     } getPosts();
 	}, [url]);
   
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <div>An error occured: {error}</div>;
-  }
+  if (loading) { return <Loading />; }
+  if (error) { return <div>An error occured: {error}</div> }
   console.log(post);
 
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;

@@ -106,6 +106,7 @@
   position: absolute;
   opacity: 0;
   align-items: flex-end;
+  z-index: 1000;
 }
 .post-btn {
   background-color: rgba(255, 255, 255, 0.80);

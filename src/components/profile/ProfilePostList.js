@@ -4,7 +4,7 @@ import { BASE_URL } from "../../constants/api";
 import { name, token } from '../../utils/user';
 import Loading from '../ux/Loading';
 import PostCard from '../posts/PostCard';
-import PostMenu from '../layout/PostMenu';
+import PostMenu from '../posts/PostMenu';
 
 const url = BASE_URL + 'social/profiles/' + name + '/posts';
 
@@ -38,7 +38,11 @@ export default function ProfilePostList() {
 
   if (loading) return <Loading />;
 	if (error) return <div>{}</div>;
-  let menu = <PostMenu />
+
+  const menu = (id) => {
+    return (<PostMenu postId={id} />)
+  }
+
 
   return (
     <>
@@ -52,7 +56,7 @@ export default function ProfilePostList() {
           src={post.media} 
           comment_count={post._count.comments}
           created={post.created}
-          menu={menu}
+          menu={menu(post.id)}
           href={post.id}
           />
       ))}

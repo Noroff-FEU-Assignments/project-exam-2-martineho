@@ -7,8 +7,8 @@ import User from "../../utils/user";
 import Loading from "../../components/ux/Loading";
 import RenderUpdateFrom from "../../components/profile/UpdateForm";
 import ProfilePostList from "../../components/profile/ProfilePostList";
-import Following from "../../components/features/Following";
-import Followers from "../../components/features/Followers";
+import Following from "../../components/features/follows/Following";
+import Followers from "../../components/features/follows/Followers";
 
 export default function Profile() {
   const user = User();
