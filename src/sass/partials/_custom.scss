@@ -34,6 +34,13 @@ form {
   border-radius: 0;
   font-size: 1.2rem;
 }
+.input-group-text.input-span--textarea {
+  align-items: flex-start;
+  padding-top: 1.1rem;
+}
+#formTextarea {
+    color: gray;
+}
 .form-control {
   background-color: transparent;
   border: none;

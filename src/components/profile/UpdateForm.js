@@ -113,7 +113,7 @@ function UpdateForm(props) {
                   <SmHeading 
                     content='Avatar' />
                 </Form.Label>
-                <div className='group update-profile'>
+                <div className='group form-group'>
                   <div className='input-span'>
                     {user.avatar ?  <img className='avatar--medium' src={user.avatar} alt='a' />
                       : <div className='avatar--medium'><ion-icon name="person"></ion-icon></div> }
