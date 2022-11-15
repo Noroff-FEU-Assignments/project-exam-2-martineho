@@ -41,8 +41,8 @@ function CreateModal(props) {
 
 const schema = yup.object().shape({
   title: yup.string()
-  .max(30)
-  .min(3)
+  .max(60, 'Your title is too long. Maximum 60 characters.')
+  .min(3, 'Please make a title with at least 3 characters.')
   .required('Please provide a title for your post!'),
   media: yup.string()
   .required('You need to fill inn a image url.')

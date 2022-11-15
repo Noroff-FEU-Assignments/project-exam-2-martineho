@@ -17,11 +17,19 @@ const url = BASE_URL + 'social/profiles/' + name + '/media';
 
 const schema = yup.object().shape({
   avatar: yup.string()
-  .nullable(true)
-  .matches("[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$", "You need to fill in a valid image url."),
+  .matches('[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$', {
+    excludeEmptyString: true,
+    message: 'You need to fill in a valid image url',
+  })
+  .min(0)
+  .nullable(true),
   banner: yup.string()
-  .nullable(true)
-  .matches("[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$", "You need to fill in a valid image url."),
+  .matches('[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$', {
+    excludeEmptyString: true,
+    message: 'You need to fill in a valid image url',
+  })
+  .min(0)
+  .nullable(true),
 });
 
 function UpdateForm(props) {
