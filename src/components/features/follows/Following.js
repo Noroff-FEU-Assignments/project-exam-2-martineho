@@ -3,35 +3,35 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { SubHeading } from '../layout/Headings';
-import Avatar from '../profile/Avatar';
-import AvatarPlaceholder from '../profile/AvatarPlaceholder';
-import { token, name } from '../../utils/user';
-import { BASE_URL } from '../../constants/api';
-import Loading from '../ux/Loading';
+import { SubHeading } from '../../layout/Headings';
+import Avatar from '../../profile/Avatar';
+import AvatarPlaceholder from '../../profile/AvatarPlaceholder';
+import { token, name } from '../../../utils/user';
+import { BASE_URL } from '../../../constants/api';
+import Loading from '../../ux/Loading';
 
 const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
 
-function FollowersList() {
-  const [followers, setFollowers] = useState();
+function FollowingList() {
+  const [following,setFollowing] = useState();
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchFollowers();
+    fetchFollowing();
   }, [])
   useEffect(() => {
-    console.log(followers)
-  }, [followers])
+    console.log(following)
+  }, [following])
 
-  const fetchFollowers = async () => {
+  const fetchFollowing = async () => {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`
     }}
     try {
       const response = await axios.get(url, config);
-      setFollowers(response.data.followers) 
+      setFollowing(response.data.following) 
     } catch (err) {
       if (!err?.response) {
         setError(err);
@@ -45,10 +45,9 @@ function FollowersList() {
 	if (error) return ( <div>An error occured while fetching the data :(</div> );
 
   return (
-    <>
-    {(followers.length === 0) ? <div className='no-posts'>No followers</div> :
+    <> {(following.length === 0) ? <div className='no-posts'>Not following anyone :(</div> :
     <ul className='follow-list'>
-      {followers && followers.map((follow) => (
+      {following && following.map((follow) => (
         <div className='follow-list-item'>  
           
           {follow.avatar ? 
@@ -58,13 +57,13 @@ function FollowersList() {
           <div>{follow.name}</div>
           <Button className='unfollow-btn' variant='secondary'>Unfollow</Button>
         </div>
-      ))} 
+      ))}
     </ul> }
   </>
   )
 }
 
-function FollowersModal(props) {
+function FollowingModal(props) {
   return (
     <Modal
       {...props}
@@ -74,23 +73,23 @@ function FollowersModal(props) {
     >
       <Modal.Header closeButton />
       <Modal.Body>
-          <SubHeading content='Followers' />
-          <FollowersList />
+          <SubHeading content='Following' />
+          <FollowingList />
       </Modal.Body>
     </Modal>
   );
 }
 
-export default function Followers(followers) {
+export default function Following(following) {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <>
-      <Button id='followers-btn' className='btn-secondary' onClick={() => setModalShow(true)}>
-        Followers {followers.count}
+      <Button id='following-btn' className='btn-secondary' onClick={() => setModalShow(true)}>
+        Following {following.count}
       </Button>
 
-      <FollowersModal
+      <FollowingModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
