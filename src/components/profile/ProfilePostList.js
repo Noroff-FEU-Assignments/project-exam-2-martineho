@@ -1,27 +1,41 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from "../../constants/api";
-import { name, token } from '../../utils/user';
+import { token } from '../../utils/user';
 import Loading from '../ux/Loading';
 import PostCard from '../posts/PostCard';
 import PostMenu from '../posts/PostMenu';
 
-const url = BASE_URL + 'social/profiles/' + name + '/posts';
-
-export default function ProfilePostList() {
+export default function ProfilePostList(name) {
+  name = name.name;
+  const [authenticated, setAuthenticated] = useState(false);
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
- 
-  useEffect(function () {
+  const loggedIn = JSON.parse(localStorage.getItem('user_name'));
+  const url = BASE_URL + 'social/profiles/' + name + '/posts';
 
+  useEffect(() => {
+    if (loggedIn === name) {
+      setAuthenticated(true);
+    }
+  }, [loggedIn, name]);
+
+  const menu = (id) => {
+    if (authenticated) {
+      return (<PostMenu postId={id} />)
+    } else {
+      return ''
+    }
+  }
+
+  useEffect(function () {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }
-
-		async function getPosts() {
+		async function fetchPosts() {
       try {
         let res = await axios.get(url, config);
         console.log(res.data);
@@ -33,16 +47,11 @@ export default function ProfilePostList() {
       } finally {
           setLoading(false);
       }
-    } getPosts();
-	}, []);
+    } fetchPosts();
+	}, [url]);
 
   if (loading) return <Loading />;
-	if (error) return <div>{}</div>;
-
-  const menu = (id) => {
-    return (<PostMenu postId={id} />)
-  }
-
+	if (error) return <div>{'An error occured while fetching the data :('}</div>;
 
   return (
     <>

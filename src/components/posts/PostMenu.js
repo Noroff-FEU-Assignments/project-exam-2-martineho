@@ -6,7 +6,6 @@ import { BASE_URL } from "../../constants/api";
 export default function PostMenu(postId) { 
   const id = postId.postId;
   const url = BASE_URL + 'social/posts/' + id;
-  console.log(url);
 
 		async function doDelete(e) {
       const config = {

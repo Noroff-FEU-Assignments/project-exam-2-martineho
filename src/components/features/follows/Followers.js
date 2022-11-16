@@ -6,10 +6,11 @@ import Modal from 'react-bootstrap/Modal';
 import { SubHeading } from '../../layout/Headings';
 import Avatar from '../../profile/Avatar';
 import AvatarPlaceholder from '../../profile/AvatarPlaceholder';
-import { token, name } from '../../../utils/user';
+import { token } from '../../../utils/user';
 import { BASE_URL } from '../../../constants/api';
 import Loading from '../../ux/Loading'
 
+const name = localStorage.getItem('profile_name');
 const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
 
 function FollowersList() {
@@ -49,7 +50,7 @@ function FollowersList() {
     {(followers.length === 0) ? <div className='no-posts'>No followers</div> :
     <ul className='follow-list'>
       {followers && followers.map((follow) => (
-        <a className='follow-list-item' href={`/profiles/${follow.name}`}>  
+        <a key={follow.name} className='follow-list-item' href={`/profiles/${follow.name}`}>  
           
           {follow.avatar ? 
             <Avatar className='avatar--medium' src={follow.avatar} alt='avatar' /> 

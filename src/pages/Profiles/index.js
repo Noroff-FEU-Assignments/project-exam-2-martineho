@@ -29,6 +29,7 @@ export default function ProfilePage() {
   }
 
   const url = BASE_URL + `social/profiles/${name}?_comments=true&_author=true`;
+  localStorage.setItem('profile_name', name);
 
   useEffect(function () {
 
@@ -38,7 +39,7 @@ export default function ProfilePage() {
       }
     }
 
-		async function getPosts() {
+		async function fetchUser() {
       try {
         let res = await axios.get(url, config);
         console.log(res.data);
@@ -50,7 +51,7 @@ export default function ProfilePage() {
       } finally {
           setLoading(false);
       }
-    } getPosts();
+    } fetchUser();
 	}, [url]);
   
   if (loading) { return <Loading />; }
@@ -75,7 +76,7 @@ export default function ProfilePage() {
         </div>
       </div>
       <main className="profile-posts">
-        <ProfilePostList />
+        <ProfilePostList name={user.name} />
       </main>
     </Container>
     </>
