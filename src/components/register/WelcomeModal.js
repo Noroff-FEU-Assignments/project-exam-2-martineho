@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {Paragraph} from '../layout/Paragraphs';
-import { Heading, SmHeading, SubHeading } from '../layout/Headings';
+import { Heading } from '../layout/Headings';
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 import { BASE_URL } from '../../constants/api';

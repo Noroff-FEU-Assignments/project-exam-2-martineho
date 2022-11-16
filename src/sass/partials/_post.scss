@@ -14,7 +14,8 @@
     width: 100%;
   } 
   &:hover .reactions,
-  &:hover .post-menu {
+  &:hover .post-menu,
+  &:hover .tag {
     transition: .2s ease;
     opacity: 1;
   }
@@ -69,14 +70,15 @@
   }
 }
 .tag {
-  background-color: #7259FF;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.80);
   font-size: .85rem;
   padding: .2rem .6rem;
   border-radius: 50rem;
   position: absolute;
   margin-top: .7rem;
   margin-left: .7rem;
+  font-weight: map.get($font-weight, 'semibold');
+  opacity: 0;
 }
 .reactions {
   background-color: rgba(255, 255, 255, 0.80);

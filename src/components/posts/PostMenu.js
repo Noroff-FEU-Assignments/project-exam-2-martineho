@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { token } from "../../utils/user";
 import { BASE_URL } from "../../constants/api";
+import UpdatePost from "../features/update/UpdatePost";
 
 export default function PostMenu(postId) { 
   const id = postId.postId;
@@ -25,7 +26,7 @@ export default function PostMenu(postId) {
 
   return (
     <div className='post-menu'>
-      <button className="post-btn edit" ><ion-icon name="create"></ion-icon></button>
+      <UpdatePost />
       <button onClick={doDelete} className="post-btn delete" ><ion-icon name="trash"></ion-icon></button>
     </div>
   );

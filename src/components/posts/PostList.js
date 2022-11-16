@@ -5,7 +5,7 @@ import { token } from '../../utils/user';
 import Loading from '../ux/Loading';
 import PostCard from './PostCard';
 
-const url = BASE_URL + 'social/posts?';
+const url = BASE_URL + 'social/posts?_author=true';
 
 export default function PostList() {
   const [postList, setPostList] = useState([]);
@@ -50,6 +50,7 @@ export default function PostList() {
         comment_count={post._count.comments}
         created={post.created}
         href={post.id}
+        author={post.author.name}
         />
       ))}
     </div>

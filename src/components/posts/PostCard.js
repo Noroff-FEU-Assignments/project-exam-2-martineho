@@ -14,7 +14,7 @@ export default function PostCard (post) {
         <ReactionForm />
       </div>
 
-      {post.src ? '' : <div className="tag"> Quote </div> }
+      <div className="tag">{post.author}</div>
 
       <div className="post-card__content">
 
