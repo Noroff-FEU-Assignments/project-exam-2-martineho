@@ -43,7 +43,7 @@ export default function Navigation() {
                   <NavLink className='nav-link' to='/'>People</NavLink>
                 </Nav>
                 <Nav>
-                  <NavLink className='profile-link' to='/profile'>
+                  <NavLink className='profile-link' to='/my-profile'>
                     {user.avatar ? <Avatar className='avatar--small' src={user.avatar} alt='avatar' /> 
                     : <AvatarPlaceholder className='avatar-placeholder--small' /> }
                     <div className='profile-link--username'>{user.name}</div>

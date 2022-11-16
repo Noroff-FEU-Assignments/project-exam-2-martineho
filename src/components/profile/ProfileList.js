@@ -41,14 +41,14 @@ export default function ProfileList() {
     <>
     <div className='profile-list'>
       {profileList.map((user) => (
-        <div key={user.name} className='profile-item'>
+        <a key={user.name} className='profile-item' href={`/profiles/${user.name}`}>
           {user.avatar ? 
           <img className='profile-item--avatar' src={user.avatar} alt={user.name} /> : 
             <div className='profile-item--avatar'>
              <ion-icon name="person"></ion-icon>
             </div> }
           <div className='profile-item--name'>{user.name}</div>
-        </div> 
+        </a> 
       ))}
     </div>
     </>
