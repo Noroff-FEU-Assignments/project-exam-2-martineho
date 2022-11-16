@@ -15,6 +15,28 @@
     opacity: .7;
   }
 }
+.nav-button {
+  color:  #7259FF;
+  background-color: #7259ff20;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-size: 1.4rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border-radius: $box-border-radius;
+  &:hover {
+    background-color: #7259ff50;
+  }
+  &--logout {
+    @extend .nav-button;
+    background-color: transparent;
+    color: #7259FF;
+  }
+}
 .create-btn {
   display: flex;
   flex-direction: column;

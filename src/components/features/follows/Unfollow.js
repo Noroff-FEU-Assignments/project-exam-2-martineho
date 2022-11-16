@@ -1,9 +1,11 @@
 import axios from "axios";
-import { token } from "../../utils/user";
-import { BASE_URL } from "../../constants/api";
+import React from "react";
+import { token } from "../../../utils/user";
+import { BASE_URL } from "../../../constants/api";
+import Button from "react-bootstrap/Button"
 
 export default function Unfollow(name) { 
-  const name = 'a users name here';
+  name = name.name;
   const url = BASE_URL + 'social/profiles/' + name + '/unfollow';
   console.log(url);
 
@@ -14,11 +16,14 @@ export default function Unfollow(name) {
       }
     }
     try {
-      let res = await axios.delete(url, config);
+      let res = await axios.put(url, config);
       console.log(res);
       alert('You have unfollowed Kim');
     } catch (err) {
       alert('An error occured');
     } 
-  } doUnfollow ();
+  } 
+  return (
+    <Button className='unfollow-btn' variant='secondary' onClick={doUnfollow} >Unfollow</Button>
+  )
 }

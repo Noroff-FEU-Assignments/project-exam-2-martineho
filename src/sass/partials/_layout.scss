@@ -39,25 +39,11 @@ main {
     }
     
   }
-  .nav-link {
-    &--logout {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: rgb(227, 234, 240);
-      border: none;
-      font-size: 1.15rem;
-      margin-left: 1.2rem;
-      color: black;
-      &:hover {
-        @extend .nav-link--logout;
-      }
-    }
-  }
 }
 .navbar-nav {
   display: flex;
   align-items: center;
+  gap: 1.2rem;
 }
 .non-auth-nav {
   margin-left: auto;
@@ -71,8 +57,11 @@ main {
   display: flex;
   gap: 1rem;
   align-items: center;
-  .unfollow-btn {
-    margin-left: auto;
+  justify-content: space-between;
+  &--link {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
   }
 }
 .footer {

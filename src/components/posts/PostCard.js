@@ -2,8 +2,8 @@ import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
 import ReactionForm from "./ReactionForm";
 
-export default function PostCard (post) {
 
+export default function PostCard (post) {
   return (
     <>
     <div className="post-card" href={`/post/${post.href}`}>
@@ -23,7 +23,7 @@ export default function PostCard (post) {
             <img src={post.src} alt={post.alt} />
           </div> 
         : <div className="post-card__content--text">
-            <Paragraph content={post.body} />
+            <Paragraph content={FormattedBody(post)} />
           </div> }
 
       </div>
@@ -40,5 +40,13 @@ export default function PostCard (post) {
       </div>
     </div>
     </>
+  )
+}
+
+const FormattedBody = (post) => {
+  let bodyText = post.body;
+  let shortenBody = bodyText.slice(0, 80);
+  return (
+    shortenBody
   )
 }

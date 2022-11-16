@@ -46,9 +46,9 @@ export default function CreatePost() {
 
   return (
     <>
-      <Button id='create-post-btn' className='primary' onClick={() => setModalShow(true)}>
-        Create post
-      </Button>
+      <button id='create-post-btn' className='nav-button' onClick={() => setModalShow(true)}>
+        <ion-icon name="add"></ion-icon>
+      </button>
 
       <CreateModal
         show={modalShow}

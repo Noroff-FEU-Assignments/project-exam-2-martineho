@@ -9,6 +9,7 @@ import AvatarPlaceholder from '../../profile/AvatarPlaceholder';
 import { token } from '../../../utils/user';
 import { BASE_URL } from '../../../constants/api';
 import Loading from '../../ux/Loading';
+import Unfollow from './Unfollow';
 
 const name = localStorage.getItem('profile_name');
 const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
@@ -49,15 +50,18 @@ function FollowingList() {
     <> {(following.length === 0) ? <div className='no-posts'>Not following anyone :(</div> :
     <ul className='follow-list'>
       {following && following.map((follow) => (
-        <a key={follow.name} className='follow-list-item' href={`/profiles/${follow.name}`}>  
-          
-          {follow.avatar ? 
-            <Avatar className='avatar--medium' src={follow.avatar} alt='avatar' /> 
-            : <AvatarPlaceholder className='avatar-placeholder--medium' /> }
+        <div key={follow.name} className='follow-list-item'> 
+
+          <a className='follow-list-item--link' href={`/profiles/${follow.name}`}>
+            {follow.avatar ? 
+              <Avatar className='avatar--medium' src={follow.avatar} alt='avatar' /> 
+              : <AvatarPlaceholder className='avatar-placeholder--medium' /> }
             
-          <div>{follow.name}</div>
-          <Button className='unfollow-btn' variant='secondary'>Unfollow</Button>
-        </a>
+            <div>{follow.name}</div>
+          </a>
+
+          <Unfollow name={follow.name} />
+        </div>
       ))}
     </ul> }
   </>

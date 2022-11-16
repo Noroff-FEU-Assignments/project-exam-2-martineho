@@ -6,13 +6,14 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { Button, Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import { clearStorage } from '../../utils/storage';
 import User from '../../utils/user';
 import { getUsername } from '../../utils/storage';
 import { name } from '../../utils/user';
 import Avatar from '../profile/Avatar';
 import AvatarPlaceholder from '../profile/AvatarPlaceholder';
+import CreatePost from '../features/create/Create';
 
 export default function Navigation() {
   const navigate = useNavigate();
@@ -48,14 +49,15 @@ export default function Navigation() {
                   <NavLink className='nav-link' to='/'>People</NavLink>
                 </Nav>
                 <Nav>
+                  <CreatePost />
                   <NavLink className='profile-link' to={`/profiles/${loggedIn.name}`}>
                     {user.avatar ? <Avatar className='avatar--small' src={user.avatar} alt='avatar' /> 
                     : <AvatarPlaceholder className='avatar-placeholder--small' /> }
                     <div className='profile-link--username'>{user.name}</div>
                   </NavLink>
-                  <Button id='logout-btn' className='nav-link--logout' onClick={logout}>
+                  <button className='nav-button--logout' onClick={logout}>
                     <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
-                  </Button>
+                  </button>
                 </Nav>
               </Navbar.Collapse> }
               {!authenticated && 

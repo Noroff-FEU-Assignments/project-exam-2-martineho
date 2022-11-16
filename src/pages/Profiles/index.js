@@ -14,11 +14,14 @@ import RenderUpdateFrom from "../../components/profile/UpdateForm";
 import ProfilePostList from "../../components/profile/ProfilePostList";
 import Following from "../../components/features/follows/Following";
 import Followers from "../../components/features/follows/Followers";
+import Follow from "../../components/features/follows/Follow";
 
 export default function ProfilePage() {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
+  const loggedIn = JSON.parse(localStorage.getItem('user_name'));
  
   let navigate = useNavigate();
  
@@ -28,17 +31,21 @@ export default function ProfilePage() {
    navigate.push("/");
   }
 
+  useEffect(() => {
+    if (loggedIn === name) {
+      setAuthenticated(true);
+    }
+  }, [loggedIn, name]);
+
   const url = BASE_URL + `social/profiles/${name}?_comments=true&_author=true`;
   localStorage.setItem('profile_name', name);
 
   useEffect(function () {
-
     const config = {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }
-
 		async function fetchUser() {
       try {
         let res = await axios.get(url, config);
@@ -67,12 +74,13 @@ export default function ProfilePage() {
           {user.avatar ? <Avatar className='avatar--big' src={user.avatar} alt='avatar' /> 
             : <AvatarPlaceholder className='avatar-placeholder--big' /> }
           <Heading style={{fontSize: '1.1'}} content={user.name}/>
-          <RenderUpdateFrom />
+          {authenticated ? <RenderUpdateFrom /> : null}
         </div>
         <div className='group'>
           <div className='post-count'> {user._count.posts} posts </div>
           <Following count={user._count.following} />
           <Followers count={user._count.followers} />
+          {!authenticated ? <Follow name={user.name} /> : null }
         </div>
       </div>
       <main className="profile-posts">

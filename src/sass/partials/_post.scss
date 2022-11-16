@@ -7,12 +7,17 @@
 .post-card {
   width: 32%;
   color: #444b67;
+  @media (max-width: 1400px) {
+    width: 48.5%;
+  }  
+  @media (max-width: 777px) {
+    width: 100%;
+  } 
   &:hover .reactions,
   &:hover .post-menu {
     transition: .2s ease;
     opacity: 1;
   }
-  
   &:hover {
     transition: .2s ease-in-out;
     scale: 1.01;
@@ -36,7 +41,7 @@
     align-items: center;
     box-shadow: $box-shadow;
     border-radius: $box-border-radius;
-    background-color: #402EA4;
+    background-color: #1b1d1e;
     color: white;
     height: fit-content;
     gap: 1rem;
