@@ -58,8 +58,8 @@ function LoginForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
-
+    <>
+      <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
       <SubHeading content='Sign in' />
 
@@ -100,8 +100,9 @@ function LoginForm() {
       <Button variant="primary" type="submit" className='btn--submit'>
         Sign in
       </Button>
-      
-    </Form>
+
+      </Form>
+    </>
   );
 }
 export default LoginForm;

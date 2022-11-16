@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import BigParagraph from '../layout/Paragraphs';
-import { Heading } from '../layout/Headings';
+import {Paragraph} from '../layout/Paragraphs';
+import { Heading, SmHeading, SubHeading } from '../layout/Headings';
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 import { BASE_URL } from '../../constants/api';
@@ -67,56 +67,72 @@ export default function WelcomeModal() {
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        id='welcome-modal'
       >
         {successMsg}
         {!hideForm ? 
         <Modal.Body>        
           <Form onSubmit={onSubmit}>
-          <Heading content='Welcome to Substance!'/>
-          <BigParagraph content='Show people  who you are by adding an avatar and banner to your profile. '/>
-        
+          
+          <div className='introduction'>
+            <Heading content={`Hi ${name},`} />
+            <Heading content={`welcome to aesocial 👋`} />
+            <Paragraph content={`Show people  who you are by adding a banner and avatar to your profile.`} />
+          </div>
+          
           <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
 
-            <Form.Group className='form-content'>
-              <Form.Group>
-                <Form.Label>Profile picture</Form.Label>
-                <InputGroup className="" controlid="formAvatar">
-                  <InputGroup.Text 
-                    className='input-span'>
-                      <ion-icon name="person-circle-outline"></ion-icon>
-                  </InputGroup.Text>
-                  <Form.Control 
-                    ref={avatarRef}
-                    type="url" 
-                    placeholder="https://" 
-                    name='avatar'
-                    pattern="(https?:\/\/.*\.(?:png|jpg))"
-                    />
-                  </InputGroup>
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Banner</Form.Label>
+          <Form.Group className='form-content'>
+
+            <Form.Group>
+                
+                <div className='input-header'>
+                  <div className='input--banner'></div>
+                </div>
                 <InputGroup className="" controlid="formBanner">
                   <InputGroup.Text 
                     className='input-span'>
-                      <ion-icon name="image-outline"></ion-icon>
+                      <ion-icon name="link-outline"></ion-icon>
                   </InputGroup.Text>
                   <Form.Control 
                     ref={bannerRef}
                     type="url" 
-                    placeholder="https://" 
+                    placeholder="Paste image url" 
                     name='banner'
                     pattern="(https?:\/\/.*\.(?:png|jpg))"
                   />
                 </InputGroup>
               </Form.Group>
+
+              <Form.Group>
+              
+                  <div className='group form-group'>
+                    <div className='input-header'>
+                      <div className='avatar--medium'><ion-icon name="person"></ion-icon></div>
+                    </div>
+                  <InputGroup className="" controlid="formAvatar">
+                  <InputGroup.Text 
+                    className='input-span'>
+                      <ion-icon name="link-outline"></ion-icon>
+                  </InputGroup.Text>
+                  <Form.Control 
+                    ref={avatarRef}
+                    type="url" 
+                    placeholder="Paste image url" 
+                    name='avatar'
+                    pattern="(https?:\/\/.*\.(?:png|jpg))"
+                    />
+                  </InputGroup>
+                </div>
+              </Form.Group>
+
             </Form.Group>
 
             <Button variant="primary" type="submit" className='btn--submit'>
               Save
             </Button>
           </Form>
-          <Button className='skip-modal' onClick={handleClose}>Skip this for now</Button>
+          <button className='skip-modal' onClick={handleClose}>Skip this for now</button>
         </Modal.Body> : null }
       </Modal>
     </>

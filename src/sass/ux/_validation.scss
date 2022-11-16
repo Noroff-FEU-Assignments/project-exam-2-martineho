@@ -15,5 +15,19 @@
 }
 
 .success-msg {
-  padding: 2rem;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  #close {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    ion-icon {
+      font-size: 1.2rem;
+      margin-top: .1rem;
+    }
+  }
 }

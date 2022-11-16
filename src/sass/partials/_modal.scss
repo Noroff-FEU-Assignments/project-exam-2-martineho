@@ -1,6 +1,20 @@
 .skip-modal {
   width: fit-content;
+  background-color: transparent;
+  border-radius: $box-border-radius;
+  border: none;
+  outline: none;
+  color: rgb(128, 130, 142);
+  &:hover {
+    color: #444b67;
+  }
 }
 .modal-btns {
   flex-wrap: nowrap;
+}
+#welcome-modal { 
+  .introduction {
+    margin-bottom: 2rem;
+    margin-top: .5rem;
+  }
 }

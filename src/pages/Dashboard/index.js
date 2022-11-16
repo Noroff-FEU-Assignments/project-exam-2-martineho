@@ -12,7 +12,7 @@ export default function Dashboard() {
   return (
     <>
     <Container>
-      {new_user ? <WelcomeModal/> : null }
+      {new_user ? <WelcomeModal /> : null }
       <main>
         <Row>
           <Col md="12" lg="10">
