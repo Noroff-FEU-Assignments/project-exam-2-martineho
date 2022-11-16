@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { SubHeading} from '../../layout/Headings';
+import { SmHeading, SubHeading} from '../../layout/Headings';
 import { Paragraph } from '../../layout/Paragraphs';
 import Wizard from './Wizard';
 import ImagePost from './ImagePost';
@@ -10,8 +10,7 @@ import TextPost from './TextPost';
 
 const PageOne = () => (
   <div className='introduction'>
-    <SubHeading content='Share' />
-    <Paragraph content="What's on your mind today?" />
+    <SmHeading content='What do you want to share today?' />
   </div>
 )
 const PageTwo = () => (
@@ -29,13 +28,13 @@ function CreateModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+      <Button variant="light" className='skip-modal' onClick={props.onHide}>X</Button>
       <Modal.Body>
           <Wizard>
             <PageOne />
             <PageTwo />
             <PageThree />
           </Wizard>
-          <Button variant="light" className='skip-modal' onClick={props.onHide}>Cancel</Button>
       </Modal.Body>
     </Modal>
   );

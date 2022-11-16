@@ -18,6 +18,9 @@ import Follow from "../../components/features/follows/Follow";
 
 export default function ProfilePage() {
   const [user, setUser] = useState([]);
+  const [postsCount, setPostsCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
+  const [followerCount, setFollowerCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
@@ -35,7 +38,7 @@ export default function ProfilePage() {
     }
   }, [loggedIn, name]);
 
-  const url = BASE_URL + `social/profiles/${name}?_comments=true&_author=true`;
+  const url = BASE_URL + `social/profiles/${name}?_comments=true&_author=true&_following=true&_followers=true`;
   localStorage.setItem('profile_name', name);
 
   useEffect(function () {
@@ -49,6 +52,9 @@ export default function ProfilePage() {
         let res = await axios.get(url, config);
         console.log(res.data);
         setUser(res.data);
+        setFollowingCount(res.data._count.following);
+        setFollowerCount(res.data._count.followers);
+        setPostsCount(res.data._count.posts);
       } catch (err) {
         if (!err?.response) {
           setError(err)       
@@ -61,7 +67,6 @@ export default function ProfilePage() {
   
   if (loading) { return <Loading />; }
   if (error) { return <div>An error occured: {error}</div> }
-  console.log(user);
 
   return(
     <>
@@ -75,9 +80,9 @@ export default function ProfilePage() {
           {authenticated ? <RenderUpdateFrom /> : null}
         </div>
         <div className='group'>
-          <div className='post-count'> {user._count.posts} posts </div>
-          <Following count={user._count.following} />
-          <Followers count={user._count.followers} />
+          <div className='post-count'> {postsCount} posts </div>
+          <Following count={followingCount} />
+          <Followers count={followerCount} />
           {!authenticated ? <Follow name={user.name} /> : null }
         </div>
       </div>

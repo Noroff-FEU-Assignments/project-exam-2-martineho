@@ -15,7 +15,7 @@ const name = localStorage.getItem('profile_name');
 const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
 
 function FollowingList() {
-  const [following,setFollowing] = useState();
+  const [following, setFollowing] = useState();
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
