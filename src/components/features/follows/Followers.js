@@ -49,7 +49,7 @@ function FollowersList() {
     {(followers.length === 0) ? <div className='no-posts'>No followers</div> :
     <ul className='follow-list'>
       {followers && followers.map((follow) => (
-        <div className='follow-list-item'>  
+        <a className='follow-list-item' href={`/profiles/${follow.name}`}>  
           
           {follow.avatar ? 
             <Avatar className='avatar--medium' src={follow.avatar} alt='avatar' /> 
@@ -57,7 +57,7 @@ function FollowersList() {
             
           <div>{follow.name}</div>
           <Button className='unfollow-btn' variant='secondary'>Unfollow</Button>
-        </div>
+        </a>
       ))} 
     </ul> }
   </>
