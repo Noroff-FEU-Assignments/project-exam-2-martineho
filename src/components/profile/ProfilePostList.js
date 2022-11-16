@@ -50,8 +50,8 @@ export default function ProfilePostList(name) {
     } fetchPosts();
 	}, [url]);
 
-  if (loading) return <Loading />;
-	if (error) return <div>{'An error occured while fetching the data :('}</div>;
+  if (loading) return ( <Loading /> );
+	if (error) return ( <div>{'An error occured while fetching the data :('}</div> );
 
   return (
     <>

@@ -24,9 +24,7 @@ export default function ProfilePage() {
   const loggedIn = JSON.parse(localStorage.getItem('user_name'));
  
   let navigate = useNavigate();
- 
   const { name } = useParams();
- 
   if (!name) {
    navigate.push("/");
   }
