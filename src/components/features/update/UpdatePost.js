@@ -24,7 +24,6 @@ const schema = yup.object().shape({
   .matches("[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$", "You need to fill in a valid image url."),
 });
 
-
 function UpdatePostModal(props) {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');

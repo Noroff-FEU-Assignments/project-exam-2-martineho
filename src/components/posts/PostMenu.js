@@ -4,9 +4,10 @@ import { token } from "../../utils/user";
 import { BASE_URL } from "../../constants/api";
 import UpdatePost from "../features/update/UpdatePost";
 
+const url = BASE_URL + 'social/posts/';
+
 export default function PostMenu(postId) { 
   const id = postId.postId;
-  const url = BASE_URL + 'social/posts/' + id;
 
 		async function doDelete(e) {
       const config = {
@@ -16,7 +17,7 @@ export default function PostMenu(postId) {
       }
 
       try {
-        let res = await axios.delete(url, config);
+        let res = await axios.delete(url + id, config);
         console.log(res);
         alert('Your post has been deleted');
       } catch (err) {
