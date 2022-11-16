@@ -44,6 +44,7 @@ export default function TextPost() {
       let res = await axios.post(url, data, config);
       console.log(res);
       alert('updated content');
+      window.location.reload();
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
