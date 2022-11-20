@@ -41,6 +41,17 @@ export default function UpdatePostModal(postid) {
   const titleRef = useRef(post.title);
   const bodyRef = useRef(post.body);
 
+  let schema = '';
+  if (!post.media) {
+    schema = textSchema;
+  } else {
+    schema = mediaSchema;
+  }
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   useEffect(function () {
     const config = {
       headers: {
@@ -59,17 +70,6 @@ export default function UpdatePostModal(postid) {
       }
     } getPost();
 	}, [url, id]);
-
-  let schema = '';
-  if (!post.media) {
-    schema = textSchema;
-  } else {
-    schema = mediaSchema;
-  }
-
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema),
-  });
 
   async function onSubmit(data) {
     const config = {
