@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useState } from "react";
-import UpdatePost from "../features/update/UpdatePost";
 import { BASE_URL } from '../../constants/api';
 import { token } from '../../utils/user';
 import { SmHeading } from '../layout/Headings';
 import { Button } from 'react-bootstrap';
+import UpdatePostModal from '../features/update/UpdatePost';
 
 const url = BASE_URL + 'social/posts/';
 
@@ -30,7 +30,7 @@ export default function PostMenu(postId) {
   return (
     <>
     <div className='post-menu'>
-      <UpdatePost />
+      <UpdatePostModal postid={id} />
       <button className="post-btn delete" onClick={() => setValMsg(true)}>
         <ion-icon name="trash"></ion-icon>
       </button>
