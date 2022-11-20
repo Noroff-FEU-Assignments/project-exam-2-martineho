@@ -43,7 +43,6 @@ export default function TextPost() {
     try {
       let res = await axios.post(url, data, config);
       console.log(res);
-      alert('updated content');
       window.location.reload();
     } catch (err) {
       if (!err?.response) {

@@ -12,6 +12,7 @@ import { BASE_URL } from '../../constants/api';
 import { name, token } from '../../utils/user';
 import User from '../../utils/user';
 import { SmHeading, SubHeading } from '../layout/Headings';
+import ValidationMsg from '../ux/ValidationMsg';
 
 const url = BASE_URL + 'social/profiles/' + name + '/media';
 
@@ -36,8 +37,13 @@ function UpdateForm(props) {
   const user = User();
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
+  const [hideForm, setHideForm] = useState(false);
+  const [successMsg, setSuccessMsg] = useState('');
   const avatarRef = useRef(user.avatar);
   const bannerRef = useRef(user.banner);
+  const handleClose = () => {
+    window.location.reload();
+  };
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
@@ -53,7 +59,8 @@ function UpdateForm(props) {
     try {
       let res = await axios.put(url, data, config);
       console.log(res);
-      alert('updated content');
+      setHideForm(true);
+      setSuccessMsg(ValidationMsg(handleClose, 'Your profile was updated 🤩'));
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -75,6 +82,8 @@ function UpdateForm(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+      {successMsg}
+      {!hideForm ? 
       <Modal.Body>
       <Form onSubmit={handleSubmit(onSubmit)}>    
           <SubHeading content='Update profile' />
@@ -142,7 +151,7 @@ function UpdateForm(props) {
               <Button variant="light" className='skip-modal' onClick={props.onHide}>Cancel</Button>
             </div>
           </Form>
-      </Modal.Body>
+      </Modal.Body> : null }
     </Modal>
   );
 }

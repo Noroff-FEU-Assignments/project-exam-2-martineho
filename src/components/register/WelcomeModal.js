@@ -9,6 +9,7 @@ import { InputGroup } from 'react-bootstrap';
 import { BASE_URL } from '../../constants/api';
 import { SucessMsg } from './SuccessMsg';
 import { name, token } from '../../utils/user';
+import ValidationMsg from '../ux/ValidationMsg';
 
 const url = BASE_URL + 'social/profiles/' + name + '/media';
 
@@ -42,7 +43,7 @@ export default function WelcomeModal() {
       let res = await axios.put(url, data, config);
       console.log(res.data);
       setHideForm(true);
-      setSuccessMsg(SucessMsg(handleClose));
+      setSuccessMsg(ValidationMsg(handleClose));
       localStorage.removeItem('new_user');
     } catch (err) {
       if (!err?.response) {

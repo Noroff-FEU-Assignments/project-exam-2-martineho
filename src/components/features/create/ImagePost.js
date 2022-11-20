@@ -21,7 +21,6 @@ const schema = yup.object().shape({
   .matches("[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$", "You need to fill in a valid image url."),
 });
 
-
 export default function ImagePost(props) {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
@@ -42,7 +41,7 @@ export default function ImagePost(props) {
     try {
       let res = await axios.post(url, data, config);
       console.log(res);
-      alert('updated content');
+      window.location.reload();
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');

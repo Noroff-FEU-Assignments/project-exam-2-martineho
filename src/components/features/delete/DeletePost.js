@@ -1,24 +1,21 @@
-import axios from "axios";
-import { token } from "../../utils/user";
-import { BASE_URL } from "../../constants/api";
+import React from "react";
+import axios from 'axios';
+import { BASE_URL } from '../../../constants/api';
+import { token } from '../../../utils/user';
 
-export default function DeleteForm(postId) { 
-  const id = postId.postId;
-  const url = BASE_URL + 'social/posts/' + id;
-  console.log(url);
+export default async function doDelete(id) {
+  const url = BASE_URL + 'social/posts/';
 
-	async function doDelete() {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
     }
-    try {
-      let res = await axios.delete(url, config);
-      console.log(res);
-      alert('Your post has been deleted');
-    } catch (err) {
-      alert('An error occured');
-    } 
-  } doDelete ();
+  }
+  try {
+    let res = await axios.delete(url + id, config);
+    console.log(res);
+    alert('Your post has been deleted');
+  } catch (err) {
+    alert('An error occured');
+  } 
 }
