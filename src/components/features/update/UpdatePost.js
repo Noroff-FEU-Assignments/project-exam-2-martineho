@@ -12,15 +12,22 @@ import { BASE_URL } from '../../../constants/api';
 import { token } from '../../../utils/user';
 import { SmHeading, SubHeading } from '../../layout/Headings';
 
-const schema = yup.object().shape({
+const textSchema = yup.object().shape({
+  title: yup.string()
+  .max(60, 'Your title is too long. Maximum 60 characters.')
+  .min(3, 'Please make a title with at least 3 characters.')
+  .required('Please provide a title for your post!'),
+  body: yup.string()
+});
+
+const mediaSchema = yup.object().shape({
   title: yup.string()
   .max(60, 'Your title is too long. Maximum 60 characters.')
   .min(3, 'Please make a title with at least 3 characters.')
   .required('Please provide a title for your post!'),
   media: yup.string()
     .matches("[^\\s]+(.*?)\\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$", "You need to fill in a valid image url.")
-    .required('You need to fill inn a image url.'),
-  body: yup.string()
+    .required('You need to fill inn a image url.')
 });
 
 export default function UpdatePostModal(postid) {
@@ -53,6 +60,13 @@ export default function UpdatePostModal(postid) {
     } getPost();
 	}, [url, id]);
 
+  let schema = '';
+  if (!post.media) {
+    schema = textSchema;
+  } else {
+    schema = mediaSchema;
+  }
+
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
@@ -81,7 +95,6 @@ export default function UpdatePostModal(postid) {
       errRef.current.focus();
     } 
   }
-
   return (
     <>
     <Modal
