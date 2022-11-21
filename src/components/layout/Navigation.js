@@ -7,6 +7,9 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import Button from 'react-bootstrap/Button';
 import { clearStorage } from '../../utils/storage';
 import User from '../../utils/user';
 import { getUsername } from '../../utils/storage';
@@ -55,9 +58,19 @@ export default function Navigation() {
                     : <AvatarPlaceholder className='avatar-placeholder--small' /> }
                     <div className='profile-link--username'>{user.name}</div>
                   </NavLink>
-                  <button className='nav-button--logout' onClick={logout}>
-                    <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
-                  </button>
+                  <OverlayTrigger
+                    key={'bottom'}
+                    placement={'bottom'}
+                    overlay={
+                      <Tooltip id={`tooltip-bottom`}>
+                        Logout
+                      </Tooltip>
+                    }
+                  >
+                    <button className='nav-button--logout' onClick={logout}>
+                      <ion-icon className='nav-link--icon' name="log-out-outline"></ion-icon>
+                    </button>
+                  </OverlayTrigger>
                 </Nav>
               </Navbar.Collapse> }
               {!authenticated && 
