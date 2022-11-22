@@ -44,9 +44,11 @@ export default function PostCard (post) {
 }
 
 const FormattedBody = (post) => {
-  let bodyText = post.body;
-  let shortenBody = bodyText.slice(0, 80);
-  return (
-    shortenBody
-  )
+  if (post.body) {
+    let bodyText = post.body;
+    let shortenBody = bodyText.slice(0, 80);
+    return (
+      shortenBody
+    )
+  }
 }
