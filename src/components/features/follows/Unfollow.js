@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button"
 export default function Unfollow(name) { 
   name = name.name;
   const url = BASE_URL + 'social/profiles/' + name + '/unfollow';
-  console.log(url);
 
 	async function doUnfollow() {
     const config = {
@@ -23,6 +22,7 @@ export default function Unfollow(name) {
       alert('An error occured');
     } 
   } 
+  
   return (
     <Button className='unfollow-btn' variant='secondary' onClick={doUnfollow} >Unfollow</Button>
   )

@@ -11,17 +11,17 @@ import { BASE_URL } from '../../../constants/api';
 import Loading from '../../ux/Loading';
 import Unfollow from './Unfollow';
 
-const name = localStorage.getItem('profile_name');
-const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
-
 function FollowingList() {
-  const [following, setFollowing] = useState();
+  const [following, setFollowing] = useState([]);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
+  const name = localStorage.getItem('profile_name');
+  const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
+
   useEffect(() => {
     fetchFollowing();
-  }, [])
+  })
   useEffect(() => {
     console.log(following)
   }, [following])
@@ -33,7 +33,7 @@ function FollowingList() {
     }}
     try {
       const response = await axios.get(url, config);
-      setFollowing(response.data.following) 
+      setFollowing(response.data.following);
     } catch (err) {
       if (!err?.response) {
         setError(err);
@@ -75,11 +75,13 @@ function FollowingModal(props) {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      id='following-modal'
     >
       <Modal.Header closeButton />
       <Modal.Body>
           <SubHeading content='Following' />
           <FollowingList />
+          <div className='overlay'></div>
       </Modal.Body>
     </Modal>
   );
@@ -87,7 +89,7 @@ function FollowingModal(props) {
 
 export default function Following(following) {
   const [modalShow, setModalShow] = React.useState(false);
-
+  
   return (
     <>
       <Button id='following-btn' className='btn-secondary' onClick={() => setModalShow(true)}>

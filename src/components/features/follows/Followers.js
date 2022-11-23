@@ -10,17 +10,18 @@ import { token } from '../../../utils/user';
 import { BASE_URL } from '../../../constants/api';
 import Loading from '../../ux/Loading'
 
-const name = localStorage.getItem('profile_name');
-const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
-
 function FollowersList() {
-  const [followers, setFollowers] = useState();
+  const [followers, setFollowers] = useState([]);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
+  const name = localStorage.getItem('profile_name');
+  const url = BASE_URL + 'social/profiles/' + name + '?_following=true&_followers=true';
+
+
   useEffect(() => {
     fetchFollowers();
-  }, [])
+  })
   useEffect(() => {
     console.log(followers)
   }, [followers])
@@ -75,11 +76,13 @@ function FollowersModal(props) {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      id='followers-modal'
     >
       <Modal.Header closeButton />
       <Modal.Body>
           <SubHeading content='Followers' />
           <FollowersList />
+          <div className='overlay'></div>
       </Modal.Body>
     </Modal>
   );

@@ -83,7 +83,7 @@ export default function ProfilePage() {
           <div className='post-count'> {postsCount} posts </div>
           <Following count={followingCount} />
           <Followers count={followerCount} />
-          {!authenticated ? <Follow name={user.name} /> : null }
+          {!authenticated ? <Follow name={user.name} count={followingCount} /> : null }
         </div>
       </div>
       <main className="profile-posts">

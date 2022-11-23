@@ -4,30 +4,27 @@ import { token } from "../../../utils/user";
 import { BASE_URL } from "../../../constants/api";
 import { Button } from "react-bootstrap";
 
-export default function Follow(name) { 
+export default function Follow(name, followingCount) { 
   name = name.name; 
-  
   const url = BASE_URL + 'social/profiles/' + name + '/follow';
 
-  const doFollow = async () => {
-    
-    const config = {
+  const followPerson = async () => {
+    axios({
+      method: 'put',
+      url: url,
       headers: {
         Authorization: `Bearer ${token}`
-    }}
-
-    try {
-      const response = await axios.put(url, config);
-      console.log(response);
-      alert('You just followed', name);
-    } catch (err) {
-      alert(err);
-    } 
+      }
+    }) 
+    .then(function () {
+      console.log('You followed', name);
+      window.location.reload();
+    });
   }
 
   return (
     <>
-      <Button onClick={doFollow}>Follow</Button>
+      <Button id='follow-btn' onClick={followPerson}>Follow</Button>
     </>
   )
 }

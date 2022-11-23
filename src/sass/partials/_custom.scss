@@ -66,6 +66,13 @@ form {
     align-items: center;
   }
 }
+#following-modal, 
+#followers-modal {
+  .modal-body {
+    padding: 0rem 2rem 2rem 2rem;
+    position: relative;
+  }
+}
 .modal-body {
   padding: 2rem 2.5rem;
 }
