@@ -6,8 +6,7 @@ import { useNavigate, useParams  } from "react-router-dom";
 import { 
   Col, 
   Container, 
-  Row, Form, 
-  InputGroup, 
+  Row,
   Button, 
   Collapse } from "react-bootstrap";
 import { Heading } from "../../components/layout/Headings";
@@ -16,6 +15,7 @@ import { token } from "../../utils/user";
 import { BASE_URL } from "../../constants/api"
 import Avatar from "../../components/profile/Avatar";
 import AvatarPlaceholder from "../../components/profile/AvatarPlaceholder";
+import CommentForm from "../../components/features/comment/CommentForm";
 
 export default function Post() {
   const [post, setPost] = useState([]);
@@ -34,17 +34,15 @@ export default function Post() {
   const url = BASE_URL + `social/posts/${id}?_comments=true&_author=true`;
 
   useEffect(function () {
-
     const config = {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }
-
 		async function getPosts() {
       try {
         let res = await axios.get(url, config);
-        console.log(res.data);
+        //console.log(res.data);
         setPost(res.data);
       } catch (err) {
         if (!err?.response) {
@@ -58,7 +56,6 @@ export default function Post() {
   
   if (loading) { return <Loading />; }
   if (error) { return <div>An error occured: {error}</div> }
-  console.log(post);
 
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
   const commentsList = post.comments;
@@ -71,7 +68,7 @@ export default function Post() {
       <button className="back-btn" onClick={() => navigate(-1)}>
         <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
-      <Row className="post-container">
+      <Row key={post.id} className="post-container">
         <Col md="12" lg="6">
           {post.media ? <div className="post-image">
             <img src={post.media} alt={post.title} />
@@ -98,7 +95,7 @@ export default function Post() {
               {firstComments.map((comment) => {
                 return (
                   <>
-                  <div className="comment">
+                  <div key={comment.id} className="comment">
                     <div className="comment-header">
                       <a href={`/profiles/${comment.owner}`} 
                       className="comment-header--owner">{comment.owner} </a> 
@@ -114,7 +111,7 @@ export default function Post() {
                   {lastComments.map((comment) => {
                   return (
                     <>
-                    <div className="comment">
+                    <div key={comment.id} className="comment">
                       <div className="comment-header">
                         <a href={`/profiles/${comment.owner}`} 
                         className="comment-header--owner">{comment.owner} </a> 
@@ -127,24 +124,17 @@ export default function Post() {
                 })}
                 </div>
               </Collapse>
-              {post._count.comments ?  
-              <Button
-                onClick={() => setOpen(!open)}
-                aria-controls="example-collapse-text"
-                aria-expanded={open}
-                variant="light"
-              > <ion-icon name="chevron-down"></ion-icon>
-              </Button> : '' }
-              <Form className="comment-form">
-              <InputGroup className="" controlid="formAvatar">
-                <Form.Control 
-                  type="url" 
-                  placeholder="Write a comment" 
-                  name='avatar'
-                />
-                <Button><ion-icon name="send"></ion-icon></Button>
-              </InputGroup>
-            </Form>
+              {post._count.comments > 2 ?  
+                <Button
+                  onClick={() => setOpen(!open) }
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open}
+                  variant="light"
+                  id='collapse-btn'
+                > <ion-icon name="chevron-down"></ion-icon>
+                </Button> 
+                : '' }
+                <CommentForm postId={post.id} />
             </div>
           </div>
         </Col>
