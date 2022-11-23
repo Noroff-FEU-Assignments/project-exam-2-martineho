@@ -60,8 +60,8 @@ export default function Post() {
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
   const commentsList = post.comments;
   const sortComments = [...commentsList].reverse();
-  const firstComments = sortComments.slice(0, 3);
-  const lastComments = sortComments.slice(3, 10);
+  const firstComments = sortComments.slice(0, 2);
+  const lastComments = sortComments.slice(2, 10);
 
   return(
     <Container>
@@ -134,7 +134,7 @@ export default function Post() {
                 > <ion-icon name="chevron-down"></ion-icon>
                 </Button> 
                 : '' }
-                
+
                 <CommentForm postId={post.id} />
             </div>
           </div>
