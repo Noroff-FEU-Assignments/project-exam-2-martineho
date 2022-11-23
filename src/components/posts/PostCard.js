@@ -2,7 +2,6 @@ import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
 import ReactionForm from "./ReactionForm";
 
-
 export default function PostCard (post) {
   return (
     <>
@@ -11,7 +10,8 @@ export default function PostCard (post) {
       {post.menu}
 
       <div className="reactions">
-        <ReactionForm />
+        <ReactionForm href={post.href} />
+        <div className="reaction-count">{post.reaction_count}</div>
       </div>
 
       <div className="post-card__content">

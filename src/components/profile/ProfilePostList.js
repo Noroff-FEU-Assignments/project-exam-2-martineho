@@ -13,7 +13,7 @@ export default function ProfilePostList(name) {
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
   const loggedIn = JSON.parse(localStorage.getItem('user_name'));
-  const url = BASE_URL + 'social/profiles/' + name + '/posts';
+  const url = BASE_URL + 'social/profiles/' + name + '/posts?_reactions=true';
 
   useEffect(() => {
     if (loggedIn === name) {
@@ -64,6 +64,7 @@ export default function ProfilePostList(name) {
           body={post.body} 
           src={post.media} 
           comment_count={post._count.comments}
+          reaction_count={post._count.reactions}
           created={post.created}
           menu={menu(post.id)}
           href={post.id}

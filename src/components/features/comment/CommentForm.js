@@ -7,7 +7,6 @@ import {
   Button,
 } from "react-bootstrap";
 import { BASE_URL } from "../../../constants/api";
-import { set } from "react-hook-form";
 
 export default function CommentForm (postId) {
   const id = postId.postId;
