@@ -91,7 +91,7 @@ export default function Followers(followers) {
 
   return (
     <>
-      <Button id='followers-btn' className='btn-secondary' onClick={() => setModalShow(true)}>
+      <Button id='followers-btn' variant='secondary' onClick={() => setModalShow(true)}>
         Followers {followers.count}
       </Button>
 

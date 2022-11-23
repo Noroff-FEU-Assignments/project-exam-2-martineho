@@ -17,15 +17,18 @@
 }
 .back-btn {
   font-size: 1.8rem;
-  color: #444b67;
+  color: $colour-text-light;
   background-color: transparent;
   border: 0;
   outline: 0;
   padding: .2rem 0;
+  &:hover {
+    color: $colour-text;
+  }
 }
 .nav-button {
-  color:  #7259FF;
-  background-color: #7259ff20;
+  color:  $colour-primary;
+  background-color: $colour-primary-light;
   width: 2.3rem;
   height: 2.3rem;
   font-size: 1.4rem;
@@ -37,12 +40,12 @@
   outline: none;
   border-radius: $box-border-radius;
   &:hover {
-    background-color: #7259ff50;
+    background-color: $colour-primary-light;
   }
   &--logout {
     @extend .nav-button;
     background-color: transparent;
-    color: #7259FF;
+    color: $colour-primary;
   }
 }
 .create-btn {
@@ -56,9 +59,9 @@
   border-radius: $box-border-radius;
   outline: 0;
   border: $box-border;
-  border-color: #7259FF50;
-  color: #7259FF;
-  background-color: #7259ff20;
+  border-color: $colour-primary-light;
+  color: $colour-primary;
+  background-color:  $colour-primary-light;
   opacity: .75;
   ion-icon {
     font-size: 2.5rem;

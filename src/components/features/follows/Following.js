@@ -92,7 +92,7 @@ export default function Following(following) {
   
   return (
     <>
-      <Button id='following-btn' className='btn-secondary' onClick={() => setModalShow(true)}>
+      <Button id='following-btn' variant='secondary' onClick={() => setModalShow(true)}>
         Following {following.count}
       </Button>
 

@@ -6,10 +6,27 @@ input:-webkit-autofill:active{
 }
 a {
   text-decoration: none;
-  color: black;
+  color: $colour-text-dark;
+  &:hover {
+    color: $colour-text;
+  }
 }
 form {
   max-width: 500px;
+}
+.btn-primary {
+  background-color: $colour-primary;
+  color: white;
+  &:hover {
+    background-color: $colour-primary-hover;
+  }
+}
+.btn-secondary {
+  &:hover {
+    background-color: transparent;
+    border-color: $colour-primary;
+    color: $colour-primary;
+  }
 }
 .me-auto {
   margin-left: 38%;

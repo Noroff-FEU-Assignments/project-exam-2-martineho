@@ -1,14 +1,14 @@
 .postline {
   padding: 1rem 1.2rem;
   border-radius: $box-border-radius;
-  background-color: #F1EEFF;
-  border: solid 1px #9380ff4b;
+  background-color: $colour-primary-light;
+  border: solid 1px $colour-primary-light;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
   p {
-    color: #7259FF;
+    color: $colour-primary
   }
 }
 .profile-list {

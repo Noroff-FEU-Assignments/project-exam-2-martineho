@@ -61,7 +61,7 @@
 }
 #settings-btn {
   font-size: 1.5rem;
-  color: rgb(128, 130, 142);
+  color: $colour-text-light;
   padding: .3rem;
   margin-top: .4rem;
   display: flex;
@@ -70,8 +70,11 @@
   background-color: transparent;
   height: fit-content;
   border: none;
+  &:hover {
+    color: $colour-primary;
+  }
 }
 .post-count {
   padding: 0.375rem 0.75rem;
-  color: rgb(128, 130, 142);
+  color: $colour-text-light;
 }

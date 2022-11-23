@@ -6,7 +6,7 @@
 }
 .post-card {
   width: 32%;
-  color: #444b67;
+  color: $colour-text;
   @media (max-width: 1400px) {
     width: 48.5%;
   }  
@@ -42,7 +42,8 @@
     align-items: center;
     box-shadow: $box-shadow;
     border-radius: $box-border-radius;
-    background-color: #1b1d1e;
+    background: $background;
+    background: $background-linear;
     color: white;
     height: fit-content;
     gap: 1rem;
@@ -143,6 +144,7 @@
   background-color: rgba(255, 255, 255, 0.90);
   transition: .2s ease;
   padding: .4rem .6rem;
+  color: $colour-primary;
   &::after {
     content: 'Edit';
     font-size: 1rem;
@@ -153,6 +155,7 @@
   background-color: rgba(255, 255, 255, 0.90);
   transition: .2s ease;
   padding: .4rem .6rem;
+  color: $colour-primary;
   &::after {
     content: ' Delete';
     font-size: 1rem;
@@ -192,7 +195,8 @@
     align-items: center;
     box-shadow: $box-shadow;
     border-radius: $box-border-radius;
-    background-color: #402EA4;
+    background: $background;
+    background: $background-linear;
     color: white;
     width: 100%;
     height: 35rem;
@@ -226,6 +230,9 @@
   }
 }
 .timeago {
-  color: #444b67;
+  color: $colour-text-light;
   font-size: .9rem;
+  time {
+    @extend .timeago;
+  }
 }

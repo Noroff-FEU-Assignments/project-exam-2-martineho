@@ -4,9 +4,9 @@
   border-radius: $box-border-radius;
   border: none;
   outline: none;
-  color: rgb(128, 130, 142);
+  color: $colour-text-light;
   &:hover {
-    color: #444b67;
+    color: $colour-text;
   }
 }
 .modal-btns {

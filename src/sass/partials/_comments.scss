@@ -9,11 +9,15 @@
   margin: 1rem 0;
 }
 .comment-header { 
-  color: #444b67;
+  color: $colour-text-dark;
   font-size: .9rem;
   margin-bottom: .6rem;
   &--owner {
     font-weight: map.get($font-weight, 'semibold');
+    color: $colour-text-dark;
+    &:hover {
+      color: $colour-text;
+    }
   }
 }
 .comment-body {
