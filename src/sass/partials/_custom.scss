@@ -67,11 +67,15 @@ form {
   }
 }
 #following-modal, 
-#followers-modal {
+#followers-modal,
+#create-modal {
   .modal-body {
     padding: 0rem 2rem 2rem 2rem;
     position: relative;
   }
+}
+#create-modal .form-content {
+  margin: 0 0 1.5rem 0;
 }
 .modal-body {
   padding: 2rem 2.5rem;

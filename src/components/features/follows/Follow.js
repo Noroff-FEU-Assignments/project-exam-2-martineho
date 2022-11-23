@@ -4,7 +4,7 @@ import { token } from "../../../utils/user";
 import { BASE_URL } from "../../../constants/api";
 import { Button } from "react-bootstrap";
 
-export default function Follow(name, followingCount) { 
+export default function Follow(name ) { 
   name = name.name; 
   const url = BASE_URL + 'social/profiles/' + name + '/follow';
 
@@ -24,7 +24,7 @@ export default function Follow(name, followingCount) {
 
   return (
     <>
-      <Button id='follow-btn' onClick={followPerson}>Follow</Button>
+      <Button class='follow-btn' onClick={followPerson}>Follow</Button>
     </>
   )
 }

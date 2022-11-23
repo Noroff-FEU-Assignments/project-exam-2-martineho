@@ -27,17 +27,17 @@ export default function PostCard (post) {
           </div> }
 
       </div>
-      <div className="post-card__content--footer">
-        <a href={`/post/${post.href}`} className="post-card__content--text">
+      <a href={`/post/${post.href}`} className="post-card__content--footer">
+        <div className="post-card__content--text">
           <XsHeading content={post.title}/>
-        </a>
+        </div>
         <div className="comments">
             <button className="btn-light comment-btn">
               <ion-icon name="chatbox-outline"></ion-icon> 
               {post.comment_count}
             </button>
           </div>
-      </div>
+      </a>
     </div>
     </>
   )

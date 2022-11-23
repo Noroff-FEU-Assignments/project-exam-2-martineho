@@ -60,8 +60,6 @@ function FollowersList() {
             
             <div>{follow.name}</div>
           </a>
-
-          <Button className='unfollow-btn' variant='secondary'>Unfollow</Button>
         </div>
       ))} 
     </ul> }

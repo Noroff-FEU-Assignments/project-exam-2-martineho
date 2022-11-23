@@ -61,13 +61,6 @@ export default function ImagePost(props) {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className='form-content'>
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
-      
-      <select 
-      multiple
-      value='inspiration'
-      name='tags'
-      hidden
-      />
 
       <Form.Group>
         <Form.Label>

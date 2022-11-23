@@ -1,9 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { SmHeading, SubHeading} from '../../layout/Headings';
-import { Paragraph } from '../../layout/Paragraphs';
+import { SmHeading } from '../../layout/Headings';
 import Wizard from './Wizard';
 import ImagePost from './ImagePost';
 import TextPost from './TextPost';
@@ -27,8 +25,9 @@ function CreateModal(props) {
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      id='create-modal'
     >
-      <Button variant="light" className='skip-modal' onClick={props.onHide}>X</Button>
+      <Modal.Header closeButton />
       <Modal.Body>
           <Wizard>
             <PageOne />
