@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { BASE_URL } from '../../constants/api';
 import { name, token } from '../../utils/user';
 import User from '../../utils/user';
@@ -156,14 +157,24 @@ function UpdateForm(props) {
   );
 }
 
-export default function RenderUpdateFrom() {
+export default function RenderUpdateForm() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <>
-      <Button id='settings-btn' variant='light' onClick={() => setModalShow(true)}>
-        <ion-icon name="settings-sharp"></ion-icon>
-      </Button>
+    <OverlayTrigger
+           key={'right'}
+           placement={'right'}
+           overlay={
+             <Tooltip id={`tooltip-bottom`}>
+               Edit profile
+             </Tooltip>
+           }
+         >
+        <Button id='settings-btn' variant='light' onClick={() => setModalShow(true)}>
+          <ion-icon name="settings-sharp"></ion-icon>
+        </Button>
+      </OverlayTrigger>
 
       <UpdateForm
         show={modalShow}

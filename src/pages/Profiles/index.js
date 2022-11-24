@@ -10,12 +10,12 @@ import Banner from '../../components/profile/Banner';
 import Avatar from '../../components/profile/Avatar';
 import AvatarPlaceholder from "../../components/profile/AvatarPlaceholder";
 import Loading from "../../components/ux/Loading";
-import RenderUpdateFrom from "../../components/profile/UpdateForm";
 import ProfilePostList from "../../components/profile/ProfilePostList";
 import Following from "../../components/features/follows/Following";
 import Followers from "../../components/features/follows/Followers";
 import Follow from "../../components/features/follows/Follow";
 import Footer from "../../components/layout/Footer";
+import RenderUpdateForm from "../../components/profile/UpdateForm";
 
 export default function ProfilePage() {
   const [user, setUser] = useState([]);
@@ -78,7 +78,7 @@ export default function ProfilePage() {
           {user.avatar ? <Avatar className='avatar--big' src={user.avatar} alt='avatar' /> 
             : <AvatarPlaceholder className='avatar-placeholder--big' /> }
           <Heading style={{fontSize: '1.1'}} content={user.name}/>
-          {authenticated ? <RenderUpdateFrom /> : null}
+          {authenticated ? <RenderUpdateForm /> : null}
         </div>
         <div className='group'>
           <div className='post-count'> {postsCount} posts </div>
