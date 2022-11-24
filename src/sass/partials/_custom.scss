@@ -70,6 +70,9 @@ form {
     box-shadow: none;
     border: none;
   }
+  &::placeholder {
+    color: $colour-text-light;
+  }
 }
 .btn-secondary {
   background-color: transparent;

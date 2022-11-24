@@ -10,6 +10,7 @@ import { saveToken, saveUsername, saveUserEmail } from '../../utils/storage';
 import { BASE_URL } from '../../constants/api';
 import { InputGroup } from 'react-bootstrap';
 import { SubHeading } from "../../components/layout/Headings";
+import {Paragraph} from '../layout/Paragraphs';
 
 const url = BASE_URL + 'social/auth/login';
 
@@ -22,6 +23,7 @@ const schema = yup.object().shape({
 });
 
 function LoginForm() {
+  const new_user = localStorage.getItem('new_user');
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
@@ -62,6 +64,8 @@ function LoginForm() {
       <Form onSubmit={handleSubmit(onSubmit)} className='login-form'>
       <div ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</div>
       <SubHeading content='Sign in' />
+
+      {new_user ? <Paragraph content={`You have registered, please sign in 🥳`} /> : null}
 
       <Form.Group className='form-content'>
         <Form.Group>

@@ -8,11 +8,15 @@ export default function Register() {
   return (
     <>
     <Container>
-      <main>
+      <div className="login-background"></div>
+      <main className="login-container">
         <Row>
           <Col md={6} xs={12}>
-            <BigHeading content='Content with substance. Find likeminded people and be inspired.' />
-            <BigParagraph content='A conscious social media platform, created for a more mindful approach to traditional social medias.' />
+            <div className="login-introduction">
+              <BigHeading content='Content with substance. Find likeminded people and be inspired.' />
+              <br></br>
+              <BigParagraph content='A conscious social media platform, created for a more mindful approach to traditional social medias.' />
+            </div>
           </Col>
           <Col md={6} xs={12}>
             <RegisterForm />

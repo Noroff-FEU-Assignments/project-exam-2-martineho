@@ -74,8 +74,8 @@ export default function Navigation() {
               </Navbar.Collapse> }
               {!authenticated && 
               <Nav className='non-auth-nav'>
-                {location.pathname === '/register' && <NavLink to='/login'>Sign in</NavLink>}
-                {location.pathname === '/login' && <NavLink to='/register'>Become a member</NavLink>}
+                {location.pathname === '/register' && <NavLink className='btn btn-secondary' to='/login'>Sign in</NavLink>}
+                {location.pathname === '/login' && <NavLink className='btn btn-primary' to='/register'>Become a member</NavLink>}
               </Nav> }
             </Container>
           </Navbar>

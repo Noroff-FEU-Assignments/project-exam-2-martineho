@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { SmHeading } from '../../layout/Headings';
+import { SubHeading } from '../../layout/Headings';
 import Wizard from './Wizard';
 import ImagePost from './ImagePost';
 import TextPost from './TextPost';
 
 const PageOne = () => (
   <div className='introduction'>
-    <SmHeading content='What do you want to share today?' />
+    <SubHeading content='Create post' />
   </div>
 )
 const PageTwo = () => (

@@ -15,6 +15,7 @@ import ProfilePostList from "../../components/profile/ProfilePostList";
 import Following from "../../components/features/follows/Following";
 import Followers from "../../components/features/follows/Followers";
 import Follow from "../../components/features/follows/Follow";
+import Footer from "../../components/layout/Footer";
 
 export default function ProfilePage() {
   const [user, setUser] = useState([]);
@@ -92,6 +93,7 @@ export default function ProfilePage() {
         <ProfilePostList name={user.name} />
       </main>
     </Container>
+    <Footer />
     </>
   )
 }
