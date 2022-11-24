@@ -19,7 +19,7 @@ export default function Dashboard() {
         <Row>
           <Col md="12" lg="10">
             <PostLine />
-            <Posts />
+            <PostList />
           </Col>
           <Col md="12" lg="2">
             <SubHeading content='Peeps' />

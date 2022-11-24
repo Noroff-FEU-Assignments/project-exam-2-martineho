@@ -9,11 +9,11 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { BASE_URL } from '../../constants/api';
-import { name, token } from '../../utils/user';
-import User from '../../utils/user';
-import { SmHeading, SubHeading } from '../layout/Headings';
-import ValidationMsg from '../ux/ValidationMsg';
+import { BASE_URL } from '../../../constants/api';
+import { name, token } from '../../../utils/user';
+import User from '../../../utils/user';
+import { SmHeading, SubHeading } from '../../layout/Headings';
+import ValidationMsg from '../../ux/ValidationMsg';
 
 const url = BASE_URL + 'social/profiles/' + name + '/media';
 
@@ -157,7 +157,7 @@ function UpdateForm(props) {
   );
 }
 
-export default function RenderUpdateForm() {
+export default function UpdateProfile() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (

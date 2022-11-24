@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { saveToken, saveUsername, saveUserEmail } from '../../utils/storage';
-import { BASE_URL } from '../../constants/api';
+import { saveToken, saveUsername, saveUserEmail } from '../../../utils/storage';
+import { BASE_URL } from '../../../constants/api';
 import { InputGroup } from 'react-bootstrap';
-import { SubHeading } from "../../components/layout/Headings";
-import {Paragraph} from '../layout/Paragraphs';
+import { SubHeading } from "../../layout/Headings";
+import {Paragraph} from '../../layout/Paragraphs';
 
 const url = BASE_URL + 'social/auth/login';
 

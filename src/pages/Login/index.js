@@ -2,7 +2,7 @@ import { Container, Col, Row  } from "react-bootstrap";
 import { BigHeading } from "../../components/layout/Headings";
 import Footer from "../../components/layout/Footer";
 import BigParagraph from "../../components/layout/Paragraphs";
-import LoginForm from "../../components/login/LoginForm";
+import LoginForm from "../../components/features/auth/LoginForm";
 
 export default function Login() {
 
