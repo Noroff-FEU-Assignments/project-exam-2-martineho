@@ -22,6 +22,7 @@ v 1.0
 
 #### Components
 - react-time-ago
+- react-infinite-scroll
 
 ## 👩🏻‍💻 Installation and setup 
 
