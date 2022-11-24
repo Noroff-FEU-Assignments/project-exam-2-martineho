@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   gap: 1.2rem;
   justify-content: flex-start;
+  overflow-x: hidden;
 }
 .post-card {
   width: 32%;
@@ -61,6 +62,7 @@
     &--text {
       max-height: 5rem;
       width: 75%;
+      word-break: break-word;
     }
     &--footer {
       display: flex;

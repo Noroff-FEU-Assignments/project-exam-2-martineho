@@ -10,6 +10,7 @@ import PrivateRoutes from './PrivateRoutes';
 import Navigation from '../components/layout/Navigation';
 import Post from '../pages/Post';
 import ProfilePage from '../pages/Profiles';
+import People from '../pages/People';
 
 export default function AppRoutes () {
   return (
@@ -20,6 +21,7 @@ export default function AppRoutes () {
         <Route element={< PrivateRoutes />}>
           <Route path={'*'} element={ < Dashboard /> }></Route>
           <Route path={'/'} element={< Dashboard />}></Route>
+          <Route path={'/people'} element={< People />}></Route>
           <Route path={'/profiles/:name'} element={< ProfilePage /> }></Route>
           <Route path="/post/:id" element={<Post />}></Route>
         </Route>

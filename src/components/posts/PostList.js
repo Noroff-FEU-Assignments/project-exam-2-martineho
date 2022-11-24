@@ -5,21 +5,18 @@ import { token } from '../../utils/user';
 import Loading from '../ux/Loading';
 import PostCard from './PostCard';
 
-const url = BASE_URL + 'social/posts?_author=true&_reactions=true';
-
 export default function PostList() {
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
  
   useEffect(function () {
-
+    const url = BASE_URL + 'social/posts?_author=true&_reactions=true';
     const config = {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }
-
 		async function getPosts() {
       try {
         let res = await axios.get(url, config);
@@ -39,22 +36,20 @@ export default function PostList() {
 	if (error) return <div>{}</div>;
 
   return (
-    <>
     <div className='post-list'>
-      {postList.map((post) => (
-        <PostCard 
-        key={post.id} 
-        title={post.title} 
-        body={post.body} 
-        src={post.media} 
-        comment_count={post._count.comments}
-        reaction_count={post._count.reactions}
-        created={post.created}
-        href={post.id}
-        author={post.author.name}
-        />
-      ))}
+        {postList.map((post) => (
+          <PostCard 
+          key={post.id} 
+          title={post.title} 
+          body={post.body} 
+          src={post.media} 
+          comment_count={post._count.comments}
+          reaction_count={post._count.reactions}
+          created={post.created}
+          href={post.id}
+          author={post.author.name}
+          />
+        ))}
     </div>
-    </>
   );
 }

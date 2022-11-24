@@ -43,7 +43,7 @@ export default function ProfileList() {
       {profileList.map((user) => (
         <a key={user.name} className='profile-item' href={`/profiles/${user.name}`}>
           {user.avatar ? 
-          <img className='profile-item--avatar' src={user.avatar} alt={user.name} /> : 
+          <img className='profile-item--avatar' src={user.avatar} alt={''} /> : 
             <div className='profile-item--avatar'>
              <ion-icon name="person"></ion-icon>
             </div> }

@@ -9,7 +9,6 @@ import {
 import Container from 'react-bootstrap/Container';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import Button from 'react-bootstrap/Button';
 import { clearStorage } from '../../utils/storage';
 import User from '../../utils/user';
 import { getUsername } from '../../utils/storage';
@@ -49,7 +48,7 @@ export default function Navigation() {
               <Navbar.Collapse id="navbar">
                 <Nav className="me-auto">
                   <NavLink className='nav-link' to='/'>Feed</NavLink>
-                  <NavLink className='nav-link' to='/'>People</NavLink>
+                  <NavLink className='nav-link' to='/people'>People</NavLink>
                 </Nav>
                 <Nav>
                   <CreatePost />
