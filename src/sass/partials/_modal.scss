@@ -15,4 +15,7 @@
 .introduction {
   margin-bottom: 2rem;
   margin-top: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }

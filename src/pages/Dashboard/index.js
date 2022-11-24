@@ -6,7 +6,6 @@ import PostLine from "../../components/posts/PostLine";
 import ProfileList from '../../components/profile/ProfileList';
 import { SubHeading } from '../../components/layout/Headings';
 import Posts from '../../components/posts/RenderedPosts';
-import PostListCopy from '../../components/posts/PostListCopy';
 
 export default function Dashboard() {
   const new_user = localStorage.getItem('new_user');
@@ -22,7 +21,7 @@ export default function Dashboard() {
             <Posts />
           </Col>
           <Col md="12" lg="2">
-            <SubHeading content='People' />
+            <SubHeading content='Peeps' />
             <ProfileList />
           </Col>
         </Row>

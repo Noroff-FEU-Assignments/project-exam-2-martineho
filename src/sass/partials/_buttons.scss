@@ -40,7 +40,8 @@
   outline: none;
   border-radius: $box-border-radius;
   &:hover {
-    background-color: $colour-primary-light;
+    transition: .3s ease;
+    background-color:  $colour-primary-light-hover;
   }
   &--logout {
     @extend .nav-button;

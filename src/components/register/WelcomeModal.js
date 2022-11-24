@@ -7,7 +7,6 @@ import { Heading } from '../layout/Headings';
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 import { BASE_URL } from '../../constants/api';
-import { SucessMsg } from './SuccessMsg';
 import { name, token } from '../../utils/user';
 import ValidationMsg from '../ux/ValidationMsg';
 
@@ -21,6 +20,7 @@ export default function WelcomeModal() {
   const [show, setShow] = useState(true);
   const avatarRef = useRef(null);
   const bannerRef = useRef(null);
+  const new_user = localStorage.getItem('new_user');
   const handleClose = () => {
     localStorage.removeItem('new_user');
     setShow(false)
@@ -76,8 +76,10 @@ export default function WelcomeModal() {
           <Form onSubmit={onSubmit}>
           
           <div className='introduction'>
-            <Heading content={`Hi ${name},`} />
-            <Heading content={`welcome to aesocial 👋`} />
+            <div>
+              <Heading content={`Hi ${new_user},`} />
+              <Heading content={`welcome to aesocial 👋`} />
+            </div>
             <Paragraph content={`Show people  who you are by adding a banner and avatar to your profile.`} />
           </div>
           

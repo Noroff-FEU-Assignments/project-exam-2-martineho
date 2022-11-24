@@ -27,7 +27,7 @@ export function BigHeading(heading) {
 export function SubHeading(heading) {
   const headingStyle = {
     textAlign: heading.textAlign,
-    fontSize: '1.8rem',
+    fontSize: '1.6rem',
     fontWeight: 600,
   }
   return ( 

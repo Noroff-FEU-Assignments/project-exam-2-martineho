@@ -1,11 +1,11 @@
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-//import { saveToken, saveUsername, saveUserEmail } from '../../utils/storage';
 import { BASE_URL } from '../../constants/api';
 import { InputGroup } from 'react-bootstrap';
 import { SubHeading } from "../../components/layout/Headings";
@@ -30,10 +30,15 @@ const schema = yup.object().shape({
 function RegisterForm() {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
+  const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const redirect = () => {
+    navigate('/login');
+  }
 
   async function onSubmit(data) {
     console.log(data);
@@ -41,7 +46,7 @@ function RegisterForm() {
       let res = await axios.post(url, data);
       console.log(res.data);
       localStorage.setItem('new_user', res.data.name);
-      alert('You have successfully created a user. Now login :-)');
+      redirect();
   } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');

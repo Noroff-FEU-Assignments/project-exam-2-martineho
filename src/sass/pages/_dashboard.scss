@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  padding: 1.2rem;
   .profile-item {
     display: flex;
     align-items: center;
@@ -30,5 +31,20 @@
       align-items: center;
       font-size: 1.6rem;
     }
+    &--avatar:hover {
+      transition: .3s ease;
+      scale: 1.02;
+      outline: solid .5rem $colour-primary-light;
+    }
+    &--avatar:hover + .profile-item--name {
+      transition: .2s ease;
+      opacity: 1;
+      margin-left: .5rem;
+    }
+    &--name {
+      opacity: 0;
+      margin-left: -1rem;
+    }
+
   }
 }

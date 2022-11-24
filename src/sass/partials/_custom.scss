@@ -16,9 +16,11 @@ form {
 }
 .btn-primary {
   background-color: $colour-primary;
+  border-color: $colour-primary;
   color: white;
   &:hover {
     background-color: $colour-primary-hover;
+    border-color: $colour-primary-hover;
   }
 }
 .btn-secondary {
@@ -40,11 +42,10 @@ form {
 .input-group {
   border-bottom: solid .1rem gainsboro;
   &:focus-within {
-    border-bottom: solid .15rem #0d6efd;
-    box-shadow: 2px 5px 10px rgb(248, 248, 248);
+    border-bottom: solid .15rem $colour-primary;
   }
   &:focus-within .input-group-text {
-    color: #0d6efd;
+    color: $colour-primary;
   }
 }
 .input-group-text {
@@ -58,7 +59,7 @@ form {
   padding-top: .6rem;
 }
 #formTextarea {
-    color: gray;
+    color: $colour-text-light;
 }
 .form-control {
   background-color: transparent;
@@ -73,7 +74,7 @@ form {
 .btn-secondary {
   background-color: transparent;
   border: $box-border;
-  color: rgb(128, 130, 142);
+  color: $colour-text-light;
 }
 #welcome-modal {
   .modal-body {

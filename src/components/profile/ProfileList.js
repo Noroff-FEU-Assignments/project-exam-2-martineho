@@ -37,10 +37,12 @@ export default function ProfileList() {
   if (loading) return <Loading />;
 	if (error) return <div>{}</div>;
 
+  const list = profileList.slice(0, 9);
+
   return (
     <>
     <div className='profile-list'>
-      {profileList.map((user) => (
+      {list.map((user) => (
         <a key={user.name} className='profile-item' href={`/profiles/${user.name}`}>
           {user.avatar ? 
           <img className='profile-item--avatar' src={user.avatar} alt={''} /> : 

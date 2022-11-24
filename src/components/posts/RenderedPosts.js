@@ -8,7 +8,7 @@ import PostCard from "./PostCard";
 
 export default class Posts extends React.Component {
   state = {
-    items: Array.from({ length: 10 }),
+    items: Array.from({ length: 9 }),
     posts: [] 
   };
 
@@ -28,19 +28,23 @@ export default class Posts extends React.Component {
         config
       )
       .then(res =>
-        setTimeout(() => {
-          this.setState({
-            items: this.state.items.concat(Array.from({ length: 10 })),
-            posts: [...this.state.posts, ...res.data],
-          })
-      }, 1500));
+        this.setState({
+          posts: [...this.state.posts, ...res.data],
+        })
+    );
+
+    setTimeout(() => {
+      this.setState({
+        items: this.state.posts.concat(Array.from({ length: 9 }))
+      });
+    }, 1500);
   };
 
   render() {
     return (
       <div>
         <InfiniteScroll 
-        dataLength={this.state.items.length}
+        dataLength={this.state.posts.length}
         next={this.fetchPosts}
         hasMore={true}
         height={500}
