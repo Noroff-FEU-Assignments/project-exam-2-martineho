@@ -1,26 +1,40 @@
-.postline {
-  padding: 1rem 1.2rem;
-  border-radius: $box-border-radius;
-  background-color: $colour-primary-light;
-  border: solid 1px $colour-primary-light;
+.user-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
-  margin-bottom: 1.5rem;
-  p {
-    color: $colour-primary
+  margin: 2rem 0;
+
+  .search {
+    margin-top: 2rem;
+    width: 500px;
+    form {
+      width: 100%;
+    }
+    .input-group {
+      border: solid 1px gainsboro;
+      border-radius: $box-border-radius;
+      &:focus-within {
+        border-color: $colour-primary;
+      }
+    }
   }
 }
-.profile-list {
+.user-grid {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  padding: 1.2rem;
+  margin: 2rem 0;
 }
-.profile-item {
+.user-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: .6rem;
+  border: $box-border;
+  padding: 1rem;
+  border-radius: $box-border-radius;
+  width: 500px;
   &--avatar {
     height: 3rem;
     width: 3rem;
@@ -43,8 +57,10 @@
     margin-left: .5rem;
   }
   &--name {
-    opacity: 0;
-    margin-left: -1rem;
+    color: $colour-text;
   }
-
+  &--dets {
+    font-size: .9rem;
+    color: $colour-text-light;
+  }
 }

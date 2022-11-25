@@ -1,6 +1,6 @@
 import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
-import ReactionForm from "./ReactionForm";
+import ReactionForm from "../features/react/ReactionForm";
 
 export default function PostCard (post) {
   return (
@@ -10,7 +10,10 @@ export default function PostCard (post) {
       {post.menu}
 
       <div className="reactions">
-        <ReactionForm href={post.href} />
+        <div className='reaction-buttons'>
+          <button value={'😍'} className="reaction-btn">😍</button>
+          <button value={'🙌'} className="reaction-btn">🙌</button>
+        </div>
         <div className="reaction-count">{post.reaction_count}</div>
       </div>
 
@@ -31,7 +34,7 @@ export default function PostCard (post) {
         </div>
         <div className="comments">
             <button className="btn-light comment-btn">
-              <ion-icon name="chatbox-outline"></ion-icon> 
+              <ion-icon name="chatbox"></ion-icon> 
               {post.comment_count}
             </button>
           </div>

@@ -10,6 +10,12 @@ main {
 #navigation-bar {
   padding: 1.5rem 0;
 }
+.navbar-brand {
+  width: 150px;
+  span {
+    color: $colour-primary;
+  }
+}
 .navbar {
   margin-bottom: 1.5rem;
   display: flex;
@@ -78,7 +84,7 @@ main {
 }
 .footer {
   text-align: center;
-  margin: .5rem 0;
+  padding: 2rem 0 1rem 0;
   margin-top: auto;
   &--text {
     font-size: .9rem;

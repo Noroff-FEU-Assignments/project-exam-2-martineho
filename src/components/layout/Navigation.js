@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { clearStorage } from '../../utils/storage';
@@ -40,9 +41,11 @@ export default function Navigation() {
     <>
         <Navbar id='navigation-bar' bg="transparent" expand="lg" className='navbar'>
           <Container>
-            <NavLink to="/" className='navbar-brand--link'>
-                <Navbar.Brand>aesocial</Navbar.Brand>
-              </NavLink>
+            <Link to="/" className='navbar-brand--link'>
+                <Navbar.Brand>
+                  <span>ae</span>social
+                </Navbar.Brand>
+              </Link>
               {authenticated && <Navbar.Toggle aria-controls="navbar" /> }
               {authenticated && 
               <Navbar.Collapse id="navbar">
