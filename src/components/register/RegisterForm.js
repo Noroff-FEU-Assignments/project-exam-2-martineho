@@ -17,7 +17,7 @@ const schema = yup.object().shape({
   .required("Please provide a name!")
   .matches(/^\S+$/, 'Name must not contain spaces.'),
   email: yup.string()
-  .matches("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])", "Please fill in a email address.")
+  .matches("^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(noroff|stud.noroff)\.no$", "Please fill in a valid noroff or stud.noroff email.")
   .required("Please fill in your email address!"),
   password: yup.string()
   .min(8, "Password is too short - should be minimum 8 characters.")
@@ -76,7 +76,7 @@ function RegisterForm() {
             </InputGroup.Text>
             <Form.Control 
               type="text" 
-              placeholder="Name" 
+              placeholder="Username" 
               name='name'
               {...register("name")}
             />

@@ -7,10 +7,8 @@ import { Heading } from '../layout/Headings';
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 import { BASE_URL } from '../../constants/api';
-import { name, token } from '../../utils/user';
-import ValidationMsg from '../ux/ValidationMsg';
-
-const url = BASE_URL + 'social/profiles/' + name + '/media';
+import { token } from '../../utils/user';
+import { SucessMsg } from './SuccessMsg';
 
 export default function WelcomeModal() {
   const errRef = useRef();
@@ -29,6 +27,8 @@ export default function WelcomeModal() {
   async function onSubmit(e) {
     e.preventDefault();
 
+    const url = BASE_URL + 'social/profiles/' + new_user + '/media';
+
     const config = {
       headers: {
         Authorization: `Bearer ${token}`
@@ -43,7 +43,7 @@ export default function WelcomeModal() {
       let res = await axios.put(url, data, config);
       console.log(res.data);
       setHideForm(true);
-      setSuccessMsg(ValidationMsg(handleClose));
+      setSuccessMsg(SucessMsg(handleClose));
       localStorage.removeItem('new_user');
     } catch (err) {
       if (!err?.response) {
