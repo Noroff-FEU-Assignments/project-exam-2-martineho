@@ -46,7 +46,7 @@ function FollowingList() {
   }
 
   if (loading) return ( <Loading /> ) ;
-	if (error) return ( <div>An error occured while fetching the data :(</div> );
+	if (error) return ( <div className='error-text'>{error}</div> );
 
   return (
     <> {(following.length === 0) ? <div className='no-posts'>Not following anyone :(</div> :

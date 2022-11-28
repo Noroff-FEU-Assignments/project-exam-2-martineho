@@ -51,7 +51,6 @@ export default function ProfilePage() {
 		async function fetchUser() {
       try {
         let res = await axios.get(url, config);
-        console.log(res.data);
         setUser(res.data);
         setFollowingCount(res.data._count.following);
         setFollowerCount(res.data._count.followers);

@@ -61,7 +61,6 @@ export default function UpdatePostModal(postid) {
 		async function getPost() {
       try {
         let res = await axios.get(url, config);
-        console.log(res.data);
         setPost(res.data);
       } catch (err) {
         if (!err?.response) {

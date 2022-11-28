@@ -38,7 +38,6 @@ export default function ProfilePostList(name) {
 		async function fetchPosts() {
       try {
         let res = await axios.get(url, config);
-        console.log(res.data);
         setPostList(res.data);
       } catch (err) {
         if (!err?.response) {
