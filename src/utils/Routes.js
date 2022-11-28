@@ -21,7 +21,7 @@ export default function AppRoutes () {
         <Route element={< PrivateRoutes />}>
           <Route path={'*'} element={ < Dashboard /> }></Route>
           <Route path={'/'} element={< Dashboard />}></Route>
-          <Route path={'/people'} element={< People />}></Route>
+          <Route path={'/find-people'} element={< People />}></Route>
           <Route path={'/profiles/:name'} element={< ProfilePage /> }></Route>
           <Route path="/post/:id" element={<Post />}></Route>
         </Route>

@@ -51,7 +51,7 @@ export default function Navigation() {
               <Navbar.Collapse id="navbar">
                 <Nav className="me-auto">
                   <NavLink className='nav-link' to='/'>Feed</NavLink>
-                  <NavLink className='nav-link' to='/people'>People</NavLink>
+                  <NavLink className='nav-link' to='/find-people'>Find people</NavLink>
                 </Nav>
                 <Nav>
                   <CreatePost />
