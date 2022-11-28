@@ -58,7 +58,11 @@ export default function ProfilePage() {
         setPostsCount(res.data._count.posts);
       } catch (err) {
         if (!err?.response) {
-          setError(err)       
+          setError(err.response.statusText);      
+        } if (err.response.status === 500) {
+          setError('Sorry, the server did not anwser 😥');
+        } if (err.response.status === 429) {
+          setError('An error occured while fetching the data 😥');
         }
       } finally {
           setLoading(false);
@@ -67,7 +71,7 @@ export default function ProfilePage() {
 	}, [url]);
   
   if (loading) { return <Loading />; }
-  if (error) { return <div>An error occured: {error}</div> }
+  if (error) { return <div className="error-text">{error}</div> }
 
   return(
     <>

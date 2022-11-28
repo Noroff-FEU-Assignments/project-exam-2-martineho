@@ -25,6 +25,10 @@ export default function PostList() {
       } catch (err) {
         if (!err?.response) {
           setError(err)       
+        } if (err.response.status === 429) {
+          setError('An error occured while fetching the data 😥');
+        } if (err.response.status === 500) {
+          setError('Sorry, the server did not anwser 😥');
         }
       } finally {
           setLoading(false);
@@ -33,7 +37,7 @@ export default function PostList() {
 	}, []);
 
   if (loading) return <Loading />;
-	if (error) return <div>{}</div>;
+	if (error) return <div className='error-text'>{error}</div>;
 
   return (
     <div className='post-list'>

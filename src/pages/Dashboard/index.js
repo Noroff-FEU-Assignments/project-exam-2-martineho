@@ -5,7 +5,6 @@ import { Col, Row } from "react-bootstrap";
 import PostLine from "../../components/posts/PostLine";
 import ProfileList from '../../components/profile/ProfileList';
 import { SubHeading } from '../../components/layout/Headings';
-import Posts from '../../components/posts/RenderedPosts';
 import Footer from '../../components/layout/Footer';
 
 export default function Dashboard() {
@@ -22,7 +21,7 @@ export default function Dashboard() {
             <PostList />
           </Col>
           <Col md="12" lg="2">
-            <SubHeading content='Peeps' />
+            <SubHeading content='New' />
             <ProfileList />
           </Col>
         </Row>

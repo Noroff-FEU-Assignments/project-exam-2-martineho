@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { BASE_URL } from "../../constants/api";
 import { token } from '../../utils/user';
 import Loading from '../../components/ux/Loading';
-import { Container, Form, InputGroup } from 'react-bootstrap';
+import { Button, Container, Form, InputGroup } from 'react-bootstrap';
 import Footer from '../../components/layout/Footer';
 import { Heading } from '../../components/layout/Headings';
 import BigParagraph from '../../components/layout/Paragraphs';
@@ -39,6 +39,8 @@ function People() {
       } catch (err) {
         if (!err?.response) {
           setError(err)       
+        } if (err.response.status === 429) {
+          setError('An error occured while fetching the data 😥');
         }
       } finally {
           setLoading(false);
@@ -46,15 +48,12 @@ function People() {
     } getProfiles();
 	}, []);
 
-  if (loading) return <Loading />;
-	if (error) return <div>{}</div>;
-
   return (
     <>
     <Container className='user-container'>
 
       <Heading content='Find people' />
-      <BigParagraph content='Search for your friends and follow them.' />
+      <BigParagraph content='Search for people and friends and follow them!' />
 
       <div className='search'>
         <Form className="d-flex">
@@ -76,18 +75,23 @@ function People() {
 
       <main>
 
+      {loading ? <Loading /> : null }
+      {error ? <div className='error-text'>{error}</div> : null }
+
       <div className='user-grid'>
         {filteredUsers.map((user) => (
 
-          <a key={user.name} className='user-item' href={`/profiles/${user.name}`}>
+          <div key={user.name} className='user-item'>
+            <a  href={`/profiles/${user.name}`} class='group'>
             {user.avatar ? 
-            <img className='user-item--avatar' src={user.avatar} alt={''} /> : 
-              <div className='user-item--avatar'>
-              <ion-icon name="person"></ion-icon>
-              </div> }
-            <div className='user-item--name'>{user.name}</div>
-            <div className='user-item--dets'>Follow</div>
-          </a> 
+              <img className='user-item--avatar' src={user.avatar} alt={''} /> : 
+                <div className='user-item--avatar'>
+                  <ion-icon name="person"></ion-icon>
+                </div> }
+              <div className='user-item--name'>{user.name}</div>
+            </a>
+            <Button variant='primary' className='user-item--dets'>Follow</Button>
+          </div> 
 
         ))}
       </div>

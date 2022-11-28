@@ -37,6 +37,10 @@ function FollowersList() {
     } catch (err) {
       if (!err?.response) {
         setError(err);
+      } if (err.response.status === 429) {
+        setError('An error occured while fetching the data 😥');
+      } if (err.response.status === 500) {
+        setError('Sorry, the server did not respond 😥');
       }
     } finally {
       setLoading(false);

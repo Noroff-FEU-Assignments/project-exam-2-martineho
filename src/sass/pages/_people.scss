@@ -24,15 +24,15 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  margin: 2rem 0;
 }
 .user-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: .6rem;
   border: $box-border;
-  padding: 1rem;
+  padding: .2rem 1rem;
   border-radius: $box-border-radius;
   width: 500px;
   &--avatar {
@@ -58,9 +58,16 @@
   }
   &--name {
     color: $colour-text;
+    &:hover {
+      color: $colour-text-dark;
+    }
   }
   &--dets {
     font-size: .9rem;
     color: $colour-text-light;
+  }
+  .group {
+    align-items: center;
+    gap: 1.5rem;
   }
 }

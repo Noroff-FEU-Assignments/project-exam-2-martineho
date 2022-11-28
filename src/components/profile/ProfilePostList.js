@@ -43,6 +43,8 @@ export default function ProfilePostList(name) {
       } catch (err) {
         if (!err?.response) {
           setError(err)       
+        } if (err.response.status === 429) {
+          setError('An error occured while fetching the data 😥');
         }
       } finally {
           setLoading(false);
@@ -51,7 +53,7 @@ export default function ProfilePostList(name) {
 	}, [url]);
 
   if (loading) return ( <Loading /> );
-	if (error) return ( <div>{'An error occured while fetching the data :('}</div> );
+	if (error) return ( <div className='error-text'>{error}</div> );
 
   return (
     <>
