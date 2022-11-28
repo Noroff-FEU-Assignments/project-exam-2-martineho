@@ -27,6 +27,7 @@ function LoginForm() {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
@@ -38,6 +39,7 @@ function LoginForm() {
 
   async function onSubmit(data) {
     console.log(data);
+    setLoading(true);
     try {
       let res = await axios.post(url, data);
       console.log(res.data);
@@ -56,7 +58,9 @@ function LoginForm() {
         setErrMsg('Login Failed');
       }
       errRef.current.focus();
-    } 
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -101,9 +105,10 @@ function LoginForm() {
         </Form.Group>
       </Form.Group>
 
-      <Button variant="primary" type="submit" className='btn--submit'>
-        Sign in
-      </Button>
+      <Button variant="primary" type="submit" className='btn-w-icon btn--submit'> 
+          <div className='btn-text'>Sign in </div>
+          {loading ? <div className='load-submit'></div> : null }
+      </Button>   
 
       </Form>
     </>

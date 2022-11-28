@@ -31,6 +31,7 @@ function RegisterForm() {
   const errRef = useRef();
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
@@ -42,23 +43,26 @@ function RegisterForm() {
 
   async function onSubmit(data) {
     console.log(data);
+    setLoading(true);
     try {
       let res = await axios.post(url, data);
       console.log(res.data);
       localStorage.setItem('new_user', res.data.name);
       redirect();
-  } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No Server Response');
-      } else if (err.response?.status === 400) {
-        setErrMsg('Missing Email or Password');
-      } else if (err.response?.status === 401) {
-        setErrMsg('We had problems with the authorization :(');
-      } else {
-        setErrMsg('Login Failed');
-      }
-      errRef.current.focus();
-    } 
+    } catch (err) {
+        if (!err?.response) {
+          setErrMsg('No Server Response');
+        } else if (err.response?.status === 400) {
+          setErrMsg('Missing Email or Password');
+        } else if (err.response?.status === 401) {
+          setErrMsg('We had problems with the authorization :(');
+        } else {
+          setErrMsg('Login Failed');
+        }
+        errRef.current.focus();
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -133,10 +137,10 @@ function RegisterForm() {
         </Form.Group>
       </Form.Group>
       
-      <Button variant="primary" type="submit" className='btn--submit'>
-        Sign up
-      </Button>
-      
+      <Button variant="primary" type="submit" className='btn-w-icon btn--submit'> 
+          <div className='btn-text'>Sign up </div>
+          {loading ? <div className='load-submit'></div> : null }
+      </Button>     
     </Form>
   );
 }
