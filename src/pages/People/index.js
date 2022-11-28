@@ -20,7 +20,7 @@ function People() {
     let value = event.target.value.toLowerCase();
     let result = [];
     result = allUsers.filter((data) => {
-      return data.name.search(value) != -1;
+      return data.name.search(value) !== -1;
     });
     setFilteredUsers(result);
   }
