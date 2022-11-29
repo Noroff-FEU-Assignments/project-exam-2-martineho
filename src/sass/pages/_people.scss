@@ -5,6 +5,10 @@
   align-items: center;
   margin: 2rem 0;
 
+  .big-paragraph {
+    text-align: center;
+  }
+  
   .search {
     margin-top: 2rem;
     width: 500px;
@@ -69,5 +73,25 @@
   .group {
     align-items: center;
     gap: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 520px) { 
+  .user-container .search {
+    width: 100%;
+  }
+  .user-item {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 330px) { 
+  .user-item {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    .group {
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }

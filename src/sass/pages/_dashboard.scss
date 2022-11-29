@@ -4,6 +4,7 @@
   background-color: $colour-primary-light;
   border: solid 1px $colour-primary-light;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
@@ -47,4 +48,16 @@
     margin-left: -1rem;
   }
 
+}
+@media only screen and (max-width: 990px) {
+  .right-col {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .postline {
+    .create-post {
+      margin-left: auto;
+    }
+  }
 }

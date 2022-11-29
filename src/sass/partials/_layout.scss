@@ -91,3 +91,11 @@ main {
     color: $colour-text-light;
   }
 }
+@media only screen and (max-width: 500px) {
+  #navigation-bar {
+    padding: 1rem 0;
+  }
+  .navbar {
+    margin-bottom: .5rem;
+  }
+}

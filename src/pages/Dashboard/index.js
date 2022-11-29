@@ -20,7 +20,7 @@ export default function Dashboard() {
             <PostLine />
             <PostList />
           </Col>
-          <Col md="12" lg="2">
+          <Col className='right-col' md="12" lg="2">
             <SubHeading content='New' />
             <ProfileList />
           </Col>
