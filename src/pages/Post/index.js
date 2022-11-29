@@ -16,9 +16,11 @@ import { BASE_URL } from "../../constants/api"
 import Avatar from "../../components/profile/Avatar";
 import AvatarPlaceholder from "../../components/profile/AvatarPlaceholder";
 import CommentForm from "../../components/features/comment/CommentForm";
+import Footer from "../../components/layout/Footer";
 
 export default function Post() {
   const [post, setPost] = useState([]);
+  const [commentsList, setCommentsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
@@ -42,7 +44,8 @@ export default function Post() {
 		async function getPosts() {
       try {
         let res = await axios.get(url, config);
-        //console.log(res.data);
+        console.log(res.data);
+        setCommentsList(res.data.comments);
         setPost(res.data);
       } catch (err) {
         if (!err?.response) {
@@ -58,12 +61,12 @@ export default function Post() {
   if (error) { return <div>An error occured: {error}</div> }
 
   const timeAgo = <ReactTimeAgo date={post.updated} locale="en-US"/>;
-  const commentsList = post.comments;
   const sortComments = [...commentsList].reverse();
   const firstComments = sortComments.slice(0, 2);
   const lastComments = sortComments.slice(2, 10);
 
-  return(
+  return (
+    <>
     <Container>
       <button className="back-btn" onClick={() => navigate(-1)}>
         <ion-icon name="arrow-back-outline"></ion-icon>
@@ -141,5 +144,7 @@ export default function Post() {
         </Col>
       </Row>
     </Container>
+    <Footer />
+    </>
   )
 }
