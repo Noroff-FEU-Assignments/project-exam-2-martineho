@@ -1,8 +1,18 @@
+import { useState } from "react";
 import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
 
 export default function PostCard (post) {
-  console.log(post.reactions);
+  const [countOne, setCountOne] = useState(0);
+  const [countTwo, setCountTwo] = useState(0);
+
+  const heartEmojiCount = (e) => {
+    setCountOne(countOne + 1);
+  }
+  const handsEmojiCount = (e) => {
+    setCountTwo(countTwo + 1);
+  }
+
   return (
     <>
     <div className="post-card" href={`/post/${post.href}`}>
@@ -11,8 +21,10 @@ export default function PostCard (post) {
 
       <div className="reactions">
         <div className='reaction-buttons'>
-          <button value={'😍'} className="reaction-btn">😍</button>
-          <button value={'🙌'} className="reaction-btn">🙌</button>
+          <button onClick={heartEmojiCount} value={'😍'} className="reaction-btn">😍</button>
+          <span className="reaction-count">{countOne}</span>
+          <button onClick={handsEmojiCount} value={'🙌'} className="reaction-btn">🙌</button>
+          <span className="reaction-count">{countTwo}</span>
         </div>
         <div className="reaction-count">{post.reaction_count}</div>
       </div>

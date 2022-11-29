@@ -23,7 +23,7 @@ export default function PostList() {
         setPostList(res.data);
       } catch (err) {
         if (!err?.response) {
-          setError(err)       
+          setError(err.response);       
         } if (err.response.status === 429) {
           setError('An error occured while fetching the data 😥');
         } if (err.response.status === 500) {
@@ -37,7 +37,6 @@ export default function PostList() {
 
   if (loading) return <Loading />;
 	if (error) return <div className='error-text'>{error}</div>;
-  console.log(postList);
 
   return (
     <div className='post-list'>
@@ -52,7 +51,6 @@ export default function PostList() {
           created={post.created}
           href={post.id}
           author={post.author.name}
-          reactions={post.reactions}
           />
         ))}
     </div>
