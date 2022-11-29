@@ -1,6 +1,5 @@
 import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
-import ReactionForm from "../features/react/ReactionForm";
 
 export default function PostCard (post) {
   return (

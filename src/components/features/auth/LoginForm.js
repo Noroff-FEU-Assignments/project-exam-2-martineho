@@ -16,7 +16,7 @@ const url = BASE_URL + 'social/auth/login';
 
 const schema = yup.object().shape({
   email: yup.string()
-  .matches("^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(noroff|stud.noroff)\.no$", "Please fill in a valid noroff or stud.noroff email.")
+  .matches("^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+.)?[a-zA-Z]+.)?(noroff|stud.noroff).no$", "Please fill in a valid noroff or stud.noroff email.")
   .required("Please fill in your email address!"),
   password: yup.string()
   .required("Please fill in your password!"),
