@@ -4,7 +4,7 @@ This is my submission for Project Exam 2.
 
 Substance is a social media platform built with React, Bootstrap, Sass, Axios and Javascript. 
 
-🔗 Visit live on: http://martineho.com
+🔗 Visit live on: https://aesocial.netlify.app/
 
 ## 📶 Status 
 
