@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import WelcomeModal from "../../components/register/WelcomeModal";
+import WelcomeModal from "../../components/features/auth/WelcomeModal";
 import PostList from "../../components/posts/PostList";
 import { Col, Row } from "react-bootstrap";
 import PostLine from "../../components/posts/PostLine";

@@ -2,12 +2,12 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {Paragraph} from '../layout/Paragraphs';
-import { Heading } from '../layout/Headings';
+import {Paragraph} from '../../layout/Paragraphs';
+import { Heading } from '../../layout/Headings';
 import { Form } from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
-import { BASE_URL } from '../../constants/api';
-import { token } from '../../utils/user';
+import { BASE_URL } from '../../../constants/api';
+import { token } from '../../../utils/user';
 import { SucessMsg } from './SuccessMsg';
 
 export default function WelcomeModal() {

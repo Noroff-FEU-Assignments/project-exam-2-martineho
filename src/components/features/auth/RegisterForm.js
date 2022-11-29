@@ -6,9 +6,9 @@ import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BASE_URL } from '../../constants/api';
+import { BASE_URL } from '../../../constants/api';
 import { InputGroup } from 'react-bootstrap';
-import { SubHeading } from "../../components/layout/Headings";
+import { SubHeading } from "../../layout/Headings";
 
 const url = BASE_URL + 'social/auth/register?=';
 

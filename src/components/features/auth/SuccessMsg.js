@@ -1,4 +1,4 @@
-import { SubHeading } from "../layout/Headings";
+import { SubHeading } from "../../layout/Headings";
 
 export function SucessMsg(handleClose) {
   return ( 
