@@ -3,13 +3,5 @@ export default function BigParagraph(paragraph) {
 }
 
 export function Paragraph(paragraph) {
-
-  const paragraphStyle = {
-    textAlign: paragraph.textAlign,
-    margin: 0,
-    fontSize: '1rem',
-    maxWidth: '750px',
-  }
-
-  return ( <p style={paragraphStyle}>{paragraph.content}</p> ) 
+  return ( <p className="paragraph">{paragraph.content}</p> ) 
 }
