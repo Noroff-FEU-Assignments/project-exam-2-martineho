@@ -104,10 +104,11 @@
     padding: .2rem .3rem;
     border-radius: 5rem;
     overflow: visible;
+    width: 2.1rem;
     &:hover {
-      transition: ease-in .3s;
-      scale: 1.25;
-      background-color: #ffffff;
+      transition: .3s ease;
+      scale: 1.1;
+      outline: solid .5rem $colour-primary-light;
     }
   }
   .reaction-count {
