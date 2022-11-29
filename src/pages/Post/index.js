@@ -100,9 +100,10 @@ export default function Post() {
                   <>
                   <div key={comment.id} className="comment">
                     <div className="comment-header">
+                     
                       <a href={`/profiles/${comment.owner}`} 
                       className="comment-header--owner">{comment.owner} </a> 
-                      commented <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
+                      <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
                     </div>
                     <p className="comment-body">{comment.body}</p>
                   </div>
@@ -116,9 +117,10 @@ export default function Post() {
                     <>
                     <div key={comment.id} className="comment">
                       <div className="comment-header">
+                      
                         <a href={`/profiles/${comment.owner}`} 
                         className="comment-header--owner">{comment.owner} </a> 
-                        commented <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
+                        <ReactTimeAgo className="timeago" date={comment.created} locale="en-US"/>
                       </div>
                       <p className="comment-body">{comment.body}</p>
                     </div>

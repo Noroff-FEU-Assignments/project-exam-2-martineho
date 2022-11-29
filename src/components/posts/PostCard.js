@@ -2,6 +2,7 @@ import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
 
 export default function PostCard (post) {
+  console.log(post.reactions);
   return (
     <>
     <div className="post-card" href={`/post/${post.href}`}>

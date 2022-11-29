@@ -15,6 +15,7 @@
   &--owner {
     font-weight: map.get($font-weight, 'semibold');
     color: $colour-text-dark;
+    font-size: 1rem;
     &:hover {
       color: $colour-text;
     }
