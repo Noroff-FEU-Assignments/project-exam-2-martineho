@@ -53,7 +53,7 @@ export default function Navigation() {
                   <NavLink className='nav-link' to='/'>Feed</NavLink>
                   <NavLink className='nav-link' to='/find-people'>Find people</NavLink>
                 </Nav>
-                <Nav>
+                <Nav className='nav-mobile-flex'>
                   <CreatePost />
                   <NavLink className='profile-link' to={`/profiles/${loggedIn.name}`}>
                     {user.avatar ? <Avatar className='avatar--small' src={user.avatar} alt='avatar' /> 
