@@ -106,6 +106,7 @@
     overflow: visible;
     width: 2.1rem;
     &:hover {
+      background-color: rgba(255, 255, 255, 0.30);
       transition: .3s ease;
       scale: 1.1;
       outline: solid .5rem $colour-primary-light;
