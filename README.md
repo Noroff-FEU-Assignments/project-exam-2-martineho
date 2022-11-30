@@ -1,8 +1,8 @@
-# Substance
+# aesocial
 
 This is my submission for Project Exam 2. 
 
-Substance is a social media platform built with React, Bootstrap, Sass, Axios and Javascript. 
+aesocial is a social media platform built with React, Bootstrap, Sass, Axios and Javascript. The concept of the platform is to share quotes, thoughts and inspirational images and follow people with the same mindset as yours. 
 
 🔗 Visit live on: https://aesocial.netlify.app/
 
@@ -41,4 +41,7 @@ Start server:
 `npm start`  
 
 The app will usually start on port 3000, to view in browser `localhost:3000`.
+
+## Styleguide
+
 
