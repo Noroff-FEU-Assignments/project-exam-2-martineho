@@ -10,7 +10,7 @@ export default function ReactionForm(href) {
 
   const handleClick = (e) => {
     setSymbol(e.target.value);
- // make this run after the handle change has been done
+    // make this run after the handle change has been done
     if (symbol) {
       addReaction();
     }

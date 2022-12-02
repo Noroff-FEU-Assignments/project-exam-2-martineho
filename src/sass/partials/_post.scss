@@ -114,9 +114,10 @@
   }
   .reaction-count {
     font-size: .95rem;
-    margin: 0 .6rem;
-    padding-right: .3rem;
-    
+    margin: 0 .3rem;
+  }
+  .reaction-count:last-of-type {
+    padding-right: 1rem;
   }
 }
 .post-menu {

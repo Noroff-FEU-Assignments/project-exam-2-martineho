@@ -69,6 +69,7 @@ export default function ProfilePostList(name) {
           created={post.created}
           menu={menu(post.id)}
           href={post.id}
+          reactions={post.reactions}
           />
       ))}
     </div>

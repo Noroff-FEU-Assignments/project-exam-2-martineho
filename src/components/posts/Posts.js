@@ -37,24 +37,27 @@ export default class Posts extends React.Component {
 				Authorization: `Bearer ${token}`,
 			},
 		};
-		axios.get(BASE_URL + `social/posts?_author=true&_reactions=true`, config).then((res) =>
+		axios.get(BASE_URL + `social/posts?_author=true&_reactions=true`, config).then((res) => {		
 			this.setState(
 				{
 					posts: res.data,
 				},
 				() => this.paginatePosts()
-			)
+			)}
 		).catch((err) => {
-			if (err.response.status === 429) {
-				console.log('An error occured while fetching the data 😥');
-			} if (err.response.status === 500) {
-				console.log('Sorry, the server did not anwser 😥');
-			}
+			console.log(err.response);
+			this.setState(
+				{
+					hasError: true,
+				}
+			)
 		});
 	};
 
 	render() {
-
+		if (this.state.hasError) {
+			return <div className='error-text'>An error occured while fetching the data 😥</div>
+		} else {
 		return (
 			<div>
 				<InfiniteScroll
@@ -75,10 +78,12 @@ export default class Posts extends React.Component {
 							created={post.created}
 							href={post.id}
 							author={post.author.name}
+							reactions={post.reactions}
 						/>
 					))}
 				</InfiniteScroll>
 			</div>
-		);
+		);	
+	}
 	}
 }

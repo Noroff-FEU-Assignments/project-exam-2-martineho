@@ -37,6 +37,7 @@ export default function PostList() {
 
   if (loading) return <Loading />;
 	if (error) return <div className='error-text'>{error}</div>;
+  console.log(postList);
 
   return (
     <div className='post-list'>

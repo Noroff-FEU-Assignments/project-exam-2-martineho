@@ -1,16 +1,77 @@
-import { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { BASE_URL } from "../../constants/api";
+import { token } from "../../utils/user";
 import { XsHeading } from "../layout/Headings";
 import { Paragraph } from "../layout/Paragraphs";
 
 export default function PostCard (post) {
   const [countOne, setCountOne] = useState(0);
   const [countTwo, setCountTwo] = useState(0);
+  const hearts_url = BASE_URL + 'social/posts/' + post.href + '/react/😍';
+  const hands_url = BASE_URL + 'social/posts/' + post.href + '/react/🙌';
 
-  const heartEmojiCount = (e) => {
+  const reactHeartsEmoji = async () => {
+    axios({
+      method: 'put',
+      url: hearts_url,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }) 
+    .then(function () {
+      console.log('Reaction ok 😍');
+    });
+  };
+
+  const reactHandsEmoji = async () => {
+    axios({
+      method: 'put',
+      url: hands_url,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }) 
+    .then(function () {
+      console.log('Reaction ok 😍');
+    });
+  };
+
+
+  useEffect(() => {
+    const heartsEmojiCount = () => {
+      let heartsEmoji = 0; 
+      post.reactions.map(function (emoji) {
+        if (emoji.symbol === '😍') {
+          heartsEmoji = emoji.count;
+        }
+        return heartsEmoji;
+      })
+      return heartsEmoji;
+    }
+  
+    const handsEmojiCount = () => {
+      let handsEmoji = 0; 
+      post.reactions.map(function (emoji) {
+        if (emoji.symbol === '🙌') {
+          handsEmoji = emoji.count;
+        } 
+        return handsEmoji;
+      })
+      return handsEmoji;
+    }
+
+    setCountOne(heartsEmojiCount());
+    setCountTwo(handsEmojiCount());
+  }, [post.reactions]);
+
+  const handleHeartsEmojiCount = () => {
     setCountOne(countOne + 1);
+    reactHeartsEmoji();
   }
-  const handsEmojiCount = (e) => {
+  const handleHandsEmojiCount = () => {
     setCountTwo(countTwo + 1);
+    reactHandsEmoji();
   }
 
   return (
@@ -21,12 +82,13 @@ export default function PostCard (post) {
 
       <div className="reactions">
         <div className='reaction-buttons'>
-          <button onClick={heartEmojiCount} value={'😍'} className="reaction-btn">😍</button>
-          <span className="reaction-count">{countOne}</span>
-          <button onClick={handsEmojiCount} value={'🙌'} className="reaction-btn">🙌</button>
-          <span className="reaction-count">{countTwo}</span>
+          <button onClick={handleHeartsEmojiCount} value={'😍'} className="reaction-btn">😍</button>
+            <span className="reaction-count">{countOne}
+            </span>
+          <button onClick={handleHandsEmojiCount} value={'🙌'} className="reaction-btn">🙌</button>
+          <span className="reaction-count">{countTwo}
+            </span>
         </div>
-        <div className="reaction-count">{post.reaction_count}</div>
       </div>
 
       <div className="post-card__content">
