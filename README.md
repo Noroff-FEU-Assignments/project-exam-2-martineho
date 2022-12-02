@@ -23,6 +23,7 @@ v 1.0
 #### Components
 - react-time-ago
 - react-infinite-scroll
+- react-helmet-async
 
 ## 👩🏻‍💻 Installation and setup 
 

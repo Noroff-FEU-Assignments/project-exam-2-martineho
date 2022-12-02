@@ -1,6 +1,9 @@
 import AppRoutes from './utils/Routes'
+import { HelmetProvider } from 'react-helmet-async';
 
 export default function App() {
   return (
-   <AppRoutes /> 
+    <HelmetProvider>
+      <AppRoutes /> 
+   </HelmetProvider>
 );}

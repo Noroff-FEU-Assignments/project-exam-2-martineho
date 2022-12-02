@@ -3,11 +3,17 @@ import { BigHeading } from "../../components/layout/Headings";
 import Footer from "../../components/layout/Footer";
 import BigParagraph from "../../components/layout/Paragraphs";
 import LoginForm from "../../components/features/auth/LoginForm";
+import SEO from "../../utils/SEO";
 
 export default function Login() {
 
   return (
     <>
+    <SEO
+    title='aesocial - Sign in'
+    description='A mindful social media platform. Content with substance. Find likeminded people and be inspired.'
+    type='social media' />
+
     <Container>
       <div className="login-background"></div>
       <main className="login-container">
