@@ -45,21 +45,28 @@ The app is built with `create-react-app` and `react-router-dom 6.4`. Bootstrap a
 
 `Yup` is used for form validation. I am importing fonts from Google Fonts and icons from Ionicons. Timestamps are handled using `react-time-ago` component and pagination is handled using `react-infinite-scroll` component. SEO are handled with `react-helmet-async` component. 
 
-React useState and useEffect with `Axios` are used for handling requests and doing access control. For example the settings button for updating profile information is only available on your own profile, as well as the edit and delete of posts.
+React useState and useEffect with `Axios` are used for handling requests and doing access control. For example the settings button for updating profile information is only available on your own profile, as well as the edit and delete of posts. New users will be greeted with a welcome message and the option to add an avatar and banner on the first login. Hiding a lot of the functionality in modals instead of having loads of pages is cutting the amount of pages the user have to go to and is easily accessible. 
 
-I had challenges during the project. One of them was finding a good folder structure as the project grew, and also finding suitable component names. I think I had a good start but then eventually it became more and more fluffy as projects often do. I have split as logically as possible into reusable components. 
+I had challenges during the project. One of them was finding a good folder structure as the project grew, and also finding suitable component names. I think I had a good start but then eventually it became more and more fluffy as projects often do. I have split as logically as possible into reusable components. But this is definitley something I would like to clean up and restructure in a second version.
 
-It was difficult to figure out how to update content automatically with the api. I chose to use window.location.reload() as a quick solution. I know there is better ways using render and or push to state in React. But this was all new territory for me, so I chose to focus on implementing all necessary functionality and getting the overall experience good. 
+It also struggled to figure out how to update content automatically with the api. I chose to use `window.location.reload()` as a quick solution. I know there is better ways using render and or push to state in React. But this was all new territory for me, so I chose to focus on implementing all necessary functionality and getting the overall experience good. 
 
-I struggled a lot with errors due to the api, especially with too many re-renders.
+I have also frequently been having errors with the api, especially with too many re-renders.
 
 ## 📝 Credits
+
+- Noroff discord forum
+- Connor O´Brien for help with the infinite scroll
+- [Guide on wizard](https://codesandbox.io/s/withered-wind-ugnd0?fontsize=14&hidenavigation=1&theme=dark&file=/src/Wizard.js)
+- [Guide on infinite scroll](https://upmostly.com/tutorials/build-an-infinite-scroll-component-in-react-using-react-hooks)
+- [Guide on search filter](https://levelup.gitconnected.com/how-to-search-filter-through-data-in-react-26f1545fe3a1)
+- [Guide on SEO with react helmet](https://www.freecodecamp.org/news/react-helmet-examples/)
 
 ## 📶 Status 
 
 v 1.0
 
-
+For the second version I would like to do a clean up components and folder structure. Be able to remove followers. Handle the state of people you follow on all components ie. on the people page and profile pages it should say unfollow on the people you already follow. Fix navbar active state. Add infinite scroll handling on the people page and profile page too. 
 
 
 
