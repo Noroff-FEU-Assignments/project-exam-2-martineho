@@ -61,6 +61,7 @@ I have also frequently been having errors with the api, especially with too many
 - [Guide on infinite scroll](https://upmostly.com/tutorials/build-an-infinite-scroll-component-in-react-using-react-hooks)
 - [Guide on search filter](https://levelup.gitconnected.com/how-to-search-filter-through-data-in-react-26f1545fe3a1)
 - [Guide on SEO with react helmet](https://www.freecodecamp.org/news/react-helmet-examples/)
+- [Guide on writing readme.md](https://victorbruce82.medium.com/writing-an-awesome-readme-for-your-side-projects-fabd20f96db0)
 
 ## 📶 Status 
 
