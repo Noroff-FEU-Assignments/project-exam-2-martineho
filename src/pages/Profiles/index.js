@@ -40,6 +40,7 @@ export default function ProfilePage() {
   }, [loggedIn, name]);
 
   const url = BASE_URL + `social/profiles/${name}?_comments=true&_author=true&_following=true&_followers=true`;
+  console.log(url);
   localStorage.setItem('profile_name', name);
 
   useEffect(function () {
